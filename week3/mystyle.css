@@ -1,0 +1,31 @@
+p {
+    font-family:sans-serif;
+    font-size:medium;
+    font-weight:bold;
+    list-style: height 3px;
+    text-decoration:none;
+    color:blue;
+    padding:2px;
+    margin:4px;
+    border: thick red dotted;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color:darkgreen;
+  }
+  #S33156 { 
+    color: seashell;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  .K502{
+    color: saddlebrown;
+    font-size: x-small;
+  }
+  ol > li{
+    color: sienna;
+  }
+  ul li{
+    color: snow;
+  }
+    h1 ~ h2 {
+    color: olive;
+  }
