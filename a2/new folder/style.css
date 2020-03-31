@@ -1,0 +1,12 @@
+.top-bar {
+    border-bottom: 1px solid #e9ecef !important; }
+
+header {
+    padding: 10px 10px 10px;
+    border: none;
+    background-color: whitesmoke;
+    text-align: right;
+}
+.header{
+    font-size: 10px 10px;
+}
