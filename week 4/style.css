@@ -1,0 +1,80 @@
+p + p {
+    color: wheat;
+
+}
+header{
+    background-color: whitesmoke;
+    border: solid;
+    padding: 20px 20px 20px;
+    position: relative;
+}
+
+.lo{
+    text-align: left;
+}
+.the-other{
+    text-align: right;
+}
+
+p + p + p {
+    color: #712323;
+}
+
+ol:first-child{
+    color: #223366;
+}
+
+li:first-child{
+    font-size: large;
+    font-family: 'Times New Roman', Times, serif;
+}
+li:last-child{
+    text-decoration: #454545;
+    color: lightblue;
+
+}
+
+table{
+    border: solid;
+    border-color: khaki;
+    border-collapse: collapse;
+}
+
+td {
+    border: solid;
+    border-color: lightgreen;
+}
+
+a:link{
+    font-size: 300px;
+}
+
+a:visited{
+    color: lime;
+}
+a:hover{
+    color: yellow;
+}
+a:active{
+    color: peachpuff;
+}
+
+p::selection{
+    color: white;
+}
+
+p::first-letter{
+    color: tomato;
+    font-size: 200px;
+}
+p::first-line{
+    color: gold;
+}
+
+p::before, p::after{
+    content:url(https://f0.pngfuel.com/png/725/684/movie-time-clip-art-png-clip-art.png);
+    font-weight: bolder;
+    font-size: 10px;
+}
+
+
