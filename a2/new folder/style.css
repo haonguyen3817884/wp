@@ -46,3 +46,27 @@ header {
     border: 1px solid #ccc;
     border-top: none;
   }
+
+
+  #Now-Showing{
+    background-color:wheat;
+    padding: 40px ;
+
+  }
+  .title{
+    border-bottom: solid;
+    text-align: left;
+    margin-bottom: 70px;
+  }
+
+  .movie-panel{
+    margin-bottom: 70px;
+  }
+  .card-title{
+    font-size: large;
+    padding-bottom: 20px;
+    border-bottom: solid;
+    margin-bottom: 20px;
+  }
+
+  
