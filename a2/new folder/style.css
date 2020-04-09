@@ -4,13 +4,20 @@
 header {
     padding: 20px 20px 20px 20px;
     border: none;
-    background-color: whitesmoke;
+    background-color: white;
 }
 
 .nav-site{
     background-color: black;
-    padding: 15px 15px 15px 15px;
+    padding: 5px;
+    position: sticky;
+    top: 0%;
+    width: 100%;
+    overflow: hidden;
+    z-index: 1;
+    padding-top: 100px;
 }
+
 
 .tab {
     overflow: hidden;
@@ -49,8 +56,9 @@ header {
 
 
   #Now-Showing{
-    background-color:wheat;
+    background-color: darkgray;
     padding: 40px ;
+    padding-top: 600px;
 
   }
   .title{
@@ -69,4 +77,238 @@ header {
     margin-bottom: 20px;
   }
 
+  .card{
+    background-color: ghostwhite;
+
+  }
+
+  #About-Us{
+    background-color: whitesmoke;
+    padding: 40px;
+  }
   
+  #About-Us h1{
+    color: black;
+  }
+  .introduction{
+    font-size: 40px;
+    color: black;
+    margin-bottom: 70px;
+    margin-top: 100px;
+  }
+
+  .intro h2{
+    font-size: 20px;
+  }
+
+
+  .headings{
+    font-size: 25px;
+    color: black;
+    margin-bottom: 50px;
+    border-bottom: groove;
+    border-width: 2px;
+  }
+
+  .first-upgrade{
+    margin-top: 65px;
+    margin-bottom: 80px;
+  }
+
+  .first-upgrade .headings{
+    width: 200px;
+  }
+  #demo img{
+    width: 350px;
+    height: 350px;
+  }
+
+  #demo .row{
+    text-align: center;
+  }
+
+  h2{
+    font-size: medium;
+  }
+  .text p{
+    margin-top: 25px;
+    font-size: 15px;
+  }
+
+  #demo2 img{
+    width: 350px;
+    height: 350px;
+  }
+
+  #demo2 .row{
+    text-align: center;
+  }
+
+
+  .second-upgrade .headings{
+    width: 300px;
+  }
+
+  .second-upgrade{
+    margin-top: 65px;
+    margin-bottom: 80px;
+  }
+  
+  .nav-site a{
+    padding-top: 0px ;
+    padding-bottom: 0px;
+  }
+  .nav-site a:link, a:visited{
+    color: white;
+    text-decoration: none;
+  }
+
+
+  
+  .nav-site a:hover{
+    opacity: 0.5;
+    text-decoration: none;
+    color: white;
+  }
+
+
+  .nav-site2{
+    background-color: mediumaquamarine;
+    text-align: left;
+    padding-top: 15px;
+    padding-bottom: 1px;
+  }
+
+  .nav-site2 li{
+    display: inline-block;
+    margin-left: 145px;
+    border: none;
+  }
+
+  .nav-site2 a{
+    border-top: none;
+    border-bottom: none ;
+    border-left: solid;
+    border-right: solid ;
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
+
+  .parallex-scrolling {
+    background-image: url("download\ \(4\).jpg");
+    position: relative;
+    clear: both;
+    height: 200px;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center; 
+  }
+
+  #parallex-scrolling-1{
+    background-image: url("wallpaperflare.com_wallpaper\ \(1\).jpg");
+  }
+
+  .text ul{
+    list-style-type: none;
+    font-size: 15px;
+  } 
+
+  .list h3{
+    font-size: 15px;
+  }
+  .list{
+    margin-top: 30px;
+  }
+  .list p{
+    margin-top: 2px;
+    margin-bottom: 2px;
+    font-size: 15px;
+  }
+
+
+  #Price{
+    padding: 40px;
+  }
+
+  #summary{
+    background-color: snow;
+    padding: 40px;
+  }
+
+  .movie-title p{
+    display: inline-block;
+  }
+  
+  .panel{
+    border-bottom: solid;
+    border: solid;
+    padding: 20px 40px;
+    padding-bottom: 40px;
+  }
+  
+  
+  .video{
+    padding: 20px;
+    text-align: left;
+    padding-top: 30px;
+  }
+  
+  .movie-title{
+    text-align: right;
+    margin-bottom: 20px;
+  }
+  .movie-title p{
+    font-weight: 700;
+    font-size: medium;
+  }
+  .left-site{
+    float: left;
+    text-align: left;
+  }
+  .right-site{
+    float: right;
+    text-align: right;
+  }
+  u{
+    border-bottom: solid;
+    padding: 1.5px;
+    text-decoration: none;
+  }
+  .final div{
+    display: inline-block;
+  }
+  .links{
+    float: right;
+  }
+  .words{
+    float: left;
+    align-content: left;
+  }
+
+  .links a{
+    color: black;
+    display: inline-block;
+    text-decoration: none;
+    border-left: solid black;
+    border-right: solid black;
+    border-bottom: solid black;
+    border-top: solid black;
+    width: 100px;
+  }
+  .links a:link, a:visited{
+    color: black;
+    border-left: solid black;
+    border-right: solid black;
+    border-bottom: solid black;
+    border-top: solid black;
+  }
+  .links a:hover{
+    text-decoration: none;
+    color: black;
+    opacity: 0.5;
+    
+  }
+  .final{
+    margin-top: 20px;
+  }
