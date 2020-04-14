@@ -78,3 +78,10 @@ p::before, p::after{
 }
 
 
+.first .black:link, .black:visited{
+    color: blue;
+}
+.fifth .blue:link, .blue:visited{
+    color: wheat;
+}
+
