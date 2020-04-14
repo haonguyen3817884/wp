@@ -146,10 +146,10 @@ html{
 
 
 .headings{
-  font-size: 25px;
-  color: black;
+  font-size: 19px;
+  color: #444444;
   margin-bottom: 50px;
-  border-bottom: groove;
+  border-bottom: groove #444444;
   border-width: 2px;
 }
 
@@ -158,9 +158,21 @@ html{
   margin-bottom: 80px;
 }
 
+
 .first-upgrade .headings{
   width: 500px;
 }
+
+.first-upgrade .see-more-links,.see-more-links:visited{
+  text-decoration: none;
+}
+
+.see-more-links:hover .headings{
+  opacity: 0.4;
+
+  transition: 0.3s ease;
+}
+
 #demo img{
   width: 350px;
   height: 250px;
@@ -195,6 +207,15 @@ h2{
 .second-upgrade{
   margin-top: 65px;
   margin-bottom: 80px;
+}
+
+.second-upgrade .see-more-links,.see-more-links:visited{
+  text-decoration: none;
+}
+
+.see-more-links:hover .headings{
+  opacity: 0.4;
+  transition: 0.3s ease;
 }
 
 .text ul{
@@ -258,9 +279,9 @@ h2{
 
   #Now-Showing{
     background-color: none;
-    padding: 40px ;
-
   }
+
+
   #Now-Showing .title{
     color: whitesmoke;
     border-bottom: solid whitesmoke;
@@ -310,6 +331,7 @@ h2{
     background-attachment: fixed;
     background-position: center center; 
     text-align: center;
+    padding: 40px;
   }
 
 
