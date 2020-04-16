@@ -4,6 +4,7 @@
 
 /* Web font */    
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
 
 
   /* Header area */  
@@ -18,7 +19,9 @@ html{
   scroll-behavior: smooth;
 }
 
-
+::-webkit-input-placeholder{
+  font-family: Montserrat;
+}
 /* nav bar */
 
 .nav-site{
