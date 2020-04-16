@@ -417,6 +417,7 @@ h2{
   }
   .words{
     float: left;
+    text-align: center;
     font-size: medium;
     font-weight: 600;
   }
@@ -428,15 +429,13 @@ h2{
     border-right: solid black;
     border-bottom: solid black;
     border-top: solid black;
-    width: 125px;
+    width: 140px;
     text-align: center;
   }
   .the-links .booking-links:link, .booking-links:visited{
     color: black;
-    border-left: solid black;
-    border-right: solid black;
-    border-bottom: solid black;
-    border-top: solid black;
+    border: solid black;
+    margin-bottom: 10px;
   }
   .the-links .booking-links:hover{
     text-decoration: none;
@@ -490,4 +489,3 @@ h2{
     padding: 40px ;
   }
 
-  
