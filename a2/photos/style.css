@@ -2,6 +2,10 @@
     border-bottom: 1px solid #e9ecef !important; }
 
 
+/* Web font */    
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,600&display=swap');
+
+
   /* Header area */  
 
 header {
@@ -82,9 +86,6 @@ html{
   transition: .4s ease;
 }
 
-
-
-
 /* Comming Soon section */
 
 #Comming-Soon{
@@ -116,13 +117,17 @@ html{
 
 .title{
   text-align: left;
+  font-family: Raleway;
+  font: bold;
   margin-bottom: 70px;
 }
+
 
 
 /* About Us-section */
 
 #About-Us{
+  min-height: 100%;
   background-color: white;
   padding: 40px;
 }
@@ -278,6 +283,7 @@ h2{
   /* Now Showing  */
 
   #Now-Showing{
+    min-height: 100%;
     background-color: none;
   }
 
@@ -351,13 +357,16 @@ h2{
 
   /* Price */
 
-  #Price{background-color: whitesmoke;
-    padding: 40px;}
+  #Price{
+    min-height: 100vh;
+    background-color: whitesmoke;
+  }
 
   #Price .title{
     color: black;
     border-bottom: black solid ;
   }
+  
 
   /*  synopsis area  */
 
