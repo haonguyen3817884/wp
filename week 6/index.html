@@ -12,5 +12,23 @@
     <p>&copy; Copyright Date Awareness Inc 1990-2020</p>
     <h6>Ask us about the benefits of dynamic dating</h6>
     &copy; Copyright Date Awareness Inc 1990-2020
+
+    <select id="mySelect">
+  <option>Apple</option>
+  <option>Orange</option>
+  <option>Pineapple</option>
+  <option>Banana</option>
+</select>
+
+<p>Click the button to select the option element with index "2".</p>
+<p><b>Note:</b> The index starts at 0.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<script>
+function myFunction() {
+  alert(document.getElementById("mySelect").value) ;
+}
+</script>
 </body>
 </html>

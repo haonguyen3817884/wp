@@ -492,6 +492,18 @@ h2{
     color: #000;
     border-bottom: #000 solid;
   }
+  .ticket_price{
+    border: dotted;
+    width: 60px;
+    height: 27px;
+    margin-left: 30px;
+  }
+
+  .price_total li{
+    text-decoration: none;
+    display: inline-block;
+  }
+
 
   /* Footer area */
 
@@ -500,4 +512,6 @@ h2{
     color: #e5e5e5;
     padding: 40px ;
   }
+
+  
 
