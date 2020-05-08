@@ -39,134 +39,275 @@
 
   <script>
     var previous;
-    
-      function activate(idem){
+
+    function activate(idem) {
+      var linkchose = document.getElementById(idem);
+      linkchose.style.opacity = "0.5";
+    }
+    function unactivate(idem) {
+      if (about_us == 1 && price == 0 && Now_Showing == 0) {
+        if (idem == 'option1') {
+          var linkchose = document.getElementById(idem);
+          linkchose.style.opacity = "0.5";
+        }
+        else {
+          var linkchose = document.getElementById(idem);
+          linkchose.style.opacity = "1";
+        }
+
+      }
+      else if (about_us == 0 && price == 1 && Now_Showing == 0) {
+        if (idem == "option3") {
+          var linkchose = document.getElementById(idem);
+          linkchose.style.opacity = "0.5";
+        }
+        else {
+          var linkchose = document.getElementById(idem);
+          linkchose.style.opacity = "1";
+        }
+
+      }
+      else if (about_us == 0 && price == 0 && Now_Showing == 1) {
+        if (idem == "option2") {
+          var linkchose = document.getElementById(idem);
+          linkchose.style.opacity = "0.5";
+        }
+        else {
+          var linkchose = document.getElementById(idem);
+          linkchose.style.opacity = "1";
+        }
+      }
+      else if (about_us == 0 && price == 0 && Now_Showing == 0) {
         var linkchose = document.getElementById(idem);
-        linkchose.style.opacity = "0.5";
-      }
-      function unactivate(idem){
-        var linkchose = document.getElementById(idem);
-       linkchose.style.opacity = "1";
+        linkchose.style.opacity = "1";
       }
 
-      function hover(idem){
-        var linkchose = document.getElementById(idem);
-        linkchose.style.opacity = "0.5";
+    }
+
+    function hover(idem) {
+      var linkchose = document.getElementById(idem);
+      linkchose.style.opacity = "0.5";
+    }
+    var count = 0;
+    var count1 = 0;
+    var count3 = 0;
+    var count4 = 0;
+    var count5 = 0;
+    var count2 = 0;
+    var counttotal = 0;
+
+    var checkrepeat;
+    var checkrepeat2;
+
+    var about_us = 0;
+    var Now_Showing = 0;
+    var price = 0;
+
+
+    function total_check() {
+      var select_of_value_index1 = document.getElementById('seats-FCA').selectedIndex;
+      var select_of_value_index2 = document.getElementById('seats-FCP').selectedIndex;
+      var select_of_value_index3 = document.getElementById('seats-FCC').selectedIndex;
+      var select_of_value_index4 = document.getElementById('seats-STA').selectedIndex;
+      var select_of_value_index5 = document.getElementById('seats-STP').selectedIndex;
+      var select_of_value_index6 = document.getElementById('seats-STC').selectedIndex;
+
+      if (select_of_value_index1 == "0" && select_of_value_index2 == "0" && select_of_value_index3 == "0" && select_of_value_index4 == "0" && select_of_value_index5 == "0" && select_of_value_index6 == "0") {
+        document.getElementById('seats-FCA').style.borderColor = "red";
+        document.getElementById('seats-FCP').style.borderColor = "red";
+        document.getElementById('seats-FCC').style.borderColor = "red";
+        document.getElementById('seats-STA').style.borderColor = "red";
+        document.getElementById('seats-STP').style.borderColor = "red";
+        document.getElementById('seats-STC').style.borderColor = "red";
+
+
+        count3 = 0;
       }
-      var count = 0;
-      var count1 = 0;
-      var count3 = 0;
-      var count4 = 0;
-      var count5 = 0;
-      var count2 = 0;
-      var counttotal = 0;
-
-      var checkrepeat; 
-      var checkrepeat2;
- 
-     
-       
-      
-      function total_check(){
-        var select_of_value_index1 = document.getElementById('seats-FCA').selectedIndex;
-        var select_of_value_index2 = document.getElementById('seats-FCP').selectedIndex;
-        var select_of_value_index3 = document.getElementById('seats-FCC').selectedIndex;
-        var select_of_value_index4 = document.getElementById('seats-STA').selectedIndex;
-        var select_of_value_index5 = document.getElementById('seats-STP').selectedIndex;
-        var select_of_value_index6 = document.getElementById('seats-STC').selectedIndex;
-
-       if(select_of_value_index1 == "0" && select_of_value_index2 == "0" && select_of_value_index3 == "0" && select_of_value_index4 =="0"&& select_of_value_index5=="0"&& select_of_value_index6=="0"){
-         document.getElementById('seats-FCA').style.borderColor = "red";
-         document.getElementById('seats-FCP').style.borderColor = "red";
-         document.getElementById('seats-FCC').style.borderColor = "red";
-         document.getElementById('seats-STA').style.borderColor = "red";
-         document.getElementById('seats-STP').style.borderColor = "red";
-         document.getElementById('seats-STC').style.borderColor = "red";
-
-
-
-       }
-       else{
-         document.getElementById('seats-FCA').style.borderColor = "green";
-         document.getElementById('seats-FCP').style.borderColor = "green";
-         document.getElementById('seats-FCC').style.borderColor = "green";
-         document.getElementById('seats-STA').style.borderColor = "green";
-         document.getElementById('seats-STP').style.borderColor = "green";
-         document.getElementById('seats-STC').style.borderColor = "green";
-       }
+      else {
+        document.getElementById('seats-FCA').style.borderColor = "green";
+        document.getElementById('seats-FCP').style.borderColor = "green";
+        document.getElementById('seats-FCC').style.borderColor = "green";
+        document.getElementById('seats-STA').style.borderColor = "green";
+        document.getElementById('seats-STP').style.borderColor = "green";
+        document.getElementById('seats-STC').style.borderColor = "green";
+        count3 = 1;
       }
+    }
 
-      function select_movie(idem){
-        var string_memorize = idem;
-        var array_words = string_memorize.split("-");
-        var MOVIE_TITLE_DAY_TIME = document.getElementById('the-movie-title');
-        MOVIE_TITLE_DAY_TIME.innerHTML = array_words.join(" ");
-      }
-      var while_conditional_number = 0;
-      var count_array = [];
-      var storing_the_number_seats = {};
-      var total_price = 0;
-      var happy_days=['MON',"WED"];
-      var the_other_weekdays = ["TUE","THU","FRI"];
-      var weekend = ["SAT","SUN"];
-    
-     function calc(idem){
+    function select_movie(idem) {
+      var array_string_memorize = document.getElementById(idem).textContent.split(" ");
+      var day_up = document.getElementById('day');
+      var time = document.getElementById('time');
+      time.innerHTML = array_string_memorize[1];
+      day_up.innerHTML = array_string_memorize[0];
+
+    }
+    var while_conditional_number = 0;
+    var count_array = [];
+    var storing_the_number_seats = {};
+    var total_price = 0;
+    var happy_days = ['MON', "WED"];
+    var the_other_weekdays = ["TUE", "THU", "FRI"];
+    var weekend = ["SAT", "SUN"];
+
+    function calc(idem) {
       var is_any_seat_selected = document.getElementById(idem).selectedIndex;
       var value_of_the_seat = document.getElementById(idem).value;
       var value_of_the_seat_number_conversion = parseInt(value_of_the_seat);
       var string_memorizee = idem;
       var list = string_memorizee.split("-");
-      if (is_any_seat_selected == "0"){
+      if (is_any_seat_selected == "0") {
         storing_the_number_seats[list[1]] = 0;
-      } 
-      else{
+      }
+      else {
         storing_the_number_seats[list[1]] = value_of_the_seat_number_conversion;
 
       }
-      
-      
-     }
-     
 
-     function pricecalc(){
-      var array_of_movie_title_DAy_Time = document.getElementById('the-movie-title').textContent.split(" ");
 
-      for (var key in storing_the_number_seats){
-    
-        if(happy_days.includes(array_of_movie_title_DAy_Time[1])){
-          var get_price = document.getElementById(key+"-discount").textContent;
+
+      for (var key in storing_the_number_seats) {
+
+        if (happy_days.includes(document.getElementById('day').textContent)) {
+          var get_price = document.getElementById(key + "-discount").textContent;
         }
-        else if(weekend.includes(array_of_movie_title_DAy_Time[1])){
-          var get_price = document.getElementById(key+"-fullprice").textContent;
+        else if (weekend.includes(document.getElementById('time').textContent)) {
+          var get_price = document.getElementById(key + "-fullprice").textContent;
         }
         else {
-          if(array_of_movie_title_DAy_Time[2] == "T24"){
-            var get_price = document.getElementById(key+"-discount").textContent;
+          if (document.getElementById('time').textContent == "T24") {
+            var get_price = document.getElementById(key + "-discount").textContent;
           }
-          else if(array_of_movie_title_DAy_Time[2 != "T24"]){
-            var get_price = document.getElementById(key+"-fullprice").textContent;
+          else if (document.getElementById('time').textContent != "T24") {
+            var get_price = document.getElementById(key + "-fullprice").textContent;
 
           }
         }
         var get_price_converting_to_number = parseFloat(get_price);
-        total_price = total_price + storing_the_number_seats[key]*get_price_converting_to_number;
+        total_price = total_price + storing_the_number_seats[key] * get_price_converting_to_number;
       }
       alert(total_price);
+
+      document.getElementById('ticket_price').innerHTML = total_price;
       total_price = 0;
 
-     }
-    
+
+    }
+    var string_conversion_from_numbericvalue = "";
+
+
+    function check_and_givefeedback(idem) {
+      while_conditional_number = 1;
+      if (count3 == 0) {
+        while (while_conditional_number <= 6) {
+          string_conversion_from_numbericvalue = new String(while_conditional_number);
+          var trim_space_of_string = string_conversion_from_numbericvalue.trim();
+          document.getElementById(trim_space_of_string).innerHTML = " Please select one at least "
+          document.getElementById(trim_space_of_string).style.color = "red"
+          while_conditional_number += 1;
+        }
+      }
+      else {
+        while (while_conditional_number <= 6) {
+          string_conversion_from_numbericvalue = new String(while_conditional_number);
+          var trim_space_of_string = string_conversion_from_numbericvalue.trim();
+          document.getElementById(trim_space_of_string).innerHTML = " ok "
+          document.getElementById(trim_space_of_string).style.color = "green"
+          while_conditional_number += 1;
+        }
+      }
+    }
+
+    function check_regex_mobile(idem) {
+      var the_needed_tested_test = document.getElementById(idem).value;
+
+      var regex = new RegExp("^(([+](04)|[(][+](04)[)]|[(][+](614)[)]|[+](614)) ?)([0-9] ?){10}$");
+      if (regex.test(the_needed_tested_test)) {
+        var get_element = document.getElementById(idem);
+        get_element.style.borderColor = "green";
+        document.getElementById('feedback-messages_3').innerHTML ="correct"
+        document.getElementById('feedback-messages_3').style.color ="green"
+      }
+      else if (!regex.test(the_needed_tested_test)) {
+        var get_element = document.getElementById(idem);
+        get_element.style.borderColor = "yellow";
+        document.getElementById('feedback-messages_3').innerHTML = "invalid"
+        document.getElementById('feedback-messages_3').style.color ='yellow'
+      }
+    }
+
+    function check_regex_email(idem) {
+      var the_needed_tested_test = document.getElementById(idem).value;
+      var check = new RegExp("^[A-Za-z/'-_]*[/@][A-Za-z0-9][a-z0-9]+(([/.][a-z]{3})|([/.][a-z]{3}[/.][a-z]*))$");
+      if (check.test(the_needed_tested_test)) {
+        var get_element = document.getElementById(idem);
+        get_element.style.borderColor = "green";
+        document.getElementById('feedback-messages_2').innerHTML = "correct"
+        document.getElementById('feedback-messages_2').style.color = "green"
+
+      }
+      else if (!check.test(the_needed_tested_test)) {
+        var get_element = document.getElementById(idem);
+        get_element.style.borderColor = "red";
+        document.getElementById('feedback-messages_2').innerHTML ="invalid"
+        document.getElementById('feedback-messages_2').style.color="red"
+      }
+    }
+
+    function check_regex_tel(idem) {
+      var the_needed_tested_test = document.getElementById(idem).value;
+      var check = new RegExp("^([0-9] ?){14,19}$");
+      if (check.test(the_needed_tested_test)) {
+        var get_element = document.getElementById(idem);
+        get_element.style.borderColor = "green";
+        document.getElementById('feedback-messages_4').innerHTML ="correct"
+        document.getElementById('feedback-messages_4').style.color = "green"
+
+      }
+      else if (!check.test(the_needed_tested_test)) {
+        var get_element = document.getElementById(idem);
+        get_element.style.borderColor = "red";
+        document.getElementById('feedback-messages_4').innerHTML ="invalid"
+        document.getElementById('feedback-messages_4').style.color="red"
+      }
+
+
+    }
+    function check_regex_name(idem) {
+      var the_needed_tested_test = document.getElementById(idem).value;
+
+      var check = new RegExp("^([A-Za-z/'.-]+  ?)*[A-Za-z/'.-]+([' ']+|)$");
+      if (check.test(the_needed_tested_test)) {
+        document.getElementById(idem).style.borderColor = "green";
+        document.getElementById("feedback-messages_1").innerHTML = "correct"
+        document.getElementById("feedback-messages_1").style.color = "green"
+      }
+      else if (!check.test(the_needed_tested_test)) {
+        document.getElementById(idem).style.borderColor = "red";
+        document.getElementById('feedback-messages_1').innerHTML = "invalid"
+        document.getElementById('feedback-messages_1').style.color ="red"
+      }
+    }
+
+    function convert_to_2_decimal(idem) {
+      var str_need_converted = idem.toString();
+      for (letter in str_need_converted){
+
+      }
+    }
+
+
   </script>
- 
+
 </head>
 
-<body onscroll="swth()" onmousemove="total_check();">
+<body onscroll="swth()" onmouseover="total_check();check_and_givefeedback()">
 
 
   <!--Header-->
 
   <header>
-    <div class="container" >
+    <div class="container">
       <div class="row">
         <div class="col" style="font-weight: bolder; font-size: 50px 50px;">
           <a href=""><img src="photos/cinemax-logo.jpg" alt="cinemax-logo" width="350px" height="60px">
@@ -185,20 +326,23 @@
 
 
 
-  <nav class="nav-site" >
+  <nav class="nav-site">
     <div class="container">
       <div class="row">
         <div class="col-sm-4"
           style="text-align: center; border-left: solid; text-decoration: floralwhite; color: ghostwhite;"><a
-            href="#About-Us" id="option1" class="nav-link" onmouseover="hover(id);" onmouseout="unactivate(id);" >ABOUT US</a>
+            href="#About-Us" id="option1" class="nav-link" onmouseover="hover(id);" onmouseout="unactivate(id);">ABOUT
+            US</a>
         </div>
         <div class="col-sm-4"
           style="text-align: center; border-left: solid ; text-decoration: floralwhite; color: ghostwhite ;"><a
-            href="#Now-Showing" id="option2" class="nav-link" onmouseover="hover(id);" onmouseout="unactivate(id)">NOW SHOWING</a>
+            href="#Now-Showing" id="option2" class="nav-link" onmouseover="hover(id);" onmouseout="unactivate(id)">NOW
+            SHOWING</a>
         </div>
         <div class="col-sm-4"
           style="text-align: center; border-left: solid ; text-decoration: floralwhite; color: ghostwhite; border-right: solid ;">
-          <a href="#Price" id="option3" class="nav-link" onmouseover="hover(id);" onmouseout="activate(id);">PRICE</a></div>
+          <a href="#Price" id="option3" class="nav-link" onmouseover="hover(id);" onmouseout="unactivate(id);">PRICE</a>
+        </div>
       </div>
     </div>
   </nav>
@@ -230,453 +374,452 @@
 
 
 
-  
 
 
-    <!--Comming-Soon-->
 
-    <section id="Comming-Soon">
+  <!--Comming-Soon-->
 
-      <div class="container" style="padding: 30px 30px 30px;">
-        <div class="row" style=" border-bottom: solid whitesmoke; text-align: center; margin-bottom: 40px;">
-          <div class="col">
-            <p style="font-size: 35px; font-weight: 300; color: whitesmoke;">UPCOMING MOVIES</p>
+  <section id="Comming-Soon">
+
+    <div class="container" style="padding: 30px 30px 30px;">
+      <div class="row" style=" border-bottom: solid whitesmoke; text-align: center; margin-bottom: 40px;">
+        <div class="col">
+          <p style="font-size: 35px; font-weight: 300; color: whitesmoke;">UPCOMING MOVIES</p>
+        </div>
+      </div>
+
+
+      <div class="row" style="text-align: center;">
+
+        <div class="col">
+          <div class="movies-poster-cards">
+            <div class="card" style="width: 50; height: 100;">
+              <img src="photos/bloodshot.jpg" alt="poster" class="card-img-top" width="100" height="300">
+              <div class="card-body">
+                <h1 class="card-title">Bloodshot</h1>
+                <p class="card-text">Release Date:</p>
+                <p class="card-text">20/2/2020</p>
+              </div>
+            </div>
+            <a href="https://youtu.be/vOUVVDWdXbo" class="buttons">Watch Trailer</a>
           </div>
+
         </div>
 
 
-        <div class="row" style="text-align: center;">
+        <div class="col">
+          <div class="movies-poster-cards">
+            <div class="card" style="width: 50; height: 100;">
+              <img class="card-img-top" src="photos/aquietplace.jpg" alt="poster" width="100" height="300">
+              <div class="card-body">
+                <h1 class="card-title">A Quiet Place: Part 2</h1>
+                <p class="card-text">Release Date:</p>
+                <p class="card-text">20/3/2020</p>
 
-          <div class="col">
-            <div class="movies-poster-cards">
-              <div class="card" style="width: 50; height: 100;">
-                <img src="photos/bloodshot.jpg" alt="poster" class="card-img-top" width="100" height="300">
-                <div class="card-body">
-                  <h1 class="card-title">Bloodshot</h1>
-                  <p class="card-text">Release Date:</p>
-                  <p class="card-text">20/2/2020</p>
-                </div>
               </div>
-              <a href="https://youtu.be/vOUVVDWdXbo" class="buttons">Watch Trailer</a>
             </div>
-
+            <a href="https://www.imdb.com/video/vi2444541465?playlistId=tt8332922&ref_=tt_ov_vi" class="buttons">Watch
+              Trailer</a>
           </div>
 
+        </div>
 
-          <div class="col">
-            <div class="movies-poster-cards">
-              <div class="card" style="width: 50; height: 100;">
-                <img class="card-img-top" src="photos/aquietplace.jpg" alt="poster" width="100" height="300">
-                <div class="card-body">
-                  <h1 class="card-title">A Quiet Place: Part 2</h1>
-                  <p class="card-text">Release Date:</p>
-                  <p class="card-text">20/3/2020</p>
 
-                </div>
+
+        <div class="col">
+          <div class="movies-poster-cards">
+            <div class="card" style="width: 50; height: 100;">
+              <img src="photos/latmat5.jpg" alt="poster" class="card-img-top" width="100" height="300">
+              <div class="card-body">
+                <h1 class="card-title">Lat Mat 5: 48h</h1>
+                <p class="card-text">Release Date</p>
+                <p class="card-text">30/4/2020</p>
               </div>
-              <a href="https://www.imdb.com/video/vi2444541465?playlistId=tt8332922&ref_=tt_ov_vi" class="buttons">Watch
-                Trailer</a>
             </div>
-
-          </div>
-
-
-
-          <div class="col">
-            <div class="movies-poster-cards">
-              <div class="card" style="width: 50; height: 100;">
-                <img src="photos/latmat5.jpg" alt="poster" class="card-img-top" width="100" height="300">
-                <div class="card-body">
-                  <h1 class="card-title">Lat Mat 5: 48h</h1>
-                  <p class="card-text">Release Date</p>
-                  <p class="card-text">30/4/2020</p>
-                </div>
-              </div>
-              <a href="https://www.youtube.com/watch?v=ikByU-o9-rA" class="buttons">Watch Trailer</a>
-            </div>
-
-
-          </div>
-
-
-          <div class="col">
-            <div class="movies-poster-cards">
-              <div class="card" style="width: 50; height: 100;">
-                <img src="photos/babayaga.jpg" alt="poster" class="card-img-top" width="100" height="300">
-                <div class="card-body">
-                  <h1 class="card-title">Baba Yaga: Terror of The Dark Forest</h1>
-                  <p class="card-text">Release Date</p>
-                  <p class="card-text">27/2/2020</p>
-                </div>
-              </div>
-              <a href="https://www.youtube.com/watch?v=SqVAJ91D3yE" class="buttons">Watch Trailer</a>
-            </div>
-
+            <a href="https://www.youtube.com/watch?v=ikByU-o9-rA" class="buttons">Watch Trailer</a>
           </div>
 
 
         </div>
+
+
+        <div class="col">
+          <div class="movies-poster-cards">
+            <div class="card" style="width: 50; height: 100;">
+              <img src="photos/babayaga.jpg" alt="poster" class="card-img-top" width="100" height="300">
+              <div class="card-body">
+                <h1 class="card-title">Baba Yaga: Terror of The Dark Forest</h1>
+                <p class="card-text">Release Date</p>
+                <p class="card-text">27/2/2020</p>
+              </div>
+            </div>
+            <a href="https://www.youtube.com/watch?v=SqVAJ91D3yE" class="buttons">Watch Trailer</a>
+          </div>
+
+        </div>
+
 
       </div>
 
+    </div>
+
+    </div>
+
+  </section>
+
+  <!--About Us-->
+
+  <section id="About-Us" onfocus="activate('option1')">
+    <div class="container">
+      <div class="title">
+        <h1> ABOUT US</h1>
+
       </div>
 
-    </section>
 
-    <!--About Us-->
+      <div class="introduction">
+        <div class="row">
+          <div class="col" style="text-align: right;">
+            <img src="photos/aboutus.jpg" alt="intro-img" width="400" height="250">
+          </div>
+          <div class="col" style="text-align: left;">
 
-    <section id="About-Us" onfocus="activate('option1')">
-      <div class="container">
-        <div class="title">
-          <h1> ABOUT US</h1>
-
-        </div>
-
-
-        <div class="introduction">
-          <div class="row">
-            <div class="col" style="text-align: right;">
-              <img src="photos/aboutus.jpg" alt="intro-img" width="400" height="250">
+            <div class="intro">
+              <h2>Welcome Back</h2>
             </div>
-            <div class="col" style="text-align: left;">
-
-              <div class="intro">
-                <h2>Welcome Back</h2>
-              </div>
-              <div class="text">
-                <p>Our company has offically come back with a completely different look. We have upgraded our facilities
-                  to bring new experiences to you</p>
-              </div>
-              <div class="list">
-                <h3>Upgrades:</h3>
-                <p> <img
-                    src="https://static.vecteezy.com/system/resources/thumbnails/000/441/750/small/Basic_Element_15-30__28586_29.jpg"
-                    alt="tick" width="10px" height="10px"> New Seats</p>
-                </li>
-                <p> <img
-                    src="https://static.vecteezy.com/system/resources/thumbnails/000/441/750/small/Basic_Element_15-30__28586_29.jpg"
-                    alt="tick" width="10px" height="10px"> Dolby Atmos Sound</p>
-                </li>
-                <p> <img
-                    src="https://static.vecteezy.com/system/resources/thumbnails/000/441/750/small/Basic_Element_15-30__28586_29.jpg"
-                    alt="icon" width="10" height="10"> Dolby Vision Projection</p>
-                </li>
-
-              </div>
-
+            <div class="text">
+              <p>Our company has offically come back with a completely different look. We have upgraded our facilities
+                to bring new experiences to you</p>
+            </div>
+            <div class="list">
+              <h3>Upgrades:</h3>
+              <p> <img
+                  src="https://static.vecteezy.com/system/resources/thumbnails/000/441/750/small/Basic_Element_15-30__28586_29.jpg"
+                  alt="tick" width="10px" height="10px"> New Seats</p>
+              </li>
+              <p> <img
+                  src="https://static.vecteezy.com/system/resources/thumbnails/000/441/750/small/Basic_Element_15-30__28586_29.jpg"
+                  alt="tick" width="10px" height="10px"> Dolby Atmos Sound</p>
+              </li>
+              <p> <img
+                  src="https://static.vecteezy.com/system/resources/thumbnails/000/441/750/small/Basic_Element_15-30__28586_29.jpg"
+                  alt="icon" width="10" height="10"> Dolby Vision Projection</p>
+              </li>
 
             </div>
+
+
           </div>
         </div>
-        <div class="first-upgrade">
+      </div>
+      <div class="first-upgrade">
 
-          <a href="https://www.profurn.com.au/shop/education-lecture" class="see-more-links">
-            <div class="headings">
-              <p>New First-Class and Standard Seats</p>
-            </div>
-          </a>
+        <a href="https://www.profurn.com.au/shop/education-lecture" class="see-more-links">
+          <div class="headings">
+            <p>New First-Class and Standard Seats</p>
+          </div>
+        </a>
 
 
-          <div>
+        <div>
 
-            <div id="demo" class="carousel slide" data-ride="carousel">
-              <!-- The slideshow -->
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <div class="row">
-                    <div class="col"><img src="photos/firstclass-seat1.jpg" alt="slide1"></div>
-                    <div class="col"><img src="photos/firstclass-seat2.jpg" alt="slide1"></div>
-                    <div class="col"><img src="photos/firstclass-seat3.jpg" alt="slide1"></div>
+          <div id="demo" class="carousel slide" data-ride="carousel">
+            <!-- The slideshow -->
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="row">
+                  <div class="col"><img src="photos/firstclass-seat1.jpg" alt="slide1"></div>
+                  <div class="col"><img src="photos/firstclass-seat2.jpg" alt="slide1"></div>
+                  <div class="col"><img src="photos/firstclass-seat3.jpg" alt="slide1"></div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="row">
+                  <div class="col"><img src="photos/standard-seat1.jpg" alt="slide3">
+                  </div>
+                  <div class="col"><img src="photos/standard-seat2.jpg" alt="slide3"></div>
+                  <div class="col"><img src="photos/standard-seat3.jpg" alt="slide3">
                   </div>
                 </div>
 
+              </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+      <div class="second-upgrade">
+        <a href="https://www.dolby.com/us/en/brands/dolby-atmos.html" class="see-more-links">
+
+          <div class="headings">
+            <p>3D Dolby Atmos Sound and Vision Projection</p>
+
+          </div>
+        </a>
+
+
+        <div>
+          <div>
+            <div id="demo2" class="carousel slide" data-ride="carousel">
+              <!-- The slideshow -->
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+
+
+
+                  <div class="row">
+                    <div class="col"><img src="photos/dolby 2.jpg" alt="slide2"></div>
+                    <div class="col"><img src="photos/dolby 3.jpg" alt="slide2"></div>
+                    <div class="col"><img src="photos/dolby 5.4.jpg" alt="slide2"></div>
+                  </div>
+
+                </div>
                 <div class="carousel-item">
                   <div class="row">
-                    <div class="col"><img src="photos/standard-seat1.jpg" alt="slide3">
+                    <div class="col"><img src="photos/Dolby 9.jpg" alt="slide3">
                     </div>
-                    <div class="col"><img src="photos/standard-seat2.jpg" alt="slide3"></div>
-                    <div class="col"><img src="photos/standard-seat3.jpg" alt="slide3">
-                    </div>
+                    <div class="col"><img src="photos/dolby 8.jpg" alt="slide3"></div>
+                    <div class="col"><img src="photos/dolby 6.jpg" alt="slide3"></div>
                   </div>
 
                 </div>
               </div>
 
               <!-- Left and right controls -->
-              <a class="carousel-control-prev" href="#demo" data-slide="prev">
+              <a class="carousel-control-prev" href="#demo2" data-slide="prev">
                 <span class="carousel-control-prev-icon"></span>
               </a>
-              <a class="carousel-control-next" href="#demo" data-slide="next">
+              <a class="carousel-control-next" href="#demo2" data-slide="next">
                 <span class="carousel-control-next-icon"></span>
               </a>
 
             </div>
-
           </div>
-
         </div>
-        <div class="second-upgrade">
-          <a href="https://www.dolby.com/us/en/brands/dolby-atmos.html" class="see-more-links">
-
-            <div class="headings">
-              <p>3D Dolby Atmos Sound and Vision Projection</p>
-
-            </div>
-          </a>
-
-
-          <div>
-            <div>
-              <div id="demo2" class="carousel slide" data-ride="carousel">
-                <!-- The slideshow -->
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-
-
-
-                    <div class="row">
-                      <div class="col"><img src="photos/dolby 2.jpg" alt="slide2"></div>
-                      <div class="col"><img src="photos/dolby 3.jpg" alt="slide2"></div>
-                      <div class="col"><img src="photos/dolby 5.4.jpg" alt="slide2"></div>
-                    </div>
-
-                  </div>
-                  <div class="carousel-item">
-                    <div class="row">
-                      <div class="col"><img src="photos/Dolby 9.jpg" alt="slide3">
-                      </div>
-                      <div class="col"><img src="photos/dolby 8.jpg" alt="slide3"></div>
-                      <div class="col"><img src="photos/dolby 6.jpg" alt="slide3"></div>
-                    </div>
-
-                  </div>
-                </div>
-
-                <!-- Left and right controls -->
-                <a class="carousel-control-prev" href="#demo2" data-slide="prev">
-                  <span class="carousel-control-prev-icon"></span>
-                </a>
-                <a class="carousel-control-next" href="#demo2" data-slide="next">
-                  <span class="carousel-control-next-icon"></span>
-                </a>
-
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-
-
-
-
-
-
-
 
       </div>
-    </section>
-  
-   
-
-    <!--Now-showing-->
-
-    <section id="Now-Showing" onscroll="activate('option3');">
-
-      <div class="parallex-scrolling" id="parallex-scrolling-1">
-        <div class="container">
-          <div class="title">
-            <h1> NOW SHOWING </h1>
-          </div>
-
-          <div class="movie-panel">
-
-            <div class="row">
-              <!--first column-->
-              <div class="col" style="text-align: center;">
-                <div class="movies-poster-cards">
-                  <div class="card" style=" padding: 20px; border: solid;">
-                    <div class="row no-gutters">
-                      <div class="col">
-                        <img class="card-img-left" src="photos/dumbo.jpg" alt="poster-image" width="260" height="312">
-                      </div>
-                      <div class="col">
-                        <div class="card-body">
-                          <h1 class="card-title">Dumbo</h1>
-                          <div class="card-text">
-                            <p><strong>Time</strong>:</p>
-                            <p class="card-text">Monday - Tuesday: 12:00 PM</p>
-                            <p class="card-text">Wednesday - Friday: 6:00 PM</p>
-                            <p class="card-text">Saturday - Sunday: 12:00 PM</p>
-                          </div>
-
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <a href="#Dumbo" class="buttons">Movie Detail</a>
-                </div>
-
-              </div>
-
-              <!--second column-->
-              <div class="col" style="text-align: center;">
-                <div class="movies-poster-cards">
-                  <div class="card" style=" padding: 20px; border: solid;">
-                    <div class="row no-gutters">
-                      <div class="col">
-                        <img class="card-img-left" src="photos/thehappyprince.jpg" alt="poster-image" width="260"
-                          height="312">
-                      </div>
-                      <div class="col">
-                        <div class="card-body">
-                          <h1 class="card-title">The Happy Prince</h1>
-                          <div class="card-text">
-                            <p><strong>Time</strong>:</p>
-                            <p class="card-text">Wednesday - Friday: 12:00 PM</p>
-                            <p class="card-text">Saturday: 9:00 PM</p>
-                            <p class="card-text">Sunday: 9:00 PM</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <a href="#The-Happy-Prince" class="buttons">Movie Detail</a>
-                </div>
-              </div>
-            </div>
-          </div>
 
 
-          <div class="movie-panel">
-            <div class="row">
-              <!--first column-->
-              <div class="col" style="text-align: center;">
-                <div class="movies-poster-cards">
-                  <div class="card" style=" padding: 20px; border: solid;">
-                    <div class="row no-gutters">
-                      <div class="col">
-                        <img class="card-img-left" src="photos/topendwedding.jpg" alt="poster-image" width="260"
-                          height="312">
-                      </div>
-                      <div class="col">
-                        <div class="card-body">
-                          <h1 class="card-title">Top-End-Wedding</h1>
-                          <div class="card-text">
-                            <p><strong>Time</strong>:</p>
-                            <p class="card-text">Monday - Tuesday: 6:00 PM</p>
-                            <p class="card-text">Saturday: 3:00 PM</p>
-                            <p class="card-text">Sunday: 3:00 PM</p>
-                          </div>
 
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <a href="#Top-End-Wedding" class="buttons">Movie Detail</a>
-                </div>
-              </div>
 
-              <!--second column-->
-              <div class="col" style="text-align: center;">
-                <div class="movies-poster-cards">
-                  <div class="card" style=" padding: 20px; border: solid;">
-                    <div class="row no-gutters">
-                      <div class="col">
-                        <img class="card-img-left" src="photos/avengers.jpg" alt="poster-image" width="260"
-                          height="312">
-                      </div>
-                      <div class="col">
-                        <div class="card-body">
-                          <h1 class="card-title">Avengers: Endgame</h1>
-                          <div class="card-text">
-                            <p><strong>Time</strong>:</p>
-                            <p class="card-text">Wednesday - Friday: 9:00 PM</p>
-                            <p class="card-text">Saturday: 6:00 PM</p>
-                            <p class="card-text">Sunday: 6:00 PM</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <a href="#Avengers" class="buttons">Movie Detail</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <!--Price-->
 
-    <section id="Price" onscroll="activate('option2')">
+
+
+
+
+    </div>
+  </section>
+
+
+
+  <!--Now-showing-->
+
+  <section id="Now-Showing" onscroll="activate('option3');">
+
+    <div class="parallex-scrolling" id="parallex-scrolling-1">
       <div class="container">
         <div class="title">
-          <h1>PRICE</h1>
+          <h1> NOW SHOWING </h1>
         </div>
 
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col">Seat Type</th>
-              <th scope="col">Seat Code</th>
-              <th scope="col">All day Monday and Wednesday AND 12pm on Weekdays</th>
-              <th scope="col">All other times</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">Standard Adult</th>
-              <td>STA</td>
-              <td id="STA-discount">14.00</td>
-              <td id="STA-fullprice">19.80</td>
-            </tr>
-            <tr>
-              <th scope="row">Standard Concession</th>
-              <td>STP</td>
-              <td id="STP-discount">12.50</td>
-              <td id="STP-fullprice">17.50</td>
-            </tr>
-            <tr>
-              <th scope="row">Standard Child</th>
-              <td>STC</td>
-              <td id="STC-discount">11.00</td>
-              <td id="STC-fullprice">15.30</td>
-            </tr>
-            <tr>
-              <th scope="row">First Class Adult</th>
-              <td>FCA</td>
-              <td id="FCA-discount">24.00</td>
-              <td id="FCA-fullprice">30.00</td>
-            </tr>
-            <tr>
-              <th scope="row">First Class Concession</th>
-              <td>FCP</td>
-              <td id="FCP-discount">22.50</td>
-              <td id="FCP-fullprice">27.00</td>
-            </tr>
-            <tr>
-              <th>First Class Child</th>
-              <td>FCC</td>
-              <td id="FCC-discount">21.00</td>
-              <td id="FCC-fullprice">24.00</td>
+        <div class="movie-panel">
 
-            </tr>
-          </tbody>
-        </table>
+          <div class="row">
+            <!--first column-->
+            <div class="col" style="text-align: center;">
+              <div class="movies-poster-cards">
+                <div class="card" style=" padding: 20px; border: solid;">
+                  <div class="row no-gutters">
+                    <div class="col">
+                      <img class="card-img-left" src="photos/dumbo.jpg" alt="poster-image" width="260" height="312">
+                    </div>
+                    <div class="col">
+                      <div class="card-body">
+                        <h1 class="card-title">Dumbo</h1>
+                        <div class="card-text">
+                          <p><strong>Time</strong>:</p>
+                          <p class="card-text">Monday - Tuesday: 12:00 PM</p>
+                          <p class="card-text">Wednesday - Friday: 6:00 PM</p>
+                          <p class="card-text">Saturday - Sunday: 12:00 PM</p>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <a href="#Dumbo" class="buttons">Movie Detail</a>
+              </div>
+
+            </div>
+
+            <!--second column-->
+            <div class="col" style="text-align: center;">
+              <div class="movies-poster-cards">
+                <div class="card" style=" padding: 20px; border: solid;">
+                  <div class="row no-gutters">
+                    <div class="col">
+                      <img class="card-img-left" src="photos/thehappyprince.jpg" alt="poster-image" width="260"
+                        height="312">
+                    </div>
+                    <div class="col">
+                      <div class="card-body">
+                        <h1 class="card-title">The Happy Prince</h1>
+                        <div class="card-text">
+                          <p><strong>Time</strong>:</p>
+                          <p class="card-text">Wednesday - Friday: 12:00 PM</p>
+                          <p class="card-text">Saturday: 9:00 PM</p>
+                          <p class="card-text">Sunday: 9:00 PM</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <a href="#The-Happy-Prince" class="buttons">Movie Detail</a>
+              </div>
+            </div>
+          </div>
+        </div>
 
 
+        <div class="movie-panel">
+          <div class="row">
+            <!--first column-->
+            <div class="col" style="text-align: center;">
+              <div class="movies-poster-cards">
+                <div class="card" style=" padding: 20px; border: solid;">
+                  <div class="row no-gutters">
+                    <div class="col">
+                      <img class="card-img-left" src="photos/topendwedding.jpg" alt="poster-image" width="260"
+                        height="312">
+                    </div>
+                    <div class="col">
+                      <div class="card-body">
+                        <h1 class="card-title">Top-End-Wedding</h1>
+                        <div class="card-text">
+                          <p><strong>Time</strong>:</p>
+                          <p class="card-text">Monday - Tuesday: 6:00 PM</p>
+                          <p class="card-text">Saturday: 3:00 PM</p>
+                          <p class="card-text">Sunday: 3:00 PM</p>
+                        </div>
 
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <a href="#Top-End-Wedding" class="buttons">Movie Detail</a>
+              </div>
+            </div>
 
+            <!--second column-->
+            <div class="col" style="text-align: center;">
+              <div class="movies-poster-cards">
+                <div class="card" style=" padding: 20px; border: solid;">
+                  <div class="row no-gutters">
+                    <div class="col">
+                      <img class="card-img-left" src="photos/avengers.jpg" alt="poster-image" width="260" height="312">
+                    </div>
+                    <div class="col">
+                      <div class="card-body">
+                        <h1 class="card-title">Avengers: Endgame</h1>
+                        <div class="card-text">
+                          <p><strong>Time</strong>:</p>
+                          <p class="card-text">Wednesday - Friday: 9:00 PM</p>
+                          <p class="card-text">Saturday: 6:00 PM</p>
+                          <p class="card-text">Sunday: 6:00 PM</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <a href="#Avengers" class="buttons">Movie Detail</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--Price-->
+
+  <section id="Price" onscroll="activate('option2')">
+    <div class="container">
+      <div class="title">
+        <h1>PRICE</h1>
       </div>
 
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Seat Type</th>
+            <th scope="col">Seat Code</th>
+            <th scope="col">All day Monday and Wednesday AND 12pm on Weekdays</th>
+            <th scope="col">All other times</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Standard Adult</th>
+            <td>STA</td>
+            <td id="STA-discount">14.00</td>
+            <td id="STA-fullprice">19.80</td>
+          </tr>
+          <tr>
+            <th scope="row">Standard Concession</th>
+            <td>STP</td>
+            <td id="STP-discount">12.50</td>
+            <td id="STP-fullprice">17.50</td>
+          </tr>
+          <tr>
+            <th scope="row">Standard Child</th>
+            <td>STC</td>
+            <td id="STC-discount">11.00</td>
+            <td id="STC-fullprice">15.30</td>
+          </tr>
+          <tr>
+            <th scope="row">First Class Adult</th>
+            <td>FCA</td>
+            <td id="FCA-discount">24.00</td>
+            <td id="FCA-fullprice">30.00</td>
+          </tr>
+          <tr>
+            <th scope="row">First Class Concession</th>
+            <td>FCP</td>
+            <td id="FCP-discount">22.50</td>
+            <td id="FCP-fullprice">27.00</td>
+          </tr>
+          <tr>
+            <th>First Class Child</th>
+            <td>FCC</td>
+            <td id="FCC-discount">21.00</td>
+            <td id="FCC-fullprice">24.00</td>
 
-    </section>
+          </tr>
+        </tbody>
+      </table>
 
 
 
-  
+
+    </div>
+
+
+  </section>
+
+
+
+
 
   <!--Synopsis-->
 
@@ -718,11 +861,12 @@
           </div>
           <div class="col">
             <div class="the-links">
-              <a href="#Booking-area" class="booking-links" id="THE_HAPPY_PRINCE-WED-T24" onclick="select_movie(id);">(WED) 12:00 PM</a>
-              <a href="#Booking-area" class="booking-links" id="THE_HAPPY_PRINCE-THU-T24" onclick="select_movie(id)">(THU) 12:00 PM</a>
-              <a href="#Booking-area" class="booking-links" id="THE_HAPPY_PRINCE-FRI-T24">(FRI) 12:00 PM</a>
-              <a href="#Booking-area" class="booking-links" id="THE_HAPPY_PRINCE-SAT-T21">(SAT) 9:00 PM</a>
-              <a href="#Booking-area" class="booking-links" id="THE_HAPPY_PRINCE-SUN-T21">(SUN) 9:00 PM</a>
+              <a href="#Booking-area" class="booking-links" id="THE_HAPPY_PRINCE-WED-T24"
+                onclick="select_movie(id);">WED T24</a>
+              <a href="#Booking-area" class="booking-links" id="THE_HAPPY_PRINCE-THU-T24" onclick="select_movie(id)">THU T24</a>
+              <a href="#Booking-area" class="booking-links" id="THE_HAPPY_PRINCE-FRI-T24">FRI T24</a>
+              <a href="#Booking-area" class="booking-links" id="THE_HAPPY_PRINCE-SAT-T21">SAT T21</a>
+              <a href="#Booking-area" class="booking-links" id="THE_HAPPY_PRINCE-SUN-T21">SUN T21</a>
             </div>
           </div>
         </div>
@@ -760,10 +904,10 @@
           </div>
           <div class="col">
             <div class="the-links">
-              <a href="#Booking-area" class="booking-links" id="The_Top_Wedding-Mon-T21">(MON) 9:00 PM</a>
-              <a href="#Booking-area" class="booking-links" id="The_Top_Wedding-Tue-T21">(TUE) 9:00 PM</a>
-              <a href="#Booking-area" class="booking-links" id="The_Top_Wedding-Sat-T15">(SAT) 3:00 PM</a>
-              <a href="#Booking-area" class="booking-links" id="The_Top_Wedding-Sun-T15">(SUN) 3:00 PM</a>
+              <a href="#Booking-area" class="booking-links" id="The_Top_Wedding-Mon-T21">MON T21</a>
+              <a href="#Booking-area" class="booking-links" id="The_Top_Wedding-Tue-T21">TUE T21</a>
+              <a href="#Booking-area" class="booking-links" id="The_Top_Wedding-Sat-T15">SAT T15</a>
+              <a href="#Booking-area" class="booking-links" id="The_Top_Wedding-Sun-T15">SUN T15</a>
             </div>
           </div>
         </div>
@@ -801,13 +945,13 @@
           </div>
           <div class="col">
             <div class="the-links">
-              <a href="#Booking-area" class="booking-links" id="Dumbo-Mon-T24">(MON) 12:00 PM</a>
-              <a href="#Booking-area" class="booking-links" id="Dumbo-Tue-T24">(TUE) 12:00 PM</a>
-              <a href="#Booking-area" class="booking-links" id="Dumbo-Wed-T21">(WED) 9:00 PM</a>
-              <a href="#Booking-area" class="booking-links"id="Dumbo-Thu-T21">(THU) 9:00 PM</a>
-              <a href="#Booking-area" class="booking-links" id="Dumbo-Fri-T21">(FRI) 9:00 PM</a>
-              <a href="#Booking-area" class="booking-links" id="Dumbo-Sat-T24">(SAT) 12:00 PM</a>
-              <a href="#Booking-area" class="booking-links" id="Dumbo-Sun-T24">(SUN) 12:00 PM</a>
+              <a href="#Booking-area" class="booking-links" id="Dumbo-Mon-T24">MON T24</a>
+              <a href="#Booking-area" class="booking-links" id="Dumbo-Tue-T24">TUE T24</a>
+              <a href="#Booking-area" class="booking-links" id="Dumbo-Wed-T21">WED T21</a>
+              <a href="#Booking-area" class="booking-links" id="Dumbo-Thu-T21">THU T21</a>
+              <a href="#Booking-area" class="booking-links" id="Dumbo-Fri-T21">FRI T21</a>
+              <a href="#Booking-area" class="booking-links" id="Dumbo-Sat-T24">SAT T24</a>
+              <a href="#Booking-area" class="booking-links" id="Dumbo-Sun-T24">SUN T24</a>
             </div>
           </div>
         </div>
@@ -848,190 +992,221 @@
           </div>
           <div class="col">
             <div class="the-links">
-              <a href="#Booking-area" class="booking-links" id="Avengers:_Endgame-WED-T21">(WED) 9:00 PM </a>
-              <a href="#Booking-area" class="booking-links" id="Avengers:_Endgame-THU-T21">(THU) 9:00 PM </a>
-              <a href="#Booking-area" class="booking-links" id="Avengers:_Endgame-FRI-T21">(FRI) 9:00 PM</a>
-              <a href="#Booking-area" class="booking-links" id="Avengers:_Endgame-SAT-T18">(SAT) 6:00 PM</a>
-              <a href="#Booking-area" class="booking-links" id="Avengers:_Endgame-SUN-T18">(SUN) 6:00 PM</a>
+              <a href="#Booking-area" class="booking-links" id="Avengers:_Endgame-WED-T21">WED T21</a>
+              <a href="#Booking-area" class="booking-links" id="Avengers:_Endgame-THU-T21">THU T21</a>
+              <a href="#Booking-area" class="booking-links" id="Avengers:_Endgame-FRI-T21">FRI T21</a>
+              <a href="#Booking-area" class="booking-links" id="Avengers:_Endgame-SAT-T18">SAT T18</a>
+              <a href="#Booking-area" class="booking-links" id="Avengers:_Endgame-SUN-T18">SUN T18</a>
+            </div>
           </div>
         </div>
-      </div>
       </div>
     </div>
   </article>
 
   <!--booking-->
   <article id="Booking-area">
-    <div class="container">
+    <div class="container" onmouseover="check_required();is_button_clicked()">
       <div class="title">
         <h1>BOOKING</h1>
       </div>
 
 
-        <div class="row">
-          <div class="col">
-            <p id="the-movie-title">Movie title-Day-Time</p>
+      <div class="row">
+        <div class="col">
+          <p class="movie-day_time" id="movie-title"></p>
+          <p class="movie-day_time" id="day"></p>
+          <p class="movie-day_time" id="time"></p>
+          <p id="reminder_of_pressed_button"></p>
+
+        </div>
+      </div>
+      <div class="row"  style="text-align: left;">
+        <div class="col" >
+          <div class="seat">
+            <p class="seat-class">First Class</p>
+            <div class="form-group">
+              <label for="FCA">Adults</label>
+              <select name="seats[FCA]" id="seats-FCA" class="form-control" 
+                onchange="check_and_givefeedback();calc(id);" onfocus="pricecalc(id)">
+                <option value="Please">Please</option>
+                <option value="1">1</option>
+                <option value="2">1</option>
+                <option value="3">1</option>
+                <option value="4">1</option>
+                <option value="5">1</option>
+                <option value="6">1</option>
+                <option value="7">1</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+
+              </select>
+              <span class="warning" id="6"></span>
+            </div>
+            <div class="form-group">
+              <label for="FCP">Concession</label>
+              <select name="seats[FCP]" id="seats-FCP" class="form-control" 
+                onchange="calc(id);check_and_givefeedback();" onblur="pricecalc(id)">
+                <option value="Please select">please</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">7</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+
+              </select><span class="warning" id="2"></span>
+            </div>
+            <div class="form-group">
+              <label for="class">Children</label>
+              <select name="seats[FCC]" id="seats-FCC" class="form-control" 
+                onchange="calc(id);check_and_givefeedback();" onblur="pricecalc(id)">
+                <option value="please">please</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7
+
+                </option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+              <span id="4" class="warning"></span>
+            </div>
+
+          </div>
+
+          <div class="seat">
+            <p class="seat-class">Standard Class</p>
+            <div class="form-group">
+              <label for="STA">Adults</label>
+              <select name="seats[STA]" id="seats-STA" class="form-control" 
+                onchange="check_and_givefeedback();calc(id)" onblur="pricecalc(id)">
+                <option value="please">Please</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+              <span class="warning" id="3"></span>
+            </div>
+            <div class="form-class">
+              <label for="class">concession</label>
+              <select name="seats[STP]" id="seats-STP" class="form-control" 
+                onchange="check_and_givefeedback();calc(id)" onblur="pricecalc(id)">
+                <option value="please">please</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+              <span class="warning" id="1"></span>
+            </div>
+            <div class="form-gr">
+              <label for="">Child</label>
+              <select name="seats[]" id="seats-STC" class="form-control" 
+                onchange="check_and_givefeedback();calc(id)" onblur="pricecalc(id)">
+                <option value="">please</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select> <span class="warning" id="5"></span>
+            </div>
+
+
+          </div>
+          <div class="price_total">
+            <div class="row">
+              <p class="label_form">total $</p>
+              <p class="ticket_price" id="ticket_price"></p>
+            </div>
           </div>
         </div>
-        <div class="row">
-            <div class="col">
-              <div class="seat">
-                <p class="seat-class">First Class</p>
-                <div class="form-group">
-                  <label for="FCA">Adults</label>
-                  <select name="seats[FCA]" id="seats-FCA" class="form-control" onchange="calc(id);" >
-                    <option value="Please">Please</option>
-                    <option value="1">1</option>
-                    <option value="2">1</option>
-                    <option value="3">1</option>
-                    <option value="4">1</option>
-                    <option value="5">1</option>
-                    <option value="6">1</option>
-                    <option value="7">1</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="class">Concession</label>
-                  <select name="sea" id="seats-FCP" class="form-control" onchange="calc(id);" >
-                    <option value="Please select">please</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">7</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="class">Children</label>
-                  <select name="" id="seats-FCC" class="form-control"  onchange="calc(id);">
-                    <option value="please">please</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7
 
-</option><option value="8">8</option>
-                    <option value="9">9</option>
-                      <option value="10">10</option>
-                  </select>
-                </div>
-  
-                </div>
-            
-              <div class="seat">
-                <p class="seat-class">standa</p>
-                <div class="form-group">
-                  <label for="STA">Adults</label>
-                  <select name="seats[STA]" id="seats-STA" class="form-control" onchange="calc(id)" >
-                    <option value="please">Please</option>
-                    <option value="1">1</option>
-                    <option value="">2</option>
-                    <option value="">3</option>
-                    <option value="">4</option>
-                    <option value="">5</option>
-                    <option value="">6</option>
-                    <option value="">7</option>
-                    <option value="">8</option>
-                    <option value="">9</option>
-                    <option value="">10</option>
-                  </select>
-                </div>
-                <div class="form-class">
-                  <label for="class">concession</label>
-                  <select name="" id="seats-STP" class="form-control" onchange="calc(id)" >
-                    <option value="please">please</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                  </select>
-                </div>
-                <div class="">
-                  <label for="">Child</label>
-                  <select name="" id="seats-STC" class="form-control" onchange="calc(id)">
-                    <option value="please">please</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option>
-<option value="8">8</option>  <option value="9">9</option>   <option value="10">10</option>            </select>
-                </div>
-  
-                
-              </div>
-              <div class="calculate">
-              <ul class="price_total">
-                <li>total</li>
-                <li class="ticket_price" id="ticket_price"></li>
-              </ul>
-            </div>
-            </div>
-            
-            <div class="col" style="padding-top: 125px; text-align: center;">
+        <div class="col" style="padding-top: 125px;">
 
-              <div class="form-group">
-                <label for="name">Name</label>
-                <textarea name="" id="" cols="1" rows="1" class="form-control" ></textarea>
-              </div>
-              <div class="form-group">
-                <label for="Email">Email</label>
-                <input type="email" name="Email" id="" class="form-control" > 
-              </div>
-              <div class="form-group">
-                <label for="mo">mo</label>
-                <input type="tel" name="mo" id=""  class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="">credit card</label>
-                <input type="number" name="" id="" class="form-control">
-              </div>
-              <div class="Expiry-date">
- <div class="form-group">
-                <label for="Date-time">Date and Time</label>
-                <input type="datetime-local" name="Date-select" id="Date-time" class="form-control">
-              </div>
-              </div>
-              <div class="form-group">
-                <label for="summit"></label>
-                <input type="submit" name="" id="" class="">
-              </div>
-             
+          <div class="form-group">
+            <label for="name">Name</label>
+            <textarea name="" id="name" cols="1" rows="1" class="form-control"
+              onchange="check_regex_name(id)"></textarea>
+            <span id="feedback-messages_1"></span>
+          </div>
+          <div class="form-group">
+            <label for="Email">Email</label>
+            <input type="email" name="Email" id="email" class="form-control" onchange="check_regex_email(id)">
+            <span id="feedback-messages_2"></span>
+          </div>
+          <div class="form-group">
+            <label for="mobile">mobile</label>
+            <input type="tel" name="mo" id="mobile" class="form-control" onchange="check_regex_mobile(id)">
+            <span id="feedback-messages_3"></span>
+          </div>
+          <div class="form-group">
+            <label for="">credit card</label>
+            <input type="tel" name="" id="credit-card" class="form-control" onchange="check_regex_tel(id)">
+            <span id="feedback-messages_4"></span>
+          </div>
+          <div class="Expiry-date">
+            <div class="form-group">
+              <label for="Date-time">Date and Time</label>
+              <input type="datetime-local" name="Date-select" id="Date-time" class="form-control">
+              <span id="feedback-messages_5"></span>
             </div>
-        
-          
+          </div>
+          <div class="form-group">
+            <label for="summit"></label>
+            <input type="submit" name="" id="" class="">
+          </div>
 
         </div>
-        <div class="submit">
-          <button class="dark">Book</button>
-        </div>
-      
+
+
+
+      </div>
+      <div class="submit">
+        <button class="dark">Book</button>
+      </div>
+
     </div>
   </article>
 
   <script>
-    
-  var topheight_of_element1 = document.getElementById("About-Us").offsetTop;
-  var topheight_of_element2 = document.getElementById("Now-Showing").offsetTop;
-  var topheight_of_element3 = document.getElementById("Price").offsetTop;
-  var topheight_of_element4 = document.getElementById("summary").offsetTop;
+
+    var topheight_of_element1 = document.getElementById("About-Us").offsetTop;
+    var topheight_of_element2 = document.getElementById("Now-Showing").offsetTop;
+    var topheight_of_element3 = document.getElementById("Price").offsetTop;
+    var topheight_of_element4 = document.getElementById("summary").offsetTop;
 
     var height_of_element1 = document.getElementById("About-Us").offsetHeight;
     var height_of_element2 = document.getElementById("Now-Showing").offsetHeight;
@@ -1040,50 +1215,115 @@
     var parse_topheight_of_element1 = parseFloat(topheight_of_element1, 10) - 100;
     var parse_topheight_of_element2 = parseFloat(topheight_of_element2, 10) - 100;
     var parse_topheight_of_element3 = parseFloat(topheight_of_element3, 10) - 100;
-  var distance = window.scrollY;
-  var parse_distance = parseFloat(distance, 10);
+    var distance = window.scrollY;
+    var parse_distance = parseFloat(distance, 10);
 
     console.log(parse_distance);
     console.log(topheight_of_element1);
     console.log(topheight_of_element2);
     console.log();
-    function swth(){
+
+    function swth() {
       var distance = window.scrollY;
-  var parse_distance = parseFloat(distance, 10);
+      var parse_distance = parseFloat(distance, 10);
 
 
-      if (parse_distance > parse_topheight_of_element1 && parse_distance < parse_topheight_of_element2){
-  
-      activate('option1');
-      unactivate('option2');
-      unactivate('option3');
-    }  
-  else if (parse_distance >= parse_topheight_of_element2 && parse_distance < parse_topheight_of_element3){
-    
-      activate('option2');
-      unactivate('option1');
-      unactivate('option3');
-  
-   }
-  else if (parse_distance >= parse_topheight_of_element3 && distance < topheight_of_element4 ){
-   
-      activate('option3');
-      unactivate('option2');
-      unactivate();
-    
-  }
-  else{
-    unactivate('option2');
-    unactivate('option3');
-    unactivate('option1');
-  }
-  
+      if (parse_distance > parse_topheight_of_element1 && parse_distance < parse_topheight_of_element2) {
+
+        about_us = 1;
+        Now_Showing = 0;
+        price = 0;
+        activate('option1');
+        unactivate('option2');
+        unactivate('option3');
+
+      }
+      else if (parse_distance >= parse_topheight_of_element2 && parse_distance < parse_topheight_of_element3) {
+        Now_Showing = 1;
+        price = 0;
+        about_us = 0;
+        activate('option2');
+        unactivate('option1');
+        unactivate('option3');
+
+      }
+      else if (parse_distance >= parse_topheight_of_element3 && distance < topheight_of_element4) {
+        price = 1;
+        about_us = 0;
+        Now_Showing = 0;
+        activate('option3');
+        unactivate('option2');
+        unactivate('option1');
+        count6 = 1;
+
+      }
+      else {
+        count4 = 0;
+        count5 = 0;
+        count6 = 0;
+
+        price = 0;
+        about_us = 0;
+        Now_Showing = 0;
+        unactivate('option2');
+        unactivate('option3');
+        unactivate('option1');
+
+      }
+
     }
 
     var selection = document.getElementById('seats-FCA').value;
 
+    var lastnumber
 
-  
+    function check_required() {
+      var get_trimmed_name_input_value = document.getElementById('name').value.trim();
+      var get_trimmed_Email_input_value = document.getElementById("email").value.trim();
+      var get_trimmed_Mobile_input_value = document.getElementById('mobile').value.trim();
+      var get_trimmed_credit_card_input_value = document.getElementById('credit-card').value.trim();
+      if (get_trimmed_Email_input_value == "") {
+        document.getElementById('feedback-messages_2').innerHTML = "Please fill in this"
+        document.getElementById('feedback-messages_2').style.color = "red"
+        document.getElementById('email').style.borderColor = "red"
+      }
+      
+      if (get_trimmed_name_input_value == "") {
+        document.getElementById('feedback-messages_1').innerHTML = "Please fill in this"
+        document.getElementById('feedback-messages_1').style.color = "red"
+        document.getElementById('name').style.borderColor ="red"
+      }
+     
+      if (get_trimmed_Mobile_input_value == "") {
+        document.getElementById('feedback-messages_3').innerHTML = "Please fill in this"
+        document.getElementById('feedback-messages_3').style.color = "red"
+        document.getElementById('mobile').style.borderColor= "red"
+      }
+      
+      if (get_trimmed_credit_card_input_value == "") {
+        document.getElementById('feedback-messages_4').innerHTML = "Please fill in this"
+        document.getElementById('feedback-messages_4').style.color = ""
+        document.getElementById('credit-card').style.borderColor = "red"
+      }
+      
+    }
+    function is_button_clicked(){
+      if( document.getElementById("time").textContent !="")
+      {
+        document.getElementById("reminder_of_pressed_button").innerHTML = ""
+      }
+      else if(document.getElementById("movie-title").textContent == ""){
+        document.getElementById("reminder_of_pressed_button").innerHTML = "Please select both"
+      }
+
+      else if(document.getElementById("movie-title").textContent != ""){
+        document.getElementById("reminder_of_pressed_button").innerHTML = "Please select "
+      }
+      
+    }
+
+
+
   </script>
 
 
@@ -1098,7 +1338,8 @@
     <div>&copy;
       <script>
         document.write(new Date().getFullYear());
-      </script> NGUYEN TAN SONG HAO,S3817884.NGO VAN DAT, S3817813. ASSIGNMENT TEAM 11 Last modified 16:00 April 17<sup>th</sup> 2020.
+      </script> NGUYEN TAN SONG HAO,S3817884.NGO VAN DAT, S3817813. ASSIGNMENT TEAM 11 Last modified 16:00 April
+      17<sup>th</sup> 2020.
       <?= date ("Y F d  H:i", filemtime($_SERVER['SCRIPT_FILENAME'])); ?>.</div>
     <div>Disclaimer: This website is not a real website and is being developed as part of a School of Science Web
       Programming course at RMIT University in Melbourne, Australia.</div>

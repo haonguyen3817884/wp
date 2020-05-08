@@ -486,53 +486,12 @@ h2{
   #Booking-area{
     padding: 40px;
     background-color: whitesmoke;
-
   }
 
   #Booking-area .title{
     color: #000;
     border-bottom: #000 solid;
-
   }
-
-  div .movie-day_time{
-    display: inline;
-  }
-
-
-  .label_form{
-
-  padding: 5px;    
-  
-  }
-  .ticket_price{
-    border: solid;
-    width: 120px;
-    padding: 5px;
-   
-  }
-
-  .price_total p{
-    text-decoration: none;
-    display: inline;
-    margin-left: 10px;
-    margin-top: 25px;
-  }
-  .warning {
-    text-align: right;
-  }
-  .seat-class{
-    font-size: large;
-    text-align: left;
-    border-bottom: solid ;
-    margin-bottom: 40px;
-    width: 150px;
-  }
-  div .form-control{
-    width: 90%;
-  
-  }
-
 
   /* Footer area */
 
@@ -541,6 +500,4 @@ h2{
     color: #e5e5e5;
     padding: 40px ;
   }
-
-  
 
