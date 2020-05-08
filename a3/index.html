@@ -225,14 +225,14 @@
       if (regex.test(the_needed_tested_test)) {
         var get_element = document.getElementById(idem);
         get_element.style.borderColor = "green";
-        document.getElementById('feedback-messages_3').innerHTML ="correct"
-        document.getElementById('feedback-messages_3').style.color ="green"
+        document.getElementById('feedback-messages_3').innerHTML = "correct"
+        document.getElementById('feedback-messages_3').style.color = "green"
       }
       else if (!regex.test(the_needed_tested_test)) {
         var get_element = document.getElementById(idem);
         get_element.style.borderColor = "yellow";
         document.getElementById('feedback-messages_3').innerHTML = "invalid"
-        document.getElementById('feedback-messages_3').style.color ='yellow'
+        document.getElementById('feedback-messages_3').style.color = 'yellow'
       }
     }
 
@@ -249,8 +249,8 @@
       else if (!check.test(the_needed_tested_test)) {
         var get_element = document.getElementById(idem);
         get_element.style.borderColor = "red";
-        document.getElementById('feedback-messages_2').innerHTML ="invalid"
-        document.getElementById('feedback-messages_2').style.color="red"
+        document.getElementById('feedback-messages_2').innerHTML = "invalid"
+        document.getElementById('feedback-messages_2').style.color = "red"
       }
     }
 
@@ -260,15 +260,15 @@
       if (check.test(the_needed_tested_test)) {
         var get_element = document.getElementById(idem);
         get_element.style.borderColor = "green";
-        document.getElementById('feedback-messages_4').innerHTML ="correct"
+        document.getElementById('feedback-messages_4').innerHTML = "correct"
         document.getElementById('feedback-messages_4').style.color = "green"
 
       }
       else if (!check.test(the_needed_tested_test)) {
         var get_element = document.getElementById(idem);
         get_element.style.borderColor = "red";
-        document.getElementById('feedback-messages_4').innerHTML ="invalid"
-        document.getElementById('feedback-messages_4').style.color="red"
+        document.getElementById('feedback-messages_4').innerHTML = "invalid"
+        document.getElementById('feedback-messages_4').style.color = "red"
       }
 
 
@@ -285,13 +285,13 @@
       else if (!check.test(the_needed_tested_test)) {
         document.getElementById(idem).style.borderColor = "red";
         document.getElementById('feedback-messages_1').innerHTML = "invalid"
-        document.getElementById('feedback-messages_1').style.color ="red"
+        document.getElementById('feedback-messages_1').style.color = "red"
       }
     }
 
     function convert_to_2_decimal(idem) {
       var str_need_converted = idem.toString();
-      for (letter in str_need_converted){
+      for (letter in str_need_converted) {
 
       }
     }
@@ -301,7 +301,7 @@
 
 </head>
 
-<body onscroll="swth()" onmouseover="total_check();check_and_givefeedback()">
+<body onload="hide(); toggle();" onscroll="swth()" onmouseover="total_check();check_and_givefeedback();">
 
 
   <!--Header-->
@@ -658,7 +658,7 @@
                     </div>
                   </div>
                 </div>
-                <a href="#Dumbo" class="buttons">Movie Detail</a>
+                <a href="#Dumbo" id="button1" class="buttons">Movie Detail</a>
               </div>
 
             </div>
@@ -685,7 +685,7 @@
                     </div>
                   </div>
                 </div>
-                <a href="#The-Happy-Prince" class="buttons">Movie Detail</a>
+                <a href="#The-Happy-Prince" id="button2" class="buttons">Movie Detail</a>
               </div>
             </div>
           </div>
@@ -717,7 +717,7 @@
                     </div>
                   </div>
                 </div>
-                <a href="#Top-End-Wedding" class="buttons">Movie Detail</a>
+                <a href="#Top-End-Wedding" id="button3" class="buttons">Movie Detail</a>
               </div>
             </div>
 
@@ -742,7 +742,7 @@
                     </div>
                   </div>
                 </div>
-                <a href="#Avengers" class="buttons">Movie Detail</a>
+                <a href="#Avengers" id="button4" class="buttons">Movie Detail</a>
               </div>
             </div>
           </div>
@@ -829,7 +829,7 @@
         <h1>SYNOPSIS</h1>
       </div>
       <!--The-Happy-Prince-->
-      <div class="panel" id="The-Happy-Prince">
+      <div class="panel toggle" id="The-Happy-Prince">
         <div class="row">
           <div class="col">
             <div class="movie-title">
@@ -863,7 +863,8 @@
             <div class="the-links">
               <a href="#Booking-area" class="booking-links" id="THE_HAPPY_PRINCE-WED-T24"
                 onclick="select_movie(id);">WED T24</a>
-              <a href="#Booking-area" class="booking-links" id="THE_HAPPY_PRINCE-THU-T24" onclick="select_movie(id)">THU T24</a>
+              <a href="#Booking-area" class="booking-links" id="THE_HAPPY_PRINCE-THU-T24" onclick="select_movie(id)">THU
+                T24</a>
               <a href="#Booking-area" class="booking-links" id="THE_HAPPY_PRINCE-FRI-T24">FRI T24</a>
               <a href="#Booking-area" class="booking-links" id="THE_HAPPY_PRINCE-SAT-T21">SAT T21</a>
               <a href="#Booking-area" class="booking-links" id="THE_HAPPY_PRINCE-SUN-T21">SUN T21</a>
@@ -872,7 +873,7 @@
         </div>
       </div>
       <!--Top-Edn-Wedding-->
-      <div class="panel" id="Top-End-Wedding">
+      <div class="panel toggle" id="Top-End-Wedding">
         <div class="row">
           <div class="col">
             <div class="movie-title">
@@ -913,7 +914,7 @@
         </div>
       </div>
       <!--Dumbo-->
-      <div class="panel" id="Dumbo">
+      <div class="panel toggle" id="Dumbo">
         <div class="row">
           <div class="col">
             <div class="movie-title">
@@ -957,7 +958,7 @@
         </div>
       </div>
       <!--Avengers-->
-      <div class="panel" id="Avengers">
+      <div class="panel toggle" id="Avengers">
         <div class="row">
           <div class="col">
             <div class="movie-title">
@@ -1021,13 +1022,13 @@
 
         </div>
       </div>
-      <div class="row"  style="text-align: left;">
-        <div class="col" >
+      <div class="row" style="text-align: left;">
+        <div class="col">
           <div class="seat">
             <p class="seat-class">First Class</p>
             <div class="form-group">
               <label for="FCA">Adults</label>
-              <select name="seats[FCA]" id="seats-FCA" class="form-control" 
+              <select name="seats[FCA]" id="seats-FCA" class="form-control"
                 onchange="check_and_givefeedback();calc(id);" onfocus="pricecalc(id)">
                 <option value="Please">Please</option>
                 <option value="1">1</option>
@@ -1046,7 +1047,7 @@
             </div>
             <div class="form-group">
               <label for="FCP">Concession</label>
-              <select name="seats[FCP]" id="seats-FCP" class="form-control" 
+              <select name="seats[FCP]" id="seats-FCP" class="form-control"
                 onchange="calc(id);check_and_givefeedback();" onblur="pricecalc(id)">
                 <option value="Please select">please</option>
                 <option value="1">1</option>
@@ -1064,7 +1065,7 @@
             </div>
             <div class="form-group">
               <label for="class">Children</label>
-              <select name="seats[FCC]" id="seats-FCC" class="form-control" 
+              <select name="seats[FCC]" id="seats-FCC" class="form-control"
                 onchange="calc(id);check_and_givefeedback();" onblur="pricecalc(id)">
                 <option value="please">please</option>
                 <option value="1">1</option>
@@ -1089,8 +1090,8 @@
             <p class="seat-class">Standard Class</p>
             <div class="form-group">
               <label for="STA">Adults</label>
-              <select name="seats[STA]" id="seats-STA" class="form-control" 
-                onchange="check_and_givefeedback();calc(id)" onblur="pricecalc(id)">
+              <select name="seats[STA]" id="seats-STA" class="form-control" onchange="check_and_givefeedback();calc(id)"
+                onblur="pricecalc(id)">
                 <option value="please">Please</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -1107,8 +1108,8 @@
             </div>
             <div class="form-class">
               <label for="class">concession</label>
-              <select name="seats[STP]" id="seats-STP" class="form-control" 
-                onchange="check_and_givefeedback();calc(id)" onblur="pricecalc(id)">
+              <select name="seats[STP]" id="seats-STP" class="form-control" onchange="check_and_givefeedback();calc(id)"
+                onblur="pricecalc(id)">
                 <option value="please">please</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -1128,8 +1129,8 @@
             </div>
             <div class="form-gr">
               <label for="">Child</label>
-              <select name="seats[]" id="seats-STC" class="form-control" 
-                onchange="check_and_givefeedback();calc(id)" onblur="pricecalc(id)">
+              <select name="seats[]" id="seats-STC" class="form-control" onchange="check_and_givefeedback();calc(id)"
+                onblur="pricecalc(id)">
                 <option value="">please</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -1180,7 +1181,7 @@
           <div class="Expiry-date">
             <div class="form-group">
               <label for="Date-time">Date and Time</label>
-              <input type="datetime-local" name="Date-select" id="Date-time" class="form-control">
+              <input type="month" name="Date-select" id="Date-time" class="form-control" onfocus="validateCreditCard();">
               <span id="feedback-messages_5"></span>
             </div>
           </div>
@@ -1202,6 +1203,68 @@
   </article>
 
   <script>
+    document.getElementById("Date-time").style.borderColor = "blue";
+    function validateCreditCard() {
+      var expiryDate = document.getElementById("Date-time").value;
+      var expiryYear = parseInt(expiryDate.split("-")[0]);
+      var expiryMonth = parseInt(expiryDate.split("-")[1]);
+      console.log(expiryYear);
+      console.log(expiryMonth);
+      var today = new Date();
+      var date = today.getFullYear() + '-' + (today.getMonth() + 1)
+      var currentYear = parseInt(date.split("-")[0]);
+      var currentMonth = parseInt(date.split("-")[1]);
+      console.log(expiryYear);
+      console.log(expiryMonth);
+      console.log(expiryYear >= currentYear && expiryMonth >= currentMonth);
+      if (expiryYear >= currentYear && expiryMonth >= currentMonth) {
+        document.getElementById("Date-time").style.borderColor="green"
+      } else {
+        document.getElementById("Date-time").style.borderColor="red"
+      }
+    }
+    function hide() {
+      var x, i;
+      x = document.querySelectorAll(".toggle");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+      console.log(x);
+    }
+    var x = document.querySelectorAll(".toggle");
+    console.log(x);
+    var more_detail1 = document.getElementById('button1');
+    var more_detail2 = document.getElementById('button2');
+    var more_detail3 = document.getElementById('button3');
+    var more_detail4 = document.getElementById('button4');
+    console.log(more_detail1)
+    console.log(more_detail2)
+    console.log(more_detail3)
+    console.log(more_detail4)
+    button1.onclick = function () {
+      x[0].style.display = "none";
+      x[1].style.display = "none";
+      x[2].style.display = "block";
+      x[3].style.display = "none";
+    }
+    button2.onclick = function () {
+      x[0].style.display = "block";
+      x[1].style.display = "none";
+      x[2].style.display = "none";
+      x[3].style.display = "none";
+    }
+    button3.onclick = function () {
+      x[0].style.display = "none";
+      x[1].style.display = "block";
+      x[2].style.display = "none";
+      x[3].style.display = "none";
+    }
+    button4.onclick = function () {
+      x[0].style.display = "none";
+      x[1].style.display = "none";
+      x[2].style.display = "none";
+      x[3].style.display = "block";
+    }
 
     var topheight_of_element1 = document.getElementById("About-Us").offsetTop;
     var topheight_of_element2 = document.getElementById("Now-Showing").offsetTop;
@@ -1287,39 +1350,38 @@
         document.getElementById('feedback-messages_2').style.color = "red"
         document.getElementById('email').style.borderColor = "red"
       }
-      
+
       if (get_trimmed_name_input_value == "") {
         document.getElementById('feedback-messages_1').innerHTML = "Please fill in this"
         document.getElementById('feedback-messages_1').style.color = "red"
-        document.getElementById('name').style.borderColor ="red"
+        document.getElementById('name').style.borderColor = "red"
       }
-     
+
       if (get_trimmed_Mobile_input_value == "") {
         document.getElementById('feedback-messages_3').innerHTML = "Please fill in this"
         document.getElementById('feedback-messages_3').style.color = "red"
-        document.getElementById('mobile').style.borderColor= "red"
+        document.getElementById('mobile').style.borderColor = "red"
       }
-      
+
       if (get_trimmed_credit_card_input_value == "") {
         document.getElementById('feedback-messages_4').innerHTML = "Please fill in this"
         document.getElementById('feedback-messages_4').style.color = ""
         document.getElementById('credit-card').style.borderColor = "red"
       }
-      
+
     }
-    function is_button_clicked(){
-      if( document.getElementById("time").textContent !="")
-      {
+    function is_button_clicked() {
+      if (document.getElementById("time").textContent != "") {
         document.getElementById("reminder_of_pressed_button").innerHTML = ""
       }
-      else if(document.getElementById("movie-title").textContent == ""){
+      else if (document.getElementById("movie-title").textContent == "") {
         document.getElementById("reminder_of_pressed_button").innerHTML = "Please select both"
       }
 
-      else if(document.getElementById("movie-title").textContent != ""){
+      else if (document.getElementById("movie-title").textContent != "") {
         document.getElementById("reminder_of_pressed_button").innerHTML = "Please select "
       }
-      
+
     }
 
 
