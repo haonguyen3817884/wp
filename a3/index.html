@@ -202,7 +202,7 @@
         while (while_conditional_number <= 6) {
           string_conversion_from_numbericvalue = new String(while_conditional_number);
           var trim_space_of_string = string_conversion_from_numbericvalue.trim();
-          document.getElementById(trim_space_of_string).innerHTML = " Please select one at least "
+          document.getElementById(trim_space_of_string).innerHTML = "</br> Please select one at least"
           document.getElementById(trim_space_of_string).style.color = "red"
           while_conditional_number += 1;
         }
@@ -1011,25 +1011,20 @@
       <div class="title">
         <h1>BOOKING</h1>
       </div>
-
-
-      <div class="row">
+      </div>
+      <div class="row" style="text-align: left;">
+        <div class="col-2"></div>
         <div class="col">
           <p class="movie-day_time" id="movie-title"></p>
           <p class="movie-day_time" id="day"></p>
           <p class="movie-day_time" id="time"></p>
           <p id="reminder_of_pressed_button"></p>
-
-        </div>
-      </div>
-      <div class="row" style="text-align: left;">
-        <div class="col">
-          <div class="seat">
+          <div class="seat" style="border: black solid">
             <p class="seat-class">First Class</p>
-            <div class="form-group">
-              <label for="FCA">Adults</label>
-              <select name="seats[FCA]" id="seats-FCA" class="form-control"
-                onchange="check_and_givefeedback();calc(id);" onfocus="pricecalc(id)">
+            <div class="form-group" style="text-align: right; padding-right: 30px;">
+              <label for="FCA" style="display: inline-block; text-align: right;">Adults</label>
+              <select name="seats[FCA]" id="seats-FCA" class="form-control" style="display: inline-block; width: 200px; height: 30px;"
+                onchange= "check_and_givefeedback();calc(id);" onfocus="pricecalc(id)">
                 <option value="Please">Please</option>
                 <option value="1">1</option>
                 <option value="2">1</option>
@@ -1045,9 +1040,9 @@
               </select>
               <span class="warning" id="6"></span>
             </div>
-            <div class="form-group">
-              <label for="FCP">Concession</label>
-              <select name="seats[FCP]" id="seats-FCP" class="form-control"
+            <div class="form-group" style="text-align: right; padding-right: 30px;">
+              <label for="FCP" style="display: inline-block;">Concession</label>
+              <select name="seats[FCP]" id="seats-FCP" class="form-control"  style="display: inline-block; width: 200px; height: 30px;"
                 onchange="calc(id);check_and_givefeedback();" onblur="pricecalc(id)">
                 <option value="Please select">please</option>
                 <option value="1">1</option>
@@ -1063,9 +1058,9 @@
 
               </select><span class="warning" id="2"></span>
             </div>
-            <div class="form-group">
-              <label for="class">Children</label>
-              <select name="seats[FCC]" id="seats-FCC" class="form-control"
+            <div class="form-group" style="text-align: right; padding-right: 30px;">
+              <label for="class" style="display: inline-block;">Children</label>
+              <select name="seats[FCC]" id="seats-FCC" class="form-control"  style="display: inline-block; width: 200px; height: 30px;"
                 onchange="calc(id);check_and_givefeedback();" onblur="pricecalc(id)">
                 <option value="please">please</option>
                 <option value="1">1</option>
@@ -1085,12 +1080,13 @@
             </div>
 
           </div>
-
-          <div class="seat">
+        </br>
+        </br>
+          <div class="seat" style="border: black solid;">
             <p class="seat-class">Standard Class</p>
-            <div class="form-group">
-              <label for="STA">Adults</label>
-              <select name="seats[STA]" id="seats-STA" class="form-control" onchange="check_and_givefeedback();calc(id)"
+            <div class="form-group" style="text-align: right; padding-right: 30px;">
+              <label for="STA" style="display: inline-block;">Adults</label>
+              <select name="seats[STA]" id="seats-STA" class="form-control" onchange="check_and_givefeedback();calc(id)"  style="display: inline-block; width: 200px; height: 30px; "
                 onblur="pricecalc(id)">
                 <option value="please">Please</option>
                 <option value="1">1</option>
@@ -1106,9 +1102,9 @@
               </select>
               <span class="warning" id="3"></span>
             </div>
-            <div class="form-class">
-              <label for="class">concession</label>
-              <select name="seats[STP]" id="seats-STP" class="form-control" onchange="check_and_givefeedback();calc(id)"
+            <div class="form-class" style="text-align: right; padding-right: 30px;">
+              <label for="class" style="display: inline-block;">concession</label>
+              <select name="seats[STP]" id="seats-STP" class="form-control" onchange="check_and_givefeedback();calc(id)"  style="display: inline-block; width: 200px; height: 30px; "
                 onblur="pricecalc(id)">
                 <option value="please">please</option>
                 <option value="1">1</option>
@@ -1127,9 +1123,9 @@
               </select>
               <span class="warning" id="1"></span>
             </div>
-            <div class="form-gr">
-              <label for="">Child</label>
-              <select name="seats[]" id="seats-STC" class="form-control" onchange="check_and_givefeedback();calc(id)"
+            <div class="form-gr" style="text-align: right; padding-right: 30px;">
+              <label for="" style="display: inline-block;">Child</label>
+              <select name="seats[]" id="seats-STC" class="form-control" onchange="check_and_givefeedback();calc(id)"  style="display: inline-block; width: 200px; height: 30px;"
                 onblur="pricecalc(id)">
                 <option value="">please</option>
                 <option value="1">1</option>
@@ -1155,50 +1151,44 @@
           </div>
         </div>
 
-        <div class="col" style="padding-top: 125px;">
+        <div class="col" style="padding-top: 125px; text-align: right;">
 
           <div class="form-group">
-            <label for="name">Name</label>
-            <textarea name="" id="name" cols="1" rows="1" class="form-control"
+            <label for="name" style="display: inline-block;">Name</label>
+            <textarea name="" id="name" cols="1" rows="1" class="form-control" style="display: inline-block; width: 200px; height: 30px;"
               onchange="check_regex_name(id)"></textarea>
             <span id="feedback-messages_1"></span>
           </div>
           <div class="form-group">
-            <label for="Email">Email</label>
-            <input type="email" name="Email" id="email" class="form-control" onchange="check_regex_email(id)">
+            <label for="Email" style="display: inline-block;">Email</label>
+            <input type="email" name="Email" id="email" class="form-control" onchange="check_regex_email(id)" style="display: inline-block; width: 200px; height: 30px;">
             <span id="feedback-messages_2"></span>
           </div>
           <div class="form-group">
-            <label for="mobile">mobile</label>
-            <input type="tel" name="mo" id="mobile" class="form-control" onchange="check_regex_mobile(id)">
+            <label for="mobile" style="display: inline-block;">mobile</label>
+            <input type="tel" name="mo" id="mobile" class="form-control" onchange="check_regex_mobile(id)" style="display: inline-block; width: 200px; height: 30px;">
             <span id="feedback-messages_3"></span>
           </div>
           <div class="form-group">
-            <label for="">credit card</label>
-            <input type="tel" name="" id="credit-card" class="form-control" onchange="check_regex_tel(id)">
+            <label for="" style="display: inline-block;">credit card</label>
+            <input type="tel" name="" id="credit-card" class="form-control" onchange="check_regex_tel(id)" style="display: inline-block; width: 200px; height: 30px;">
             <span id="feedback-messages_4"></span>
           </div>
           <div class="Expiry-date">
             <div class="form-group">
-              <label for="Date-time">Date and Time</label>
-              <input type="month" name="Date-select" id="Date-time" class="form-control" onfocus="validateCreditCard();">
+              <label for="Date-time" style="display: inline-block;">Date and Time</label>
+              <input type="month" name="Date-select" id="Date-time" class="form-control" style="display: inline-block; width: 200px; height: 30px;"
+                onfocus="validateCreditCard();">
               <span id="feedback-messages_5"></span>
             </div>
           </div>
-          <div class="form-group">
-            <label for="summit"></label>
-            <input type="submit" name="" id="" class="">
-          </div>
-
+          <div class="submit">
+            <button class="dark">Book</button>
+          </div>    
+        
         </div>
-
-
-
+        <div class="col-2"></div>
       </div>
-      <div class="submit">
-        <button class="dark">Book</button>
-      </div>
-
     </div>
   </article>
 
@@ -1218,9 +1208,9 @@
       console.log(expiryMonth);
       console.log(expiryYear >= currentYear && expiryMonth >= currentMonth);
       if (expiryYear >= currentYear && expiryMonth >= currentMonth) {
-        document.getElementById("Date-time").style.borderColor="green"
+        document.getElementById("Date-time").style.borderColor = "green"
       } else {
-        document.getElementById("Date-time").style.borderColor="red"
+        document.getElementById("Date-time").style.borderColor = "red"
       }
     }
     function hide() {
@@ -1346,25 +1336,25 @@
       var get_trimmed_Mobile_input_value = document.getElementById('mobile').value.trim();
       var get_trimmed_credit_card_input_value = document.getElementById('credit-card').value.trim();
       if (get_trimmed_Email_input_value == "") {
-        document.getElementById('feedback-messages_2').innerHTML = "Please fill in this"
+        document.getElementById('feedback-messages_2').innerHTML = "</br>Please fill in this"
         document.getElementById('feedback-messages_2').style.color = "red"
         document.getElementById('email').style.borderColor = "red"
       }
 
       if (get_trimmed_name_input_value == "") {
-        document.getElementById('feedback-messages_1').innerHTML = "Please fill in this"
+        document.getElementById('feedback-messages_1').innerHTML = "</br>Please fill in this"
         document.getElementById('feedback-messages_1').style.color = "red"
         document.getElementById('name').style.borderColor = "red"
       }
 
       if (get_trimmed_Mobile_input_value == "") {
-        document.getElementById('feedback-messages_3').innerHTML = "Please fill in this"
+        document.getElementById('feedback-messages_3').innerHTML = "</br>Please fill in this"
         document.getElementById('feedback-messages_3').style.color = "red"
         document.getElementById('mobile').style.borderColor = "red"
       }
 
       if (get_trimmed_credit_card_input_value == "") {
-        document.getElementById('feedback-messages_4').innerHTML = "Please fill in this"
+        document.getElementById('feedback-messages_4').innerHTML = "</br>Please fill in this"
         document.getElementById('feedback-messages_4').style.color = ""
         document.getElementById('credit-card').style.borderColor = "red"
       }
