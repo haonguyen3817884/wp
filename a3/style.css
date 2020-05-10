@@ -486,7 +486,6 @@ h2{
   #Booking-area{
     padding: 40px;
     background-color: whitesmoke;
-    border: black solid;
 
   }
 
@@ -530,8 +529,15 @@ h2{
     width: 150px;
   }
   div .form-control{
-    width: 90%;
+    width: 100%;
   
+  }
+
+  .warning-messages {
+    text-align: right;
+  }
+  .form-group .col{
+    text-align: right;
   }
 
 

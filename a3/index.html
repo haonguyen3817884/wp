@@ -134,12 +134,28 @@
       }
     }
 
+    var array_seat_codes = ['FCA','STA','STC','STP','FCP','FCC'];
+
+
     function select_movie(idem) {
+      var memorize_id_button = idem;
+      var array_button_id = memorize_id_button.split('-');
+      document.getElementById('movie-title').innerHTML = array_button_id[0];
       var array_string_memorize = document.getElementById(idem).textContent.split(" ");
       var day_up = document.getElementById('day');
       var time = document.getElementById('time');
       time.innerHTML = array_string_memorize[1];
       day_up.innerHTML = array_string_memorize[0];
+
+      document.getElementById('seats-STA').selectedIndex = 0;
+      document.getElementById('seats-STC').selectedIndex = 0;
+      document.getElementById('seats-STP').selectedIndex = 0;
+      document.getElementById('seats-FCA').selectedIndex = 0;
+      document.getElementById('seats-FCC').selectedIndex = 0;
+      document.getElementById('seats-FCP').selectedIndex = 0;
+
+      total_price = 0;
+      storing_the_number_seats ={};
 
     }
     var while_conditional_number = 0;
@@ -156,7 +172,9 @@
       var value_of_the_seat_number_conversion = parseInt(value_of_the_seat);
       var string_memorizee = idem;
       var list = string_memorizee.split("-");
-      if (is_any_seat_selected == "0") {
+
+      if(is_movie_selected == 'yes'){
+        if (is_any_seat_selected == "0") {
         storing_the_number_seats[list[1]] = 0;
       }
       else {
@@ -191,6 +209,11 @@
       document.getElementById('ticket_price').innerHTML = total_price;
       total_price = 0;
 
+      }
+      else {
+        total_price = 0;
+      }
+      
 
     }
     var string_conversion_from_numbericvalue = "";
@@ -202,7 +225,7 @@
         while (while_conditional_number <= 6) {
           string_conversion_from_numbericvalue = new String(while_conditional_number);
           var trim_space_of_string = string_conversion_from_numbericvalue.trim();
-          document.getElementById(trim_space_of_string).innerHTML = "</br> Please select one at least"
+          document.getElementById(trim_space_of_string).innerHTML = "Please select one at least"
           document.getElementById(trim_space_of_string).style.color = "red"
           while_conditional_number += 1;
         }
@@ -295,13 +318,51 @@
 
       }
     }
+    function lock_input(idem){
+      if(is_movie_selected == "no"){
+        document.getElementById(idem).selectedIndex = 0;
+        total_price = 0;
+        storing_the_number_seats={};
+      }
+    }
+
+    var array_seat_codes = ['FCA','STA','STC','STP','FCP','FCC'];
+    function initial_state(){
+      document.getElementById('seats-STA').selectedIndex = 0;
+      document.getElementById('seats-STC').selectedIndex = 0;
+      document.getElementById('seats-STP').selectedIndex = 0;
+      document.getElementById('seats-FCA').selectedIndex = 0;
+      document.getElementById('seats-FCC').selectedIndex = 0;
+      document.getElementById('seats-FCP').selectedIndex = 0;
+
+
+      total_price = 0;
+      storing_the_number_seats ={};
+
+    }
+    function update_movieID(idem){
+      document.getElementById('movie-title').innerHTML =""
+      document.getElementById('day').innerHTML = "";
+      document.getElementById('time').innerHTML = "";
+      document.getElementById('seats-STA').selectedIndex = 0;
+      document.getElementById('seats-STC').selectedIndex = 0;
+      document.getElementById('seats-STP').selectedIndex = 0;
+      document.getElementById('seats-FCA').selectedIndex = 0;
+      document.getElementById('seats-FCC').selectedIndex = 0;
+      document.getElementById('seats-FCP').selectedIndex = 0;
+
+      total_price = 0;
+      storing_the_number_seats ={};
+
+    }
+
 
 
   </script>
 
 </head>
 
-<body onload="hide(); toggle();" onscroll="swth()" onmouseover="total_check();check_and_givefeedback();">
+<body onscroll="swth()" onmouseover="total_check();check_and_givefeedback();">
 
 
   <!--Header-->
@@ -638,7 +699,7 @@
           <div class="row">
             <!--first column-->
             <div class="col" style="text-align: center;">
-              <div class="movies-poster-cards">
+              <div class="movies-poster-cards" id="moviePanelAMN">
                 <div class="card" style=" padding: 20px; border: solid;">
                   <div class="row no-gutters">
                     <div class="col">
@@ -646,7 +707,7 @@
                     </div>
                     <div class="col">
                       <div class="card-body">
-                        <h1 class="card-title">Dumbo</h1>
+                        <h1 class="card-title" id="AMN-title">Dumbo</h1>
                         <div class="card-text">
                           <p><strong>Time</strong>:</p>
                           <p class="card-text">Monday - Tuesday: 12:00 PM</p>
@@ -658,14 +719,14 @@
                     </div>
                   </div>
                 </div>
-                <a href="#Dumbo" id="button1" class="buttons">Movie Detail</a>
+                <a href="#Dumbo" id="AMN-button" class="buttons" onclick="update_movieID(id)">Movie Detail</a>
               </div>
 
             </div>
 
             <!--second column-->
             <div class="col" style="text-align: center;">
-              <div class="movies-poster-cards">
+              <div class="movies-poster-cards" id="moviePanelAHF">
                 <div class="card" style=" padding: 20px; border: solid;">
                   <div class="row no-gutters">
                     <div class="col">
@@ -674,7 +735,7 @@
                     </div>
                     <div class="col">
                       <div class="card-body">
-                        <h1 class="card-title">The Happy Prince</h1>
+                        <h1 class="card-title" id="AHF-title">The Happy Prince</h1>
                         <div class="card-text">
                           <p><strong>Time</strong>:</p>
                           <p class="card-text">Wednesday - Friday: 12:00 PM</p>
@@ -685,7 +746,7 @@
                     </div>
                   </div>
                 </div>
-                <a href="#The-Happy-Prince" id="button2" class="buttons">Movie Detail</a>
+                <a href="#The-Happy-Prince" id="AHF-button" class="buttons" onclick="update_movieID(id)">Movie Detail</a>
               </div>
             </div>
           </div>
@@ -696,7 +757,7 @@
           <div class="row">
             <!--first column-->
             <div class="col" style="text-align: center;">
-              <div class="movies-poster-cards">
+              <div class="movies-poster-cards" id="moviePanelRMC">
                 <div class="card" style=" padding: 20px; border: solid;">
                   <div class="row no-gutters">
                     <div class="col">
@@ -705,7 +766,7 @@
                     </div>
                     <div class="col">
                       <div class="card-body">
-                        <h1 class="card-title">Top-End-Wedding</h1>
+                        <h1 class="card-title" id="RMC-title">Top-End-Wedding</h1>
                         <div class="card-text">
                           <p><strong>Time</strong>:</p>
                           <p class="card-text">Monday - Tuesday: 6:00 PM</p>
@@ -717,13 +778,13 @@
                     </div>
                   </div>
                 </div>
-                <a href="#Top-End-Wedding" id="button3" class="buttons">Movie Detail</a>
+                <a href="#Top-End-Wedding" id="RMC-button" class="buttons" onclick="update_movieID(id)">Movie Detail</a>
               </div>
             </div>
 
             <!--second column-->
             <div class="col" style="text-align: center;">
-              <div class="movies-poster-cards">
+              <div class="movies-poster-cards" id="moviePanelACT">
                 <div class="card" style=" padding: 20px; border: solid;">
                   <div class="row no-gutters">
                     <div class="col">
@@ -731,7 +792,7 @@
                     </div>
                     <div class="col">
                       <div class="card-body">
-                        <h1 class="card-title">Avengers: Endgame</h1>
+                        <h1 class="card-title" id="ACT-title">Avengers: Endgame</h1>
                         <div class="card-text">
                           <p><strong>Time</strong>:</p>
                           <p class="card-text">Wednesday - Friday: 9:00 PM</p>
@@ -742,7 +803,7 @@
                     </div>
                   </div>
                 </div>
-                <a href="#Avengers" id="button4" class="buttons">Movie Detail</a>
+                <a href="#Avengers" id="ACT-button" class="buttons" onclick="update_movieID(id)">Movie Detail</a>
               </div>
             </div>
           </div>
@@ -829,7 +890,7 @@
         <h1>SYNOPSIS</h1>
       </div>
       <!--The-Happy-Prince-->
-      <div class="panel toggle" id="The-Happy-Prince">
+      <div class="panel" id="The-Happy-Prince">
         <div class="row">
           <div class="col">
             <div class="movie-title">
@@ -861,19 +922,18 @@
           </div>
           <div class="col">
             <div class="the-links">
-              <a href="#Booking-area" class="booking-links" id="THE_HAPPY_PRINCE-WED-T24"
+              <a href="#Booking-area" class="booking-links" id="AHF-button1"
                 onclick="select_movie(id);">WED T24</a>
-              <a href="#Booking-area" class="booking-links" id="THE_HAPPY_PRINCE-THU-T24" onclick="select_movie(id)">THU
-                T24</a>
-              <a href="#Booking-area" class="booking-links" id="THE_HAPPY_PRINCE-FRI-T24">FRI T24</a>
-              <a href="#Booking-area" class="booking-links" id="THE_HAPPY_PRINCE-SAT-T21">SAT T21</a>
-              <a href="#Booking-area" class="booking-links" id="THE_HAPPY_PRINCE-SUN-T21">SUN T21</a>
+              <a href="#Booking-area" class="booking-links" id="AHF-button2" onclick="select_movie(id)">THU T24</a>
+              <a href="#Booking-area" class="booking-links" id="AHF-button3" onclick="select_movie(id)">FRI T24</a>
+              <a href="#Booking-area" class="booking-links" id="AHF-button4" onclick="select_movie(id)">SAT T21</a>
+              <a href="#Booking-area" class="booking-links" id="AHF-button5" onclick="select_movie(id)">SUN T21</a>
             </div>
           </div>
         </div>
       </div>
       <!--Top-Edn-Wedding-->
-      <div class="panel toggle" id="Top-End-Wedding">
+      <div class="panel" id="Top-End-Wedding">
         <div class="row">
           <div class="col">
             <div class="movie-title">
@@ -905,16 +965,16 @@
           </div>
           <div class="col">
             <div class="the-links">
-              <a href="#Booking-area" class="booking-links" id="The_Top_Wedding-Mon-T21">MON T21</a>
-              <a href="#Booking-area" class="booking-links" id="The_Top_Wedding-Tue-T21">TUE T21</a>
-              <a href="#Booking-area" class="booking-links" id="The_Top_Wedding-Sat-T15">SAT T15</a>
-              <a href="#Booking-area" class="booking-links" id="The_Top_Wedding-Sun-T15">SUN T15</a>
+              <a href="#Booking-area" class="booking-links" id="RMC-button1">MON T21</a>
+              <a href="#Booking-area" class="booking-links" id="RMC-button2">TUE T21</a>
+              <a href="#Booking-area" class="booking-links" id="RMC-button3">SAT T15</a>
+              <a href="#Booking-area" class="booking-links" id="RMC-button4">SUN T15</a>
             </div>
           </div>
         </div>
       </div>
       <!--Dumbo-->
-      <div class="panel toggle" id="Dumbo">
+      <div class="panel" id="Dumbo">
         <div class="row">
           <div class="col">
             <div class="movie-title">
@@ -946,19 +1006,19 @@
           </div>
           <div class="col">
             <div class="the-links">
-              <a href="#Booking-area" class="booking-links" id="Dumbo-Mon-T24">MON T24</a>
-              <a href="#Booking-area" class="booking-links" id="Dumbo-Tue-T24">TUE T24</a>
-              <a href="#Booking-area" class="booking-links" id="Dumbo-Wed-T21">WED T21</a>
-              <a href="#Booking-area" class="booking-links" id="Dumbo-Thu-T21">THU T21</a>
-              <a href="#Booking-area" class="booking-links" id="Dumbo-Fri-T21">FRI T21</a>
-              <a href="#Booking-area" class="booking-links" id="Dumbo-Sat-T24">SAT T24</a>
-              <a href="#Booking-area" class="booking-links" id="Dumbo-Sun-T24">SUN T24</a>
+              <a href="#Booking-area" class="booking-links" id="AMN-button1">MON T24</a>
+              <a href="#Booking-area" class="booking-links" id="AMN-button2">TUE T24</a>
+              <a href="#Booking-area" class="booking-links" id="AMN-button3">WED T21</a>
+              <a href="#Booking-area" class="booking-links" id="AMN-button4">THU T21</a>
+              <a href="#Booking-area" class="booking-links" id="AMN-button5">FRI T21</a>
+              <a href="#Booking-area" class="booking-links" id="AMN-button6">SAT T24</a>
+              <a href="#Booking-area" class="booking-links" id="AMN-button7">SUN T24</a>
             </div>
           </div>
         </div>
       </div>
       <!--Avengers-->
-      <div class="panel toggle" id="Avengers">
+      <div class="panel" id="Avengers">
         <div class="row">
           <div class="col">
             <div class="movie-title">
@@ -993,11 +1053,11 @@
           </div>
           <div class="col">
             <div class="the-links">
-              <a href="#Booking-area" class="booking-links" id="Avengers:_Endgame-WED-T21">WED T21</a>
-              <a href="#Booking-area" class="booking-links" id="Avengers:_Endgame-THU-T21">THU T21</a>
-              <a href="#Booking-area" class="booking-links" id="Avengers:_Endgame-FRI-T21">FRI T21</a>
-              <a href="#Booking-area" class="booking-links" id="Avengers:_Endgame-SAT-T18">SAT T18</a>
-              <a href="#Booking-area" class="booking-links" id="Avengers:_Endgame-SUN-T18">SUN T18</a>
+              <a href="#Booking-area" class="booking-links" id="ACT-button1">WED T21</a>
+              <a href="#Booking-area" class="booking-links" id="ACT-button2">THU T21</a>
+              <a href="#Booking-area" class="booking-links" id="ACT-button3">FRI T21</a>
+              <a href="#Booking-area" class="booking-links" id="ACT-button4">SAT T18</a>
+              <a href="#Booking-area" class="booking-links" id="ACT-button5">SUN T18</a>
             </div>
           </div>
         </div>
@@ -1021,14 +1081,17 @@
         </div>
       </div>
       <div class="row" style="text-align: left;">
-        <div class="col-2"></div>
         <div class="col">
           <div class="seat" style="border: black solid">
             <p class="seat-class">First Class</p>
-            <div class="form-group" style="text-align: right; padding-right: 30px;">
-              <label for="FCA" style="display: inline-block; text-align: right;">Adults</label>
-              <select name="seats[FCA]" id="seats-FCA" class="form-control" style="display: inline-block; width: 200px; height: 30px;"
-                onchange= "check_and_givefeedback();calc(id);" onfocus="pricecalc(id)">
+            <div class="form-group">
+              <div class="row">
+                <div class="col">
+                  <label for="FCA">Adults</label>
+                </div>
+                <div class="col">
+                  <select name="seats[FCA]" id="seats-FCA" class="form-control" 
+                onchange= "lock_input(id);check_and_givefeedback();calc(id);" onfocus="pricecalc(id)">
                 <option value="Please">Please</option>
                 <option value="1">1</option>
                 <option value="2">1</option>
@@ -1042,12 +1105,20 @@
                 <option value="10">10</option>
 
               </select>
-              <span class="warning" id="6"></span>
+                </div>
+              </div>
+              
+              <p class="warning" id="6"></p>
             </div>
-            <div class="form-group" style="text-align: right; padding-right: 30px;">
-              <label for="FCP" style="display: inline-block;">Concession</label>
-              <select name="seats[FCP]" id="seats-FCP" class="form-control"  style="display: inline-block; width: 200px; height: 30px;"
-                onchange="calc(id);check_and_givefeedback();" onblur="pricecalc(id)">
+            <div class="form-group">
+              <div class="row">
+                <div class="col">
+                  <label for="FCP">Concession</label>
+
+                </div>
+                <div class="col">
+                  <select name="seats[FCP]" id="seats-FCP" class="form-control" 
+                onchange="lock_input(id);calc(id);check_and_givefeedback();" onblur="pricecalc(id)">
                 <option value="Please select">please</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -1060,37 +1131,52 @@
                 <option value="9">9</option>
                 <option value="10">10</option>
 
-              </select><span class="warning" id="2"></span>
-            </div>
-            <div class="form-group" style="text-align: right; padding-right: 30px;">
-              <label for="class" style="display: inline-block;">Children</label>
-              <select name="seats[FCC]" id="seats-FCC" class="form-control"  style="display: inline-block; width: 200px; height: 30px;"
-                onchange="calc(id);check_and_givefeedback();" onblur="pricecalc(id)">
-                <option value="please">please</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7
-
-                </option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
               </select>
-              <span id="4" class="warning"></span>
+                </div>
+              </div>
+              <p class="warning" id="2"></p>
+            </div>
+            <div class="form-group" >
+              <div class="row">
+                <div class="col">
+                  <label for="class" >Children</label>
+
+                </div>
+                <div class="col">
+                  <select name="seats[FCC]" id="seats-FCC" class="form-control"  
+                  onchange="lock_input(id);calc(id);check_and_givefeedback();" onblur="pricecalc(id)">
+                  <option value="please">please</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7
+  
+                  </option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+                </div>
+              </div>
+              
+              <p id="4" class="warning"></p>
             </div>
 
           </div>
-        </br>
-        </br>
+        
           <div class="seat" style="border: black solid;">
             <p class="seat-class">Standard Class</p>
-            <div class="form-group" style="text-align: right; padding-right: 30px;">
-              <label for="STA" style="display: inline-block;">Adults</label>
-              <select name="seats[STA]" id="seats-STA" class="form-control" onchange="check_and_givefeedback();calc(id)"  style="display: inline-block; width: 200px; height: 30px; "
+            <div class="form-group" >
+              <div class="row">
+                <div class="col">
+                  <label for="STA">Adults</label>
+
+                </div>
+                <div class="col">
+                  <select name="seats[STA]" id="seats-STA" class="form-control" onchange="lock_input(id);check_and_givefeedback();calc(id)"  
                 onblur="pricecalc(id)">
                 <option value="please">Please</option>
                 <option value="1">1</option>
@@ -1104,45 +1190,64 @@
                 <option value="9">9</option>
                 <option value="10">10</option>
               </select>
-              <span class="warning" id="3"></span>
+                </div>
+              </div>
+              
+              <p class="warning" id="3"></p>
             </div>
-            <div class="form-class" style="text-align: right; padding-right: 30px;">
-              <label for="class" style="display: inline-block;">concession</label>
-              <select name="seats[STP]" id="seats-STP" class="form-control" onchange="check_and_givefeedback();calc(id)"  style="display: inline-block; width: 200px; height: 30px; "
-                onblur="pricecalc(id)">
-                <option value="please">please</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-              </select>
-              <span class="warning" id="1"></span>
+            <div class="form-group">
+              <div class="row">
+                <div class="col">
+                  <label for="class">concession</label>
+
+                </div>
+                <div class="col">
+                  <select name="seats[STP]" id="seats-STP" class="form-control" onchange="lock_input(id);check_and_givefeedback();calc(id)"  
+                  onblur="pricecalc(id)">
+                  <option value="please">please</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+                </div>
+              </div>
+              
+              <p class="warning" id="1"></p>
             </div>
-            <div class="form-gr" style="text-align: right; padding-right: 30px;">
-              <label for="" style="display: inline-block;">Child</label>
-              <select name="seats[]" id="seats-STC" class="form-control" onchange="check_and_givefeedback();calc(id)"  style="display: inline-block; width: 200px; height: 30px;"
-                onblur="pricecalc(id)">
-                <option value="">please</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-              </select> <span class="warning" id="5"></span>
+            <div class="form-group" >
+              <div class="row">
+                <div class="col">
+                  <label for="" >Child</label>
+
+                </div>
+                <div class="col">
+                  <select name="seats[]" id="seats-STC" class="form-control" onchange="lock_input(id);check_and_givefeedback();calc(id)"  
+                  onblur="pricecalc(id)">
+                  <option value="">please</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select> 
+                </div>
+              </div>
+              <p class="warning" id="5"></p>
             </div>
 
 
@@ -1155,35 +1260,73 @@
           </div>
         </div>
 
-        <div class="col" style="padding-top: 125px; text-align: right;">
+        <div class="col" style="padding-top: 125px;">
 
           <div class="form-group">
-            <label for="name" style="display: inline-block;">Name</label>
-            <textarea name="" id="name" cols="1" rows="1" class="form-control" style="display: inline-block; width: 200px; height: 30px;"
+            <div class="row">
+              <div class="col">
+                <label for="name">Name</label>
+
+              </div>
+              <div class="col">
+            <textarea name="" id="name" cols="1" rows="1" class="form-control" 
               onchange="check_regex_name(id)"></textarea>
-            <span id="feedback-messages_1"></span>
+              </div>
+            </div>
+            <p class="warning" id="feedback-messages_1"></p>
           </div>
           <div class="form-group">
-            <label for="Email" style="display: inline-block;">Email</label>
-            <input type="email" name="Email" id="email" class="form-control" onchange="check_regex_email(id)" style="display: inline-block; width: 200px; height: 30px;">
-            <span id="feedback-messages_2"></span>
+            <div class="row">
+              <div class="col">
+                <label for="Email">Email</label>
+
+              </div>
+              <div class="col">
+                <input type="email" name="Email" id="email" class="form-control" onchange="check_regex_email(id)">
+              </div>
+            </div>
+            <p class="warning" id="feedback-messages_2"></p>
           </div>
           <div class="form-group">
-            <label for="mobile" style="display: inline-block;">mobile</label>
-            <input type="tel" name="mo" id="mobile" class="form-control" onchange="check_regex_mobile(id)" style="display: inline-block; width: 200px; height: 30px;">
-            <span id="feedback-messages_3"></span>
+            <div class="row">
+              <div class="col">
+                <label for="mobile">mobile</label>
+
+              </div>
+              <div class="col"> 
+                <input type="tel" name="mo" id="mobile" class="form-control" onchange="check_regex_mobile(id)">
+              </div>
+            </div>
+            <p class="warning-messages" id="feedback-messages_3"></p>
           </div>
           <div class="form-group">
-            <label for="" style="display: inline-block;">credit card</label>
-            <input type="tel" name="" id="credit-card" class="form-control" onchange="check_regex_tel(id)" style="display: inline-block; width: 200px; height: 30px;">
-            <span id="feedback-messages_4"></span>
+            <div class="row">
+              <div class="col">
+                <label for="">credit card</label>
+
+              </div>
+              <div class="col">
+                <input type="tel" name="" id="credit-card" class="form-control" onchange="check_regex_tel(id)">
+
+              </div>
+            </div>
+           
+            <p class="warning-messages" id="feedback-messages_4"></p>
           </div>
           <div class="Expiry-date">
             <div class="form-group">
-              <label for="Date-time" style="display: inline-block;">Date and Time</label>
-              <input type="month" name="Date-select" id="Date-time" class="form-control" style="display: inline-block; width: 200px; height: 30px;"
-                onfocus="validateCreditCard();">
-              <span id="feedback-messages_5"></span>
+              <div class="row">
+                <div class="col">
+                  <label for="Date-time">Date and Time</label>
+
+                </div>
+                <div class="col">
+                  <input type="month" name="Date-select" id="Date-time" class="form-control" 
+                  onfocus="validateCreditCard();">
+                </div>
+              </div>
+              
+              <p class="warning-messages" id="feedback-messages_5"></p>
             </div>
           </div>
           <div class="submit">
@@ -1191,7 +1334,7 @@
           </div>    
         
         </div>
-        <div class="col-2"></div>
+        
       </div>
     </div>
   </article>
@@ -1217,48 +1360,7 @@
         document.getElementById("Date-time").style.borderColor = "red"
       }
     }
-    function hide() {
-      var x, i;
-      x = document.querySelectorAll(".toggle");
-      for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
-      }
-      console.log(x);
-    }
-    var x = document.querySelectorAll(".toggle");
-    console.log(x);
-    var more_detail1 = document.getElementById('button1');
-    var more_detail2 = document.getElementById('button2');
-    var more_detail3 = document.getElementById('button3');
-    var more_detail4 = document.getElementById('button4');
-    console.log(more_detail1)
-    console.log(more_detail2)
-    console.log(more_detail3)
-    console.log(more_detail4)
-    button1.onclick = function () {
-      x[0].style.display = "none";
-      x[1].style.display = "none";
-      x[2].style.display = "block";
-      x[3].style.display = "none";
-    }
-    button2.onclick = function () {
-      x[0].style.display = "block";
-      x[1].style.display = "none";
-      x[2].style.display = "none";
-      x[3].style.display = "none";
-    }
-    button3.onclick = function () {
-      x[0].style.display = "none";
-      x[1].style.display = "block";
-      x[2].style.display = "none";
-      x[3].style.display = "none";
-    }
-    button4.onclick = function () {
-      x[0].style.display = "none";
-      x[1].style.display = "none";
-      x[2].style.display = "none";
-      x[3].style.display = "block";
-    }
+    
 
     var topheight_of_element1 = document.getElementById("About-Us").offsetTop;
     var topheight_of_element2 = document.getElementById("Now-Showing").offsetTop;
@@ -1340,45 +1442,49 @@
       var get_trimmed_Mobile_input_value = document.getElementById('mobile').value.trim();
       var get_trimmed_credit_card_input_value = document.getElementById('credit-card').value.trim();
       if (get_trimmed_Email_input_value == "") {
-        document.getElementById('feedback-messages_2').innerHTML = "</br>Please fill in this"
+        document.getElementById('feedback-messages_2').innerHTML = "Please fill in this"
         document.getElementById('feedback-messages_2').style.color = "red"
         document.getElementById('email').style.borderColor = "red"
       }
 
       if (get_trimmed_name_input_value == "") {
-        document.getElementById('feedback-messages_1').innerHTML = "</br>Please fill in this"
+        document.getElementById('feedback-messages_1').innerHTML = "Please fill in this"
         document.getElementById('feedback-messages_1').style.color = "red"
         document.getElementById('name').style.borderColor = "red"
       }
 
       if (get_trimmed_Mobile_input_value == "") {
-        document.getElementById('feedback-messages_3').innerHTML = "</br>Please fill in this"
+        document.getElementById('feedback-messages_3').innerHTML = "Please fill in this"
         document.getElementById('feedback-messages_3').style.color = "red"
         document.getElementById('mobile').style.borderColor = "red"
       }
 
       if (get_trimmed_credit_card_input_value == "") {
-        document.getElementById('feedback-messages_4').innerHTML = "</br>Please fill in this"
-        document.getElementById('feedback-messages_4').style.color = ""
+        document.getElementById('feedback-messages_4').innerHTML = "Please fill in this"
+        document.getElementById('feedback-messages_4').style.color = "red"
         document.getElementById('credit-card').style.borderColor = "red"
       }
 
     }
+    var is_movie_selected = '';
+
     function is_button_clicked() {
       if (document.getElementById("time").textContent != "") {
         document.getElementById("reminder_of_pressed_button").innerHTML = ""
+        is_movie_selected ='yes';
       }
       else if (document.getElementById("movie-title").textContent == "") {
         document.getElementById("reminder_of_pressed_button").innerHTML = "Please select both"
+        is_movie_selected ='no';
       }
 
       else if (document.getElementById("movie-title").textContent != "") {
         document.getElementById("reminder_of_pressed_button").innerHTML = "Please select "
+        is_movie_selected = 'no';
       }
 
     }
-
-
+   
 
   </script>
 
