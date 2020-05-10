@@ -935,7 +935,7 @@
               <label for="Name" id="label">Name</label>
 
 
-              <input name="cust[name]" type="text" id="name" cols="1" rows="1" class="form-control"
+              <input name="cust[name]" type="text" id="name" cols="1" rows="1" class="form-control" placeholder="e.g. Gerard 't Hooft"
                 onchange="check_regex_name(id)"></input>
 
               <p class="warning" id="feedback-messages_1"></p>
@@ -945,7 +945,7 @@
               <label for="Email" id="label">Email</label>
 
 
-              <input type="email" name="cust[email]" id="email" class="form-control" onchange="check_regex_email(id)">
+              <input type="email" name="cust[email]" id="email" class="form-control" placeholder="e.g. xxxxxxx@gmail.com" onchange="check_regex_email(id)">
 
               <p class="warning" id="feedback-messages_2"></p>
             </div>
@@ -954,7 +954,7 @@
               <label for="Mobile" id="label">Mobile</label>
 
 
-              <input type="tel" name="cust[mobile]" id="mobile" class="form-control" onchange="check_regex_mobile(id)">
+              <input type="tel" name="cust[mobile]" id="mobile" class="form-control"  placeholder="e.g. (+614) 1234 5678" onchange="check_regex_mobile(id)">
 
               <p class="warning-messages" id="feedback-messages_3"></p>
             </div>
@@ -963,7 +963,7 @@
               <label for="Credit" id="label">Credit Card</label>
 
 
-              <input type="text" name="cust[card]" id="credit-card" class="form-control" onchange="check_regex_tel(id)">
+              <input type="text" name="cust[card]" id="credit-card" class="form-control" placeholder="e.g 1234 5678 9876 54321" onchange="check_regex_tel(id)">
 
 
 
@@ -984,7 +984,6 @@
             <div class="submit" style="text-align: right; padding-right: 30px;">
               <input type="submit" name="order" value="Order" class="dark"></input>
             </div>
-
           </div>
           <div class="col-1"></div>
 
