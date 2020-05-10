@@ -37,332 +37,9 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
 
-  <script>
-    var previous;
-
-    function activate(idem) {
-      var linkchose = document.getElementById(idem);
-      linkchose.style.opacity = "0.5";
-    }
-    function unactivate(idem) {
-      if (about_us == 1 && price == 0 && Now_Showing == 0) {
-        if (idem == 'option1') {
-          var linkchose = document.getElementById(idem);
-          linkchose.style.opacity = "0.5";
-        }
-        else {
-          var linkchose = document.getElementById(idem);
-          linkchose.style.opacity = "1";
-        }
-
-      }
-      else if (about_us == 0 && price == 1 && Now_Showing == 0) {
-        if (idem == "option3") {
-          var linkchose = document.getElementById(idem);
-          linkchose.style.opacity = "0.5";
-        }
-        else {
-          var linkchose = document.getElementById(idem);
-          linkchose.style.opacity = "1";
-        }
-
-      }
-      else if (about_us == 0 && price == 0 && Now_Showing == 1) {
-        if (idem == "option2") {
-          var linkchose = document.getElementById(idem);
-          linkchose.style.opacity = "0.5";
-        }
-        else {
-          var linkchose = document.getElementById(idem);
-          linkchose.style.opacity = "1";
-        }
-      }
-      else if (about_us == 0 && price == 0 && Now_Showing == 0) {
-        var linkchose = document.getElementById(idem);
-        linkchose.style.opacity = "1";
-      }
-
-    }
-
-    function hover(idem) {
-      var linkchose = document.getElementById(idem);
-      linkchose.style.opacity = "0.5";
-    }
-    var count = 0;
-    var count1 = 0;
-    var count3 = 0;
-    var count4 = 0;
-    var count5 = 0;
-    var count2 = 0;
-    var counttotal = 0;
-
-    var checkrepeat;
-    var checkrepeat2;
-
-    var about_us = 0;
-    var Now_Showing = 0;
-    var price = 0;
-
-
-    function total_check() {
-      var select_of_value_index1 = document.getElementById('seats-FCA').selectedIndex;
-      var select_of_value_index2 = document.getElementById('seats-FCP').selectedIndex;
-      var select_of_value_index3 = document.getElementById('seats-FCC').selectedIndex;
-      var select_of_value_index4 = document.getElementById('seats-STA').selectedIndex;
-      var select_of_value_index5 = document.getElementById('seats-STP').selectedIndex;
-      var select_of_value_index6 = document.getElementById('seats-STC').selectedIndex;
-
-      if (select_of_value_index1 == "0" && select_of_value_index2 == "0" && select_of_value_index3 == "0" && select_of_value_index4 == "0" && select_of_value_index5 == "0" && select_of_value_index6 == "0") {
-        document.getElementById('seats-FCA').style.borderColor = "red";
-        document.getElementById('seats-FCP').style.borderColor = "red";
-        document.getElementById('seats-FCC').style.borderColor = "red";
-        document.getElementById('seats-STA').style.borderColor = "red";
-        document.getElementById('seats-STP').style.borderColor = "red";
-        document.getElementById('seats-STC').style.borderColor = "red";
-
-
-        count3 = 0;
-      }
-      else {
-        document.getElementById('seats-FCA').style.borderColor = "green";
-        document.getElementById('seats-FCP').style.borderColor = "green";
-        document.getElementById('seats-FCC').style.borderColor = "green";
-        document.getElementById('seats-STA').style.borderColor = "green";
-        document.getElementById('seats-STP').style.borderColor = "green";
-        document.getElementById('seats-STC').style.borderColor = "green";
-        count3 = 1;
-      }
-    }
-
-    var array_seat_codes = ['FCA','STA','STC','STP','FCP','FCC'];
-
-
-    function select_movie(idem) {
-      var memorize_id_button = idem;
-      var array_button_id = memorize_id_button.split('-');
-      document.getElementById('movie-title').innerHTML = array_button_id[0];
-      var array_string_memorize = document.getElementById(idem).textContent.split(" ");
-      var day_up = document.getElementById('day');
-      var time = document.getElementById('time');
-      time.innerHTML = array_string_memorize[1];
-      day_up.innerHTML = array_string_memorize[0];
-
-      document.getElementById('seats-STA').selectedIndex = 0;
-      document.getElementById('seats-STC').selectedIndex = 0;
-      document.getElementById('seats-STP').selectedIndex = 0;
-      document.getElementById('seats-FCA').selectedIndex = 0;
-      document.getElementById('seats-FCC').selectedIndex = 0;
-      document.getElementById('seats-FCP').selectedIndex = 0;
-
-      total_price = 0;
-      storing_the_number_seats ={};
-
-    }
-    var while_conditional_number = 0;
-    var count_array = [];
-    var storing_the_number_seats = {};
-    var total_price = 0;
-    var happy_days = ['MON', "WED"];
-    var the_other_weekdays = ["TUE", "THU", "FRI"];
-    var weekend = ["SAT", "SUN"];
-
-    function calc(idem) {
-      var is_any_seat_selected = document.getElementById(idem).selectedIndex;
-      var value_of_the_seat = document.getElementById(idem).value;
-      var value_of_the_seat_number_conversion = parseInt(value_of_the_seat);
-      var string_memorizee = idem;
-      var list = string_memorizee.split("-");
-
-      if(is_movie_selected == 'yes'){
-        if (is_any_seat_selected == "0") {
-        storing_the_number_seats[list[1]] = 0;
-      }
-      else {
-        storing_the_number_seats[list[1]] = value_of_the_seat_number_conversion;
-
-      }
-
-
-
-      for (var key in storing_the_number_seats) {
-
-        if (happy_days.includes(document.getElementById('day').textContent)) {
-          var get_price = document.getElementById(key + "-discount").textContent;
-        }
-        else if (weekend.includes(document.getElementById('time').textContent)) {
-          var get_price = document.getElementById(key + "-fullprice").textContent;
-        }
-        else {
-          if (document.getElementById('time').textContent == "T24") {
-            var get_price = document.getElementById(key + "-discount").textContent;
-          }
-          else if (document.getElementById('time').textContent != "T24") {
-            var get_price = document.getElementById(key + "-fullprice").textContent;
-
-          }
-        }
-        var get_price_converting_to_number = parseFloat(get_price);
-        total_price = total_price + storing_the_number_seats[key] * get_price_converting_to_number;
-      }
-      alert(total_price);
-
-      document.getElementById('ticket_price').innerHTML = total_price;
-      total_price = 0;
-
-      }
-      else {
-        total_price = 0;
-      }
-      
-
-    }
-    var string_conversion_from_numbericvalue = "";
-
-
-    function check_and_givefeedback(idem) {
-      while_conditional_number = 1;
-      if (count3 == 0) {
-        while (while_conditional_number <= 6) {
-          string_conversion_from_numbericvalue = new String(while_conditional_number);
-          var trim_space_of_string = string_conversion_from_numbericvalue.trim();
-          document.getElementById(trim_space_of_string).innerHTML = "Please select one at least"
-          document.getElementById(trim_space_of_string).style.color = "red"
-          while_conditional_number += 1;
-        }
-      }
-      else {
-        while (while_conditional_number <= 6) {
-          string_conversion_from_numbericvalue = new String(while_conditional_number);
-          var trim_space_of_string = string_conversion_from_numbericvalue.trim();
-          document.getElementById(trim_space_of_string).innerHTML = " ok "
-          document.getElementById(trim_space_of_string).style.color = "green"
-          while_conditional_number += 1;
-        }
-      }
-    }
-
-    function check_regex_mobile(idem) {
-      var the_needed_tested_test = document.getElementById(idem).value;
-
-      var regex = new RegExp("^(([+](04)|[(][+](04)[)]|[(][+](614)[)]|[+](614)) ?)([0-9] ?){10}$");
-      if (regex.test(the_needed_tested_test)) {
-        var get_element = document.getElementById(idem);
-        get_element.style.borderColor = "green";
-        document.getElementById('feedback-messages_3').innerHTML = "correct"
-        document.getElementById('feedback-messages_3').style.color = "green"
-      }
-      else if (!regex.test(the_needed_tested_test)) {
-        var get_element = document.getElementById(idem);
-        get_element.style.borderColor = "yellow";
-        document.getElementById('feedback-messages_3').innerHTML = "invalid"
-        document.getElementById('feedback-messages_3').style.color = 'yellow'
-      }
-    }
-
-    function check_regex_email(idem) {
-      var the_needed_tested_test = document.getElementById(idem).value;
-      var check = new RegExp("^[A-Za-z/'-_]*[/@][A-Za-z0-9][a-z0-9]+(([/.][a-z]{3})|([/.][a-z]{3}[/.][a-z]*))$");
-      if (check.test(the_needed_tested_test)) {
-        var get_element = document.getElementById(idem);
-        get_element.style.borderColor = "green";
-        document.getElementById('feedback-messages_2').innerHTML = "correct"
-        document.getElementById('feedback-messages_2').style.color = "green"
-
-      }
-      else if (!check.test(the_needed_tested_test)) {
-        var get_element = document.getElementById(idem);
-        get_element.style.borderColor = "red";
-        document.getElementById('feedback-messages_2').innerHTML = "invalid"
-        document.getElementById('feedback-messages_2').style.color = "red"
-      }
-    }
-
-    function check_regex_tel(idem) {
-      var the_needed_tested_test = document.getElementById(idem).value;
-      var check = new RegExp("^([0-9] ?){14,19}$");
-      if (check.test(the_needed_tested_test)) {
-        var get_element = document.getElementById(idem);
-        get_element.style.borderColor = "green";
-        document.getElementById('feedback-messages_4').innerHTML = "correct"
-        document.getElementById('feedback-messages_4').style.color = "green"
-
-      }
-      else if (!check.test(the_needed_tested_test)) {
-        var get_element = document.getElementById(idem);
-        get_element.style.borderColor = "red";
-        document.getElementById('feedback-messages_4').innerHTML = "invalid"
-        document.getElementById('feedback-messages_4').style.color = "red"
-      }
-
-
-    }
-    function check_regex_name(idem) {
-      var the_needed_tested_test = document.getElementById(idem).value;
-
-      var check = new RegExp("^([A-Za-z/'.-]+  ?)*[A-Za-z/'.-]+([' ']+|)$");
-      if (check.test(the_needed_tested_test)) {
-        document.getElementById(idem).style.borderColor = "green";
-        document.getElementById("feedback-messages_1").innerHTML = "correct"
-        document.getElementById("feedback-messages_1").style.color = "green"
-      }
-      else if (!check.test(the_needed_tested_test)) {
-        document.getElementById(idem).style.borderColor = "red";
-        document.getElementById('feedback-messages_1').innerHTML = "invalid"
-        document.getElementById('feedback-messages_1').style.color = "red"
-      }
-    }
-
-    function convert_to_2_decimal(idem) {
-      var str_need_converted = idem.toString();
-      for (letter in str_need_converted) {
-
-      }
-    }
-    function lock_input(idem){
-      if(is_movie_selected == "no"){
-        document.getElementById(idem).selectedIndex = 0;
-        total_price = 0;
-        storing_the_number_seats={};
-      }
-    }
-
-    var array_seat_codes = ['FCA','STA','STC','STP','FCP','FCC'];
-    function initial_state(){
-      document.getElementById('seats-STA').selectedIndex = 0;
-      document.getElementById('seats-STC').selectedIndex = 0;
-      document.getElementById('seats-STP').selectedIndex = 0;
-      document.getElementById('seats-FCA').selectedIndex = 0;
-      document.getElementById('seats-FCC').selectedIndex = 0;
-      document.getElementById('seats-FCP').selectedIndex = 0;
-
-
-      total_price = 0;
-      storing_the_number_seats ={};
-
-    }
-    function update_movieID(idem){
-      document.getElementById('movie-title').innerHTML =""
-      document.getElementById('day').innerHTML = "";
-      document.getElementById('time').innerHTML = "";
-      document.getElementById('seats-STA').selectedIndex = 0;
-      document.getElementById('seats-STC').selectedIndex = 0;
-      document.getElementById('seats-STP').selectedIndex = 0;
-      document.getElementById('seats-FCA').selectedIndex = 0;
-      document.getElementById('seats-FCC').selectedIndex = 0;
-      document.getElementById('seats-FCP').selectedIndex = 0;
-
-      total_price = 0;
-      storing_the_number_seats ={};
-
-    }
-
-
-
-  </script>
-
 </head>
 
-<body onscroll="swth()" onmouseover="total_check();check_and_givefeedback();">
+<body onload="hide();limitDate();" onscroll="swth();" onmouseover="total_check();check_and_givefeedback();">
 
 
   <!--Header-->
@@ -719,7 +396,7 @@
                     </div>
                   </div>
                 </div>
-                <a href="#Dumbo" id="AMN-button" class="buttons" onclick="update_movieID(id)">Movie Detail</a>
+                <a href="#synopsisAMN" id="AMN-button" class="buttons" onclick="update_movieID(id)">Movie Detail</a>
               </div>
 
             </div>
@@ -746,7 +423,8 @@
                     </div>
                   </div>
                 </div>
-                <a href="#The-Happy-Prince" id="AHF-button" class="buttons" onclick="update_movieID(id)">Movie Detail</a>
+                <a href="#synopsisAHF" id="AHF-button" class="buttons" onclick="update_movieID(id)">Movie
+                  Detail</a>
               </div>
             </div>
           </div>
@@ -778,7 +456,7 @@
                     </div>
                   </div>
                 </div>
-                <a href="#Top-End-Wedding" id="RMC-button" class="buttons" onclick="update_movieID(id)">Movie Detail</a>
+                <a href="#synopsisRMC" id="RMC-button" class="buttons" onclick="update_movieID(id)">Movie Detail</a>
               </div>
             </div>
 
@@ -803,7 +481,7 @@
                     </div>
                   </div>
                 </div>
-                <a href="#Avengers" id="ACT-button" class="buttons" onclick="update_movieID(id)">Movie Detail</a>
+                <a href="#synopsisACT" id="ACT-button" class="buttons" onclick="update_movieID(id)">Movie Detail</a>
               </div>
             </div>
           </div>
@@ -890,7 +568,7 @@
         <h1>SYNOPSIS</h1>
       </div>
       <!--The-Happy-Prince-->
-      <div class="panel" id="The-Happy-Prince">
+      <div class="panel toggle" id="synopsisAHF">
         <div class="row">
           <div class="col">
             <div class="movie-title">
@@ -922,10 +600,9 @@
           </div>
           <div class="col">
             <div class="the-links">
-              <a href="#Booking-area" class="booking-links" id="AHF-button1"
-                onclick="select_movie(id);">WED T24</a>
-              <a href="#Booking-area" class="booking-links" id="AHF-button2" onclick="select_movie(id)">THU T24</a>
-              <a href="#Booking-area" class="booking-links" id="AHF-button3" onclick="select_movie(id)">FRI T24</a>
+              <a href="#Booking-area" class="booking-links" id="AHF-button1" onclick="select_movie(id);">WED T12</a>
+              <a href="#Booking-area" class="booking-links" id="AHF-button2" onclick="select_movie(id)">THU T12</a>
+              <a href="#Booking-area" class="booking-links" id="AHF-button3" onclick="select_movie(id)">FRI T12</a>
               <a href="#Booking-area" class="booking-links" id="AHF-button4" onclick="select_movie(id)">SAT T21</a>
               <a href="#Booking-area" class="booking-links" id="AHF-button5" onclick="select_movie(id)">SUN T21</a>
             </div>
@@ -933,7 +610,7 @@
         </div>
       </div>
       <!--Top-Edn-Wedding-->
-      <div class="panel" id="Top-End-Wedding">
+      <div class="panel toggle" id="synopsisRMC">
         <div class="row">
           <div class="col">
             <div class="movie-title">
@@ -965,16 +642,16 @@
           </div>
           <div class="col">
             <div class="the-links">
-              <a href="#Booking-area" class="booking-links" id="RMC-button1">MON T21</a>
-              <a href="#Booking-area" class="booking-links" id="RMC-button2">TUE T21</a>
-              <a href="#Booking-area" class="booking-links" id="RMC-button3">SAT T15</a>
-              <a href="#Booking-area" class="booking-links" id="RMC-button4">SUN T15</a>
+              <a href="#Booking-area" class="booking-links" id="RMC-button1" onclick="select_movie(id)">MON T18</a>
+              <a href="#Booking-area" class="booking-links" id="RMC-button2" onclick="select_movie(id)">TUE T18</a>
+              <a href="#Booking-area" class="booking-links" id="RMC-button3" onclick="select_movie(id)">SAT T15</a>
+              <a href="#Booking-area" class="booking-links" id="RMC-button4" onclick="select_movie(id)">SUN T15</a>
             </div>
           </div>
         </div>
       </div>
       <!--Dumbo-->
-      <div class="panel" id="Dumbo">
+      <div class="panel toggle" id="synopsisAMN">
         <div class="row">
           <div class="col">
             <div class="movie-title">
@@ -1006,19 +683,19 @@
           </div>
           <div class="col">
             <div class="the-links">
-              <a href="#Booking-area" class="booking-links" id="AMN-button1">MON T24</a>
-              <a href="#Booking-area" class="booking-links" id="AMN-button2">TUE T24</a>
-              <a href="#Booking-area" class="booking-links" id="AMN-button3">WED T21</a>
-              <a href="#Booking-area" class="booking-links" id="AMN-button4">THU T21</a>
-              <a href="#Booking-area" class="booking-links" id="AMN-button5">FRI T21</a>
-              <a href="#Booking-area" class="booking-links" id="AMN-button6">SAT T24</a>
-              <a href="#Booking-area" class="booking-links" id="AMN-button7">SUN T24</a>
+              <a href="#Booking-area" class="booking-links" id="AMN-button1" onclick="select_movie(id)">MON T12</a>
+              <a href="#Booking-area" class="booking-links" id="AMN-button2" onclick="select_movie(id)">TUE T12</a>
+              <a href="#Booking-area" class="booking-links" id="AMN-button3" onclick="select_movie(id)">WED T18</a>
+              <a href="#Booking-area" class="booking-links" id="AMN-button4" onclick="select_movie(id)">THU T18</a>
+              <a href="#Booking-area" class="booking-links" id="AMN-button5" onclick="select_movie(id)">FRI T18</a>
+              <a href="#Booking-area" class="booking-links" id="AMN-button6" onclick="select_movie(id)">SAT T12</a>
+              <a href="#Booking-area" class="booking-links" id="AMN-button7" onclick="select_movie(id)">SUN T12</a>
             </div>
           </div>
         </div>
       </div>
       <!--Avengers-->
-      <div class="panel" id="Avengers">
+      <div class="panel toggle" id="synopsisACT">
         <div class="row">
           <div class="col">
             <div class="movie-title">
@@ -1053,11 +730,11 @@
           </div>
           <div class="col">
             <div class="the-links">
-              <a href="#Booking-area" class="booking-links" id="ACT-button1">WED T21</a>
-              <a href="#Booking-area" class="booking-links" id="ACT-button2">THU T21</a>
-              <a href="#Booking-area" class="booking-links" id="ACT-button3">FRI T21</a>
-              <a href="#Booking-area" class="booking-links" id="ACT-button4">SAT T18</a>
-              <a href="#Booking-area" class="booking-links" id="ACT-button5">SUN T18</a>
+              <a href="#Booking-area" class="booking-links" id="ACT-button1" onclick="select_movie(id)">WED T21</a>
+              <a href="#Booking-area" class="booking-links" id="ACT-button2" onclick="select_movie(id)">THU T21</a>
+              <a href="#Booking-area" class="booking-links" id="ACT-button3" onclick="select_movie(id)">FRI T21</a>
+              <a href="#Booking-area" class="booking-links" id="ACT-button4" onclick="select_movie(id)">SAT T18</a>
+              <a href="#Booking-area" class="booking-links" id="ACT-button5" onclick="select_movie(id)">SUN T18</a>
             </div>
           </div>
         </div>
@@ -1071,140 +748,57 @@
       <div class="title">
         <h1>BOOKING</h1>
       </div>
-      <div class="row"> 
-        <div class="col">
-          <p class="movie-day_time" id="movie-title"></p>
-          <p class="movie-day_time" id="day"></p>
-          <p class="movie-day_time" id="time"></p>
-          <p id="reminder_of_pressed_button"></p>
+      <form method="POST" action="https://titan.csit.rmit.edu.au/~e54061/wp/lunardo-formtest.php">
+        <div class="row">
+          <div class="col">
+            <input type="hidden" name="movie[id]" class="movie-day_time" id="movie-title1">
+            <input type="hidden" name="movie[day]" class="movie-day_time" id="day1">
+            <input type="hidden" name="movie[time]" class="movie-day_time" id="time1">
 
+            <p class="movie-day_time" id="movie-title"></p>
+            <p class="movie-day_time" id="day"></p>
+            <p class="movie-day_time" id="time"></p>
+            <p id="reminder_of_pressed_button"></p>
+
+          </div>
         </div>
-      </div>
-      <div class="row" style="text-align: left;">
-        <div class="col">
-          <div class="seat" style="border: black solid">
-            <p class="seat-class">First Class</p>
-            <div class="form-group">
-              <div class="row">
-                <div class="col">
-                  <label for="FCA">Adults</label>
-                </div>
-                <div class="col">
-                  <select name="seats[FCA]" id="seats-FCA" class="form-control" 
-                onchange= "lock_input(id);check_and_givefeedback();calc(id);" onfocus="pricecalc(id)">
-                <option value="Please">Please</option>
-                <option value="1">1</option>
-                <option value="2">1</option>
-                <option value="3">1</option>
-                <option value="4">1</option>
-                <option value="5">1</option>
-                <option value="6">1</option>
-                <option value="7">1</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
+        <div class="row" style="text-align: left;">
+          <div class="col-1"></div>
+          <div class="col">
+            <div class="seat" style="border: black solid; padding-left: 20px; padding-top: 10px;">
+              <p class="seat-class">First Class</p>
+              <div class="form-group">
 
-              </select>
-                </div>
+
+                <label for="FCA" id="label">Adults</label>
+
+                <select name="seats[FCA]" id="seats-FCA" class="form-control"
+                  onchange="lock_input(id);check_and_givefeedback();calc(id);" onfocus="pricecalc(id)">
+                  <option value="">Please Select</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+
+                </select>
+
+                <p class="warning" id="6"></p>
               </div>
-              
-              <p class="warning" id="6"></p>
-            </div>
-            <div class="form-group">
-              <div class="row">
-                <div class="col">
-                  <label for="FCP">Concession</label>
+              <div class="form-group">
 
-                </div>
-                <div class="col">
-                  <select name="seats[FCP]" id="seats-FCP" class="form-control" 
-                onchange="lock_input(id);calc(id);check_and_givefeedback();" onblur="pricecalc(id)">
-                <option value="Please select">please</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">7</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
+                <label for="FCP" id="label">Concession</label>
 
-              </select>
-                </div>
-              </div>
-              <p class="warning" id="2"></p>
-            </div>
-            <div class="form-group" >
-              <div class="row">
-                <div class="col">
-                  <label for="class" >Children</label>
 
-                </div>
-                <div class="col">
-                  <select name="seats[FCC]" id="seats-FCC" class="form-control"  
+
+                <select name="seats[FCP]" id="seats-FCP" class="form-control"
                   onchange="lock_input(id);calc(id);check_and_givefeedback();" onblur="pricecalc(id)">
-                  <option value="please">please</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7
-  
-                  </option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                </select>
-                </div>
-              </div>
-              
-              <p id="4" class="warning"></p>
-            </div>
-
-          </div>
-        
-          <div class="seat" style="border: black solid;">
-            <p class="seat-class">Standard Class</p>
-            <div class="form-group" >
-              <div class="row">
-                <div class="col">
-                  <label for="STA">Adults</label>
-
-                </div>
-                <div class="col">
-                  <select name="seats[STA]" id="seats-STA" class="form-control" onchange="lock_input(id);check_and_givefeedback();calc(id)"  
-                onblur="pricecalc(id)">
-                <option value="please">Please</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-              </select>
-                </div>
-              </div>
-              
-              <p class="warning" id="3"></p>
-            </div>
-            <div class="form-group">
-              <div class="row">
-                <div class="col">
-                  <label for="class">concession</label>
-
-                </div>
-                <div class="col">
-                  <select name="seats[STP]" id="seats-STP" class="form-control" onchange="lock_input(id);check_and_givefeedback();calc(id)"  
-                  onblur="pricecalc(id)">
-                  <option value="please">please</option>
+                  <option value="">Please Select</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -1215,25 +809,20 @@
                   <option value="8">8</option>
                   <option value="9">9</option>
                   <option value="10">10</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                </select>
-                </div>
-              </div>
-              
-              <p class="warning" id="1"></p>
-            </div>
-            <div class="form-group" >
-              <div class="row">
-                <div class="col">
-                  <label for="" >Child</label>
 
-                </div>
-                <div class="col">
-                  <select name="seats[]" id="seats-STC" class="form-control" onchange="lock_input(id);check_and_givefeedback();calc(id)"  
-                  onblur="pricecalc(id)">
-                  <option value="">please</option>
+                </select>
+
+                <p class="warning" id="2"></p>
+              </div>
+              <div class="form-group">
+
+
+                <label for="FCC" id="label">Children</label>
+
+
+                <select name="seats[FCC]" id="seats-FCC" class="form-control"
+                  onchange="lock_input(id);calc(id);check_and_givefeedback();" onblur="pricecalc(id)">
+                  <option value="">Please Select</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -1244,250 +833,166 @@
                   <option value="8">8</option>
                   <option value="9">9</option>
                   <option value="10">10</option>
-                </select> 
-                </div>
+                </select>
+
+
+                <p id="4" class="warning"></p>
               </div>
-              <p class="warning" id="5"></p>
+
             </div>
+            </br>
+            </br>
+            <div class="seat" style="border: black solid; padding-left: 20px; padding-top: 10px;">
+              <p class="seat-class">Standard Class</p>
+              <div class="form-group">
+
+                <label for="STA" id="label">Adults</label>
 
 
-          </div>
-          <div class="price_total">
-            <div class="row">
-              <p class="label_form">total $</p>
-              <p class="ticket_price" id="ticket_price"></p>
+                <select name="seats[STA]" id="seats-STA" class="form-control"
+                  onchange="lock_input(id);check_and_givefeedback();calc(id)" onblur="pricecalc(id)">
+                  <option value="">Please Select</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+
+
+                <p class="warning" id="3"></p>
+              </div>
+              <div class="form-group">
+
+                <label for="STP" id="label">Concession</label>
+
+
+                <select name="seats[STP]" id="seats-STP" class="form-control"
+                  onchange="lock_input(id);check_and_givefeedback();calc(id)" onblur="pricecalc(id)">
+                  <option value="">Please Select</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+
+
+                <p class="warning" id="1"></p>
+              </div>
+              <div class="form-group">
+
+                <label for="STC" id="label">Child</label>
+
+
+                <select name="seats[STC]" id="seats-STC" class="form-control"
+                  onchange="lock_input(id);check_and_givefeedback();calc(id)" onblur="pricecalc(id)">
+                  <option value="">Please Select</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+
+
+                <p class="warning" id="5"></p>
+              </div>
+
+
             </div>
-          </div>
-        </div>
-
-        <div class="col" style="padding-top: 125px;">
-
-          <div class="form-group">
-            <div class="row">
-              <div class="col">
-                <label for="name">Name</label>
-
-              </div>
-              <div class="col">
-            <textarea name="" id="name" cols="1" rows="1" class="form-control" 
-              onchange="check_regex_name(id)"></textarea>
-              </div>
-            </div>
-            <p class="warning" id="feedback-messages_1"></p>
-          </div>
-          <div class="form-group">
-            <div class="row">
-              <div class="col">
-                <label for="Email">Email</label>
-
-              </div>
-              <div class="col">
-                <input type="email" name="Email" id="email" class="form-control" onchange="check_regex_email(id)">
-              </div>
-            </div>
-            <p class="warning" id="feedback-messages_2"></p>
-          </div>
-          <div class="form-group">
-            <div class="row">
-              <div class="col">
-                <label for="mobile">mobile</label>
-
-              </div>
-              <div class="col"> 
-                <input type="tel" name="mo" id="mobile" class="form-control" onchange="check_regex_mobile(id)">
-              </div>
-            </div>
-            <p class="warning-messages" id="feedback-messages_3"></p>
-          </div>
-          <div class="form-group">
-            <div class="row">
-              <div class="col">
-                <label for="">credit card</label>
-
-              </div>
-              <div class="col">
-                <input type="tel" name="" id="credit-card" class="form-control" onchange="check_regex_tel(id)">
-
-              </div>
-            </div>
-           
-            <p class="warning-messages" id="feedback-messages_4"></p>
-          </div>
-          <div class="Expiry-date">
-            <div class="form-group">
+            <div class="price_total">
               <div class="row">
-                <div class="col">
-                  <label for="Date-time">Date and Time</label>
-
+                <div class="col-8" style="padding-right: 0px;">
+                  <p class="label_form ">Total</p>
                 </div>
-                <div class="col">
-                  <input type="month" name="Date-select" id="Date-time" class="form-control" 
-                  onfocus="validateCreditCard();">
+                <div class="col-3" style="padding-left: 0px;">
+                  <p class="ticket_price " id="ticket_price"></p>
                 </div>
               </div>
-              
-              <p class="warning-messages" id="feedback-messages_5"></p>
             </div>
           </div>
-          <div class="submit">
-            <button class="dark">Book</button>
-          </div>    
-        
+
+          <div class="col" style="padding-top: 125px;">
+
+            <div class="form-group">
+
+              <label for="Name" id="label">Name</label>
+
+
+              <input name="cust[name]" type="text" id="name" cols="1" rows="1" class="form-control"
+                onchange="check_regex_name(id)"></input>
+
+              <p class="warning" id="feedback-messages_1"></p>
+            </div>
+            <div class="form-group">
+
+              <label for="Email" id="label">Email</label>
+
+
+              <input type="email" name="cust[email]" id="email" class="form-control" onchange="check_regex_email(id)">
+
+              <p class="warning" id="feedback-messages_2"></p>
+            </div>
+            <div class="form-group">
+
+              <label for="Mobile" id="label">Mobile</label>
+
+
+              <input type="tel" name="cust[mobile]" id="mobile" class="form-control" onchange="check_regex_mobile(id)">
+
+              <p class="warning-messages" id="feedback-messages_3"></p>
+            </div>
+            <div class="form-group">
+
+              <label for="Credit" id="label">Credit Card</label>
+
+
+              <input type="text" name="cust[card]" id="credit-card" class="form-control" onchange="check_regex_tel(id)">
+
+
+
+              <p class="warning-messages" id="feedback-messages_4"></p>
+            </div>
+            <div class="Expiry-date">
+              <div class="form-group">
+
+                <label for="Date-time" id="label">Date and Time</label>
+
+
+                <input type="month" name="cust[expiry]" id="Date-time" class="form-control">
+
+
+                <p class="warning-messages" id="feedback-messages_5"></p>
+              </div>
+            </div>
+            <div class="submit" style="text-align: right; padding-right: 30px;">
+              <input type="submit" name="order" value="Order" class="dark"></input>
+            </div>
+
+          </div>
+          <div class="col-1"></div>
+
         </div>
-        
-      </div>
+      </form>
     </div>
   </article>
-
-  <script>
-    document.getElementById("Date-time").style.borderColor = "blue";
-    function validateCreditCard() {
-      var expiryDate = document.getElementById("Date-time").value;
-      var expiryYear = parseInt(expiryDate.split("-")[0]);
-      var expiryMonth = parseInt(expiryDate.split("-")[1]);
-      console.log(expiryYear);
-      console.log(expiryMonth);
-      var today = new Date();
-      var date = today.getFullYear() + '-' + (today.getMonth() + 1)
-      var currentYear = parseInt(date.split("-")[0]);
-      var currentMonth = parseInt(date.split("-")[1]);
-      console.log(expiryYear);
-      console.log(expiryMonth);
-      console.log(expiryYear >= currentYear && expiryMonth >= currentMonth);
-      if (expiryYear >= currentYear && expiryMonth >= currentMonth) {
-        document.getElementById("Date-time").style.borderColor = "green"
-      } else {
-        document.getElementById("Date-time").style.borderColor = "red"
-      }
-    }
-    
-
-    var topheight_of_element1 = document.getElementById("About-Us").offsetTop;
-    var topheight_of_element2 = document.getElementById("Now-Showing").offsetTop;
-    var topheight_of_element3 = document.getElementById("Price").offsetTop;
-    var topheight_of_element4 = document.getElementById("summary").offsetTop;
-
-    var height_of_element1 = document.getElementById("About-Us").offsetHeight;
-    var height_of_element2 = document.getElementById("Now-Showing").offsetHeight;
-    var height_of_element3 = document.getElementById("Price").offsetHeight;
-
-    var parse_topheight_of_element1 = parseFloat(topheight_of_element1, 10) - 100;
-    var parse_topheight_of_element2 = parseFloat(topheight_of_element2, 10) - 100;
-    var parse_topheight_of_element3 = parseFloat(topheight_of_element3, 10) - 100;
-    var distance = window.scrollY;
-    var parse_distance = parseFloat(distance, 10);
-
-    console.log(parse_distance);
-    console.log(topheight_of_element1);
-    console.log(topheight_of_element2);
-    console.log();
-
-    function swth() {
-      var distance = window.scrollY;
-      var parse_distance = parseFloat(distance, 10);
-
-
-      if (parse_distance > parse_topheight_of_element1 && parse_distance < parse_topheight_of_element2) {
-
-        about_us = 1;
-        Now_Showing = 0;
-        price = 0;
-        activate('option1');
-        unactivate('option2');
-        unactivate('option3');
-
-      }
-      else if (parse_distance >= parse_topheight_of_element2 && parse_distance < parse_topheight_of_element3) {
-        Now_Showing = 1;
-        price = 0;
-        about_us = 0;
-        activate('option2');
-        unactivate('option1');
-        unactivate('option3');
-
-      }
-      else if (parse_distance >= parse_topheight_of_element3 && distance < topheight_of_element4) {
-        price = 1;
-        about_us = 0;
-        Now_Showing = 0;
-        activate('option3');
-        unactivate('option2');
-        unactivate('option1');
-        count6 = 1;
-
-      }
-      else {
-        count4 = 0;
-        count5 = 0;
-        count6 = 0;
-
-        price = 0;
-        about_us = 0;
-        Now_Showing = 0;
-        unactivate('option2');
-        unactivate('option3');
-        unactivate('option1');
-
-      }
-
-    }
-
-    var selection = document.getElementById('seats-FCA').value;
-
-    var lastnumber
-
-    function check_required() {
-      var get_trimmed_name_input_value = document.getElementById('name').value.trim();
-      var get_trimmed_Email_input_value = document.getElementById("email").value.trim();
-      var get_trimmed_Mobile_input_value = document.getElementById('mobile').value.trim();
-      var get_trimmed_credit_card_input_value = document.getElementById('credit-card').value.trim();
-      if (get_trimmed_Email_input_value == "") {
-        document.getElementById('feedback-messages_2').innerHTML = "Please fill in this"
-        document.getElementById('feedback-messages_2').style.color = "red"
-        document.getElementById('email').style.borderColor = "red"
-      }
-
-      if (get_trimmed_name_input_value == "") {
-        document.getElementById('feedback-messages_1').innerHTML = "Please fill in this"
-        document.getElementById('feedback-messages_1').style.color = "red"
-        document.getElementById('name').style.borderColor = "red"
-      }
-
-      if (get_trimmed_Mobile_input_value == "") {
-        document.getElementById('feedback-messages_3').innerHTML = "Please fill in this"
-        document.getElementById('feedback-messages_3').style.color = "red"
-        document.getElementById('mobile').style.borderColor = "red"
-      }
-
-      if (get_trimmed_credit_card_input_value == "") {
-        document.getElementById('feedback-messages_4').innerHTML = "Please fill in this"
-        document.getElementById('feedback-messages_4').style.color = "red"
-        document.getElementById('credit-card').style.borderColor = "red"
-      }
-
-    }
-    var is_movie_selected = '';
-
-    function is_button_clicked() {
-      if (document.getElementById("time").textContent != "") {
-        document.getElementById("reminder_of_pressed_button").innerHTML = ""
-        is_movie_selected ='yes';
-      }
-      else if (document.getElementById("movie-title").textContent == "") {
-        document.getElementById("reminder_of_pressed_button").innerHTML = "Please select both"
-        is_movie_selected ='no';
-      }
-
-      else if (document.getElementById("movie-title").textContent != "") {
-        document.getElementById("reminder_of_pressed_button").innerHTML = "Please select "
-        is_movie_selected = 'no';
-      }
-
-    }
-   
-
-  </script>
-
+  <script src="script.js"></script>
 
   <main>
     <article id='Website Under Construction'>
@@ -1507,7 +1012,6 @@
       Programming course at RMIT University in Melbourne, Australia.</div>
     <div><button id='toggleWireframeCSS' onclick='toggleWireframe()'>Toggle Wireframe CSS</button></div>
   </footer>
-
 </body>
 
 </html>
