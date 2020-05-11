@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+    <script src="tools.js"></script>
+    <s></s>
+    <style>
+        input[pattern]::invalid{
+            border: 2px red solid;
+            border-color: #ffee ;
+        }
+    </style>
+</head>
+<body>
+    
+        <p>        <input type="button" id="week7" value="calculate" onclick="setInterval(calculateprice, 500)">
+        </p>
+
+
+        <p>        <input type="button" id="week7-2" value="calculate 2" onclick="calculateprice2();">
+        </p>
+
+        <p></p>
+        <input type="button" id="week7-3" value="calculate 3" onclick="calculateprice3();">
+
+        <input type="text" id="week7-4" onblur="checkInput()">
+
+</body>
+</html>
