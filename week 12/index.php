@@ -43,7 +43,15 @@
 
 
     <?php
-    include 'tool.php'
+    include 'tool.php';
+
+    check_post_data($_POST);
+    if($is_data_ok == "ok"){
+      echo "yes";
+    }
+    else{
+      echo "no";
+    }
     ?>
   <!--Header-->
 
@@ -751,7 +759,7 @@
       <div class="title">
         <h1>BOOKING</h1>
       </div>
-      <form method="POST" action="https://titan.csit.rmit.edu.au/~e54061/wp/lunardo-formtest.php">
+      <form method="POST" action="processing.php">
         <div class="row">
           <div class="col">
             <input type="hidden" name="movie[id]" class="movie-day_time" id="movie-title1">
@@ -942,6 +950,7 @@
                 onchange="check_regex_name(id)"></input>
 
               <p class="warning" id="feedback-messages_1"></p>
+              <span class="warning">* <?php echo $error_name; ?></span>
             </div>
             <div class="form-group">
 
@@ -951,6 +960,8 @@
               <input type="email" name="cust[email]" id="email" class="form-control" placeholder="e.g. xxxxxxx@gmail.com" onchange="check_regex_email(id)">
 
               <p class="warning" id="feedback-messages_2"></p>
+              <span class="warning">* <?php echo $error_email; ?></span>
+
             </div>
             <div class="form-group">
 
@@ -960,17 +971,21 @@
               <input type="tel" name="cust[mobile]" id="mobile" class="form-control"  placeholder="e.g. (+614) 1234 5678" onchange="check_regex_mobile(id)">
 
               <p class="warning-messages" id="feedback-messages_3"></p>
+              <span class="warning">* <?php echo $error_mobile; ?></span>
+
             </div>
             <div class="form-group">
 
               <label for="Credit" id="label">Credit Card</label>
 
 
-              <input type="text" name="cust[card]" id="credit-card" class="form-control" placeholder="e.g 1234 5678 9876 54321" onchange="check_regex_tel(id)">
+              <input type="text" name="cust[card]" id="credit-card" class="form-control" placeholder="e.g 1234 5678 9876 5431" onchange="check_regex_tel(id)">
 
 
 
               <p class="warning-messages" id="feedback-messages_4"></p>
+              <span class="warning">* <?php echo $error_card; ?></span>
+
             </div>
             <div class="Expiry-date">
               <div class="form-group">
@@ -982,6 +997,8 @@
 
 
                 <p class="warning-messages" id="feedback-messages_5"></p>
+                <span class="warning"><?php echo $error_date; ?></span>
+
               </div>
             </div>
             <div class="submit" style="text-align: right; padding-right: 30px;">
@@ -1016,7 +1033,11 @@
   </footer>
   <?php
     echo "$color";
-    
+    preShow($_GET);
+    echo "<h1>InPut: </h1>";
+    check_post_data($_POST);
+    echo $_POST['cust']['email'];
+    printMyCode();
   ?>
 </body>
 

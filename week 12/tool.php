@@ -7,7 +7,6 @@
 </head>
 <body>
     <?php 
-    session_start();
     $color = 'red';
     function preShow($arr, $returnasastring=false){
         $remember = "<pre>".print_r($arr,true)."</pre>";
@@ -61,7 +60,6 @@
                     }
                     else{
                         $count_id = 1;
-
                     }
                 }
                 else if ($key1 == 'day'){
@@ -183,19 +181,6 @@
         $is_data_ok = 'ok';
     }
   }
-  function add_to_cart($post){
-      foreach ($post as $the_key => $the_value){
-          foreach ($post[$the_key] as $the_key1 => $the_value1){
-            $validate_input = trim($post[$the_key][$the_key1]);
-            $validate_input = htmlspecialchars($validate_input);
-            if($the_key == "seats"){
-
-            }
-            
-          }
-      }
-  }
-  
   
   
 

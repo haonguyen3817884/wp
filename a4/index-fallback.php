@@ -22,7 +22,7 @@
 
     <main>
       <h2>A4 Booking Form</h2>
-      <form method='post' action='index.php'>
+      <form method='post' action='processing.php'>
         <label>MovieId</label><input type=text name='movie[id]'/><br>
         <label>MovieDay</label><input type=text name='movie[day]'/><br>
         <label>MovieHour</label><input type=text name='movie[hour]'/><br>
@@ -34,7 +34,7 @@
         <label>SeatsFCP</label><input type=text name='seats[FCP]'/><br>
         <label>SeatsFCC</label><input type=text name='seats[FCC]'/><br>
         <br>
-        <label>CustName</label><input type=text name='cust[name]'/><br>
+        <label>CustName</label><input type=text name='cust[name]'><br>
         <label>CustEmail</label><input type=text name='cust[email]'/><br>
         <label>CustMobile</label><input type=text name='cust[mobile]'/><br>
         <label>CustCard</label><input type=text name='cust[card]'/><br>
