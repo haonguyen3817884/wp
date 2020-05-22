@@ -182,18 +182,12 @@
     if($count_total == 9){
         $is_data_ok = 'ok';
     }
+    else{
+        $is_data_ok = 'not ok';
+    }
   }
   function add_to_cart($post){
-      foreach ($post as $the_key => $the_value){
-          foreach ($post[$the_key] as $the_key1 => $the_value1){
-            $validate_input = trim($post[$the_key][$the_key1]);
-            $validate_input = htmlspecialchars($validate_input);
-            if($the_key == "seats"){
-
-            }
-            
-          }
-      }
+      $_SESSION['cart'] = $post; 
   }
   
   

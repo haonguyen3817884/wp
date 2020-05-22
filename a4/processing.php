@@ -46,14 +46,19 @@
     include 'tool.php';
 
     echo "<p> your post data </p>";
-
-    check_post_data($_POST);
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+      check_post_data($_POST);
+    }
     if($is_data_ok == "ok"){
-      echo "yes";
+      add_to_cart($_POST);
+      echo "all datas have been added into session";
+      header('location: receipt.php');
     }
     else{
-      echo "no";
+      echo "invalid";
+      $_SESSION['cart']=array();
     }
+    
     ?>
   <!--Header-->
 
@@ -1040,6 +1045,7 @@
     check_post_data($_POST);
     echo $_POST['cust']['email'];
     printMyCode();
+    preShow($_SESSION);
   ?>
 </body>
 
