@@ -388,120 +388,41 @@
         <div class="title">
           <h1> NOW SHOWING </h1>
         </div>
+        <script>
+        function getSynopsis(idem){
+        idArray = [
+        'synopsisANM',
+        'synopsisRMC',
+        'synopsisAHF',
+        'synopsisACT'];
+        console.log(idem);
+        idem = 'synopsis'+idem.slice(0,3);
+        console.log(idem);
+        for (id in idArray){
+            console.log(idArray[id]);
+            if (idArray[id] == idem){
+                document.getElementById(idArray[id]).style.display = "block";
+            }else{
+                document.getElementById(idArray[id]).style.display = "none";
+            }
+        }
+      }
+        console.log("click");
+        
+        </script>
 
-        <div class="movie-panel">
-
-          <div class="row">
-            <!--first column-->
-            <div class="col" style="text-align: center;">
-              <div class="movies-poster-cards" id="moviePanelAMN">
-                <div class="card" style=" padding: 20px; border: solid;">
-                  <div class="row no-gutters">
-                    <div class="col">
-                      <img class="card-img-left" src="photos/dumbo.jpg" alt="poster-image" width="260" height="312">
-                    </div>
-                    <div class="col">
-                      <div class="card-body">
-                        <h1 class="card-title" id="AMN-title">Dumbo</h1>
-                        <div class="card-text">
-                          <p><strong>Time</strong>:</p>
-                          <p class="card-text">Monday - Tuesday: 12:00 PM</p>
-                          <p class="card-text">Wednesday - Friday: 6:00 PM</p>
-                          <p class="card-text">Saturday - Sunday: 12:00 PM</p>
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <a href="#synopsisAMN" id="AMN-button" class="buttons" onclick="update_movieID(id)">Movie Detail</a>
-              </div>
-
-            </div>
-
-            <!--second column-->
-            <div class="col" style="text-align: center;">
-              <div class="movies-poster-cards" id="moviePanelAHF">
-                <div class="card" style=" padding: 20px; border: solid;">
-                  <div class="row no-gutters">
-                    <div class="col">
-                      <img class="card-img-left" src="photos/thehappyprince.jpg" alt="poster-image" width="260"
-                        height="312">
-                    </div>
-                    <div class="col">
-                      <div class="card-body">
-                        <h1 class="card-title" id="AHF-title">The Happy Prince</h1>
-                        <div class="card-text">
-                          <p><strong>Time</strong>:</p>
-                          <p class="card-text">Wednesday - Friday: 12:00 PM</p>
-                          <p class="card-text">Saturday: 9:00 PM</p>
-                          <p class="card-text">Sunday: 9:00 PM</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <a href="#synopsisAHF" id="AHF-button" class="buttons" onclick="update_movieID(id)">Movie
-                  Detail</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="movie-panel">
-          <div class="row">
-            <!--first column-->
-            <div class="col" style="text-align: center;">
-              <div class="movies-poster-cards" id="moviePanelRMC">
-                <div class="card" style=" padding: 20px; border: solid;">
-                  <div class="row no-gutters">
-                    <div class="col">
-                      <img class="card-img-left" src="photos/topendwedding.jpg" alt="poster-image" width="260"
-                        height="312">
-                    </div>
-                    <div class="col">
-                      <div class="card-body">
-                        <h1 class="card-title" id="RMC-title">Top-End-Wedding</h1>
-                        <div class="card-text">
-                          <p><strong>Time</strong>:</p>
-                          <p class="card-text">Monday - Tuesday: 6:00 PM</p>
-                          <p class="card-text">Saturday: 3:00 PM</p>
-                          <p class="card-text">Sunday: 3:00 PM</p>
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <a href="#synopsisRMC" id="RMC-button" class="buttons" onclick="update_movieID(id)">Movie Detail</a>
-              </div>
-            </div>
-
-            <!--second column-->
-            <div class="col" style="text-align: center;">
-              <div class="movies-poster-cards" id="moviePanelACT">
-                <div class="card" style=" padding: 20px; border: solid;">
-                  <div class="row no-gutters">
-                    <div class="col">
-                      <img class="card-img-left" src="photos/avengers.jpg" alt="poster-image" width="260" height="312">
-                    </div>
-                    <div class="col">
-                      <div class="card-body">
-                        <h1 class="card-title" id="ACT-title">Avengers: Endgame</h1>
-                        <div class="card-text">
-                          <p><strong>Time</strong>:</p>
-                          <p class="card-text">Wednesday - Friday: 9:00 PM</p>
-                          <p class="card-text">Saturday: 6:00 PM</p>
-                          <p class="card-text">Sunday: 6:00 PM</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <a href="#synopsisACT" id="ACT-button" class="buttons" onclick="update_movieID(id)">Movie Detail</a>
-              </div>
-            </div>
+        <?php
+        php2js($dayHour, 'dayHourArrayJS');
+        php2js($movieObject, 'movieArrayJS');
+        moviePanel('RMC', 'AHF');
+        moviePanel('ANM', 'ACT');
+        ?>
+          <script>
+            dayHour('ANM');
+            dayHour('ACT');
+            dayHour('RMC');
+            dayHour('AHF');
+          </script>
           </div>
         </div>
       </div>
@@ -565,201 +486,22 @@
           </tr>
         </tbody>
       </table>
-
-
-
-
     </div>
-
-
   </section>
-
-
-
-
-
   <!--Synopsis-->
-
   <article id="summary" onscroll="activate(id)">
     <div class="container">
       <div class="title" style="color: whitesmoke; border-bottom: solid whitesmoke;">
         <h1>SYNOPSIS</h1>
       </div>
-      <!--The-Happy-Prince-->
-      <div class="panel toggle" id="synopsisAHF">
-        <div class="row">
-          <div class="col">
-            <div class="movie-title">
-              <p class="left-site">The Happy Prince</p>
-              <p class="right-site">
-                <P>R</P>
-              </p>
-            </div>
-            <p class="plot">Plot Description:</p>
-            <p class="line"> <u>The movie tells a story of Oscar Wilde who is irish poet and playwright in
-                the 19th century. He was in jail for being a homosexual man for two years.
-                After that, he spends his last days in exile. That is also when the film gets
-                started. Immersing himself in drugs and wines, he is now looking at his
-                failures and difficulties with what defined him </u></p>
-          </div>
-          <div class="col">
-            <div class="video">
-              <iframe width="550" height="300" src="https://www.youtube.com/embed/JHeOo0UGrbY" frameborder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-3">
-            <div class="words">
-              Make a booking:
-            </div>
-          </div>
-          <div class="col">
-            <div class="the-links">
-              <a href="#Booking-area" class="booking-links" id="AHF-button1" onclick="select_movie(id);">WED T12</a>
-              <a href="#Booking-area" class="booking-links" id="AHF-button2" onclick="select_movie(id)">THU T12</a>
-              <a href="#Booking-area" class="booking-links" id="AHF-button3" onclick="select_movie(id)">FRI T12</a>
-              <a href="#Booking-area" class="booking-links" id="AHF-button4" onclick="select_movie(id)">SAT T21</a>
-              <a href="#Booking-area" class="booking-links" id="AHF-button5" onclick="select_movie(id)">SUN T21</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--Top-Edn-Wedding-->
-      <div class="panel toggle" id="synopsisRMC">
-        <div class="row">
-          <div class="col">
-            <div class="movie-title">
-              <p class="left-site">Top-End-Wedding</p>
-              <p class="right-site">
-                <P>NR</P>
-              </p>
-            </div>
-            <p class="plot">Plot Description:</p>
-            <p class="line"> <u>This Comedy movie talks about a fanstatic road trip taken by Lauren and Ned.
-                The couples have only 10 days to find Lauren's mother who has gone missing and have a wedding.
-                The trip brought amazing experiences to the couples and also helped them know more about their
-                partners.</u>
-            </p>
-          </div>
-          <div class="col">
-            <div class="video">
-              <iframe width="550" height="300" src="https://www.youtube.com/embed/uoDBvGF9pPU" frameborder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-3">
-            <div class="words">
-              Make a booking:
-            </div>
-          </div>
-          <div class="col">
-            <div class="the-links">
-              <a href="#Booking-area" class="booking-links" id="RMC-button1" onclick="select_movie(id)">MON T18</a>
-              <a href="#Booking-area" class="booking-links" id="RMC-button2" onclick="select_movie(id)">TUE T18</a>
-              <a href="#Booking-area" class="booking-links" id="RMC-button3" onclick="select_movie(id)">SAT T15</a>
-              <a href="#Booking-area" class="booking-links" id="RMC-button4" onclick="select_movie(id)">SUN T15</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--Dumbo-->
-      <div class="panel toggle" id="synopsisAMN">
-        <div class="row">
-          <div class="col">
-            <div class="movie-title">
-              <p class="left-site">Dumbo</p>
-              <p class="right-site">
-                <P>PG</P>
-              </p>
-            </div>
-            <p class="plot">Plot Description:</p>
-            <p class="line"> <u>Based on a movie of the same name in 1941, the movie tells
-                a story of a young elephant. With his oversized ears, he accidentally
-                found that by flapping them he is able to fly. Thanks to that, the circus where he performs is getting
-                more popular. Mr. Vandevere who is a very famous entrepreneur in New York also pays attention to it.
-                He wants Dumbo to perform in his park. </u></p>
-          </div>
-          <div class="col">
-            <div class="video">
-              <iframe width="550" height="300" src="https://www.youtube.com/embed/7NiYVoqBt-8" frameborder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-3">
-            <div class="words">
-              Make a booking:
-            </div>
-          </div>
-          <div class="col">
-            <div class="the-links">
-              <a href="#Booking-area" class="booking-links" id="AMN-button1" onclick="select_movie(id)">MON T12</a>
-              <a href="#Booking-area" class="booking-links" id="AMN-button2" onclick="select_movie(id)">TUE T12</a>
-              <a href="#Booking-area" class="booking-links" id="AMN-button3" onclick="select_movie(id)">WED T18</a>
-              <a href="#Booking-area" class="booking-links" id="AMN-button4" onclick="select_movie(id)">THU T18</a>
-              <a href="#Booking-area" class="booking-links" id="AMN-button5" onclick="select_movie(id)">FRI T18</a>
-              <a href="#Booking-area" class="booking-links" id="AMN-button6" onclick="select_movie(id)">SAT T12</a>
-              <a href="#Booking-area" class="booking-links" id="AMN-button7" onclick="select_movie(id)">SUN T12</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--Avengers-->
-      <div class="panel toggle" id="synopsisACT">
-        <div class="row">
-          <div class="col">
-            <div class="movie-title">
-              <p class="left-site">Avengers: End Game</p>
-              <p class="right-site">
-                <P>PG</P>
-              </p>
-            </div>
-            <p class="plot">Plot Description:</p>
-            <p class="line"> <u>Following Avengers: Infinity War, after Thanos's snap, nearly 50% of all living
-                creatures has gone.
-                Members of The Avengers is trying to gather to find Thanos and undo what he did.
-                However, they finally realize that their only hope is gone when Thanos has destroyed all the infinity
-                stones.
-                5 years after Thanos's death, Scott Lang who is considered dead luckily get back from quantumn realm and
-                bring the second chance
-                to save people who're gone because of Thanos's snap. </u></p>
-          </div>
-          <div class="col">
-            <div class="video">
-              <iframe width="550" height="300" src="https://www.youtube.com/embed/9tKr3m6r9NI" frameborder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-3">
-            <div class="words">
-              Make a booking:
-            </div>
-          </div>
-          <div class="col">
-            <div class="the-links">
-              <a href="#Booking-area" class="booking-links" id="ACT-button1" onclick="select_movie(id)">WED T21</a>
-              <a href="#Booking-area" class="booking-links" id="ACT-button2" onclick="select_movie(id)">THU T21</a>
-              <a href="#Booking-area" class="booking-links" id="ACT-button3" onclick="select_movie(id)">FRI T21</a>
-              <a href="#Booking-area" class="booking-links" id="ACT-button4" onclick="select_movie(id)">SAT T18</a>
-              <a href="#Booking-area" class="booking-links" id="ACT-button5" onclick="select_movie(id)">SUN T18</a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <?php
+      synopsis("ANM");
+      synopsis("RMC");
+      synopsis("ACT");
+      synopsis("AHF");
+    ?>
     </div>
   </article>
-
   <!--booking-->
   <article id="Booking-area">
     <div class="container" onmouseover="check_required();is_button_clicked()">

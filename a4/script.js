@@ -129,48 +129,37 @@ function swth() {
     }
 
 }
+function getID(idem){
+    console.log(idem);
+}
 
-/*
-This function use to toogle all the synopsis contents.
-Specific content will pop-up when use click specific "More details" on Now Showing area.
-*/
-function hide() {
-    var x, i;
-    x = document.querySelectorAll(".toggle");
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
-    }
-    console.log(x);
+idArray = [
+    'synopsisANM',
+    'synopsisRMC',
+    'synopsisAHF',
+    'synopsisACT'];
+for (id in idArray){
+  console.log(idArray[id]);
 }
-var x = document.querySelectorAll(".toggle");
-console.log(x);
-document.getElementById("AMN-button").addEventListener("click", showAMN);
-function showAMN() {
-    x[0].style.display = "none";
-    x[1].style.display = "none";
-    x[2].style.display = "block";
-    x[3].style.display = "none";
-}
-document.getElementById("AHF-button").addEventListener("click", showAHF);
-function showAHF() {
-    x[0].style.display = "block";
-    x[1].style.display = "none";
-    x[2].style.display = "none";
-    x[3].style.display = "none";
-}
-document.getElementById("RMC-button").addEventListener("click", showRMC);
-function showRMC() {
-    x[0].style.display = "none";
-    x[1].style.display = "block";
-    x[2].style.display = "none";
-    x[3].style.display = "none";
-}
-document.getElementById("ACT-button").addEventListener("click", showACT);
-function showACT() {
-    x[0].style.display = "none";
-    x[1].style.display = "none";
-    x[2].style.display = "none";
-    x[3].style.display = "block";
+
+function getSynopsis(idem){
+        idArray = [
+        'synopsisANM',
+        'synopsisRMC',
+        'synopsisAHF',
+        'synopsisACT'];
+        console.log(idem);
+        idem = 'synopsis'+idem.slice(0,3);
+        console.log(idem);
+        for (id in idArray){
+            console.log(idArray[id]);
+            if (idArray[id] == idem){
+                document.getElementById(idArray[id]).style.display = "block";
+            }else{
+                document.getElementById(idArray[id]).style.display = "none";
+            }
+        }
+        console.log("click");
 }
 
 // This function uses to lock the booking form if users do not click on the booking button on synopsis area. 
@@ -203,6 +192,7 @@ function select_movie(idem) {
     var memorize_id_button = idem;
     var array_button_id = memorize_id_button.split('-');
     var movie_title_convert = array_button_id[0] + "-title"
+    console.log(movie_title_convert);
     var remember_movie_title = document.getElementById(movie_title_convert).textContent
     document.getElementById('movie-title').innerHTML = remember_movie_title;
     document.getElementById('movie-title1').value = array_button_id[0];
