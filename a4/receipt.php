@@ -47,8 +47,12 @@
             // closing the file 
             fclose($myfile); 
 
+        $array_movie = array("id" => array('AMN' => 'Dumbo', 'AHF' => 'The Happy Prince', 'RMC' => 'Top End Wedding', 'ACT' => 'Avengers: Endgame'),'day' => array('WED' =>'wednesday','MON'=> 'monday', 'TUE' => 'tuesday', 'THU' => 'thursday', 'FRI' =>'friday', 'SAT' => 'saturday', 'SUN' => 'sunday'), 'hour' => array('T12' => '12:00 pm', 'T15' =>'3:00 pm','T18' => '6:00 pm', 'T21' => '9:00 pm'), 'seats'=>array('FCA'=>'First Class Adult','FCP'=>'First Class Concession','FCC'=>'First Class Children','STA'=>'Standard Class Adult','STC'=>'Standard Class Children','STP'=>'Standard Class Concession'));
+        $array_happy_days = array('WED','MON');
+        $array_week_days = array('THU','FRI','TUE');
+        $array_the = array('SAT', 'SUN');
+        $array_price = array('discount'=>array('FCA' => 24.00,'FCP' => 22.50,'FCC' => 21.00,'STA' => 14.00,'STP' => 12.00,'STC' => 11.00),'full'=>array('FCA' => 30.00,'FCP' => 27.00,'FCC' => 24.00,'STA' => 19.80,'STP' => 17.50,'STC' => 15.30));            
         
-            
         
 
     }
