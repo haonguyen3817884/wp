@@ -52,7 +52,52 @@
         $array_week_days = array('THU','FRI','TUE');
         $array_the = array('SAT', 'SUN');
         $array_price = array('discount'=>array('FCA' => 24.00,'FCP' => 22.50,'FCC' => 21.00,'STA' => 14.00,'STP' => 12.00,'STC' => 11.00),'full'=>array('FCA' => 30.00,'FCP' => 27.00,'FCC' => 24.00,'STA' => 19.80,'STP' => 17.50,'STC' => 15.30));            
-        
+        $price = 0;
+  foreach ($_SESSION['cart']['seats'] as $key => $value){
+    if(in_array($_SESSION['cart']['movie']['day'], $array_happy_days)){
+        if($_SESSION['cart']['seats'][$key] == ""){
+            $price = $price + 0;
+        }
+        else{
+            $each = $array_price['discount'][$key];
+            $number_converted = (int)$_SESSION['cart']['seats'][$key];
+            $price = $price + $each*$number_converted;
+        }
+    }
+    else if(in_array($_SESSION['cart']['movie']['day'], $array_week_days)){
+        if($_SESSION['cart']['movie']['hour'] == 'T12'){
+          if($_SESSION['cart']['seats'][$key] == ""){
+            $price = $price + 0;
+        }
+        else{
+            $each = $array_price['discount'][$key];
+            $number_converted = (int)$_SESSION['cart']['seats'][$key];
+            $price = $price + $each*$number_converted;
+        }
+        }
+        else{
+          if($_SESSION['cart']['seats'][$key] == ""){
+            $price = $price + 0;
+        }
+        else{
+            $each = $array_price['full'][$key];
+            $number_converted = (int)$_SESSION['cart']['seats'][$key];
+            $price = $price + $each*$number_converted;
+        }
+        } 
+    }
+    else{
+      if($_SESSION['cart']['seats'][$key] == ""){
+        $price = $price + 0;
+    }
+    else{
+        $each = $array_price['full'][$key];
+        $number_converted = (int)$_SESSION['cart']['seats'][$key];
+        $price = $price + $each*$number_converted;
+    }
+    }
+}
+echo $price;
         
 
     }

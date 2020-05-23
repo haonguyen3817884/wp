@@ -104,7 +104,6 @@ function php2js( $arr, $arrName ) {
 
 }
 
-    session_start();
     $color = 'red';
     function preShow($arr, $returnasastring=false){
         $remember = "<pre>".print_r($arr,true)."</pre>";
@@ -302,9 +301,8 @@ function php2js( $arr, $arrName ) {
     $titleId1 = $first . '-title';
     $titleId2 = $second . '-title';
 
-    echo <<< "PANEL"
+    echo <<<"PANEL"
     <div class="movie-panel">
-
         <div class="row">
           <!--first column-->
           <div class="col" style="text-align: center;">
@@ -321,16 +319,13 @@ function php2js( $arr, $arrName ) {
                         <p><strong>Time</strong></p>
                         <p class="card-text" id=$id1></p>
                       </div>
-
                     </div>
                   </div>
                 </div>
               </div>
               <a href="$link1" id="$buttonID1" class="buttons" onclick=" getSynopsis(this.id);update_movieID(id)">Movie Detail</a>
             </div>
-
           </div>
-
           <!--second column-->
           <div class="col" style="text-align: center;">
             <div class="movies-poster-cards" id="moviePanelAHF">
@@ -357,8 +352,10 @@ function php2js( $arr, $arrName ) {
           </div>
         </div>
       </div>
-    PANEL;
+PANEL;
 }
+
+
 
 function synopsis($first){
   global $movieObject;
@@ -373,7 +370,7 @@ function synopsis($first){
   $buttonid5 = $first . '-button5';
   $buttonid6 = $first . '-button6';
   $buttonid7 = $first . '-button7';
-  echo <<< "SYNOPSIS"
+  echo <<<"SYNOPSIS"
   <div class="panel toggle" id="$id">
     <div class="row">
       <div class="col">
@@ -417,11 +414,12 @@ function synopsis($first){
   synopsisButton("$first");
   hideBlankContent();
   </script>
-  SYNOPSIS;
+SYNOPSIS;
 }
+
+echo "bla bla";
     ?>
   
 
-    ?>
 </body>
 </html>
