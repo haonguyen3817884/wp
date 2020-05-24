@@ -38,7 +38,7 @@
 }
     </style>
 </head>
-<body>
+<body style="background-color: black;">
 <?php
 include "tools.php";
 session_start();
@@ -176,7 +176,7 @@ $subprice = number_format($price,2);
 $tax = number_format($price * (1/11), 2);
 $total = number_format($price + $tax,2);
 echo <<<"RECEIPT_TOP"
-        <div class="container">
+        <div class="container" style="width: 21cm; height: 29.7cm;">
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -282,11 +282,13 @@ echo <<<"RECEIPT_BOTTON"
                 </div>
             </div>
         </div>
-    </div>
-RECEIPT_BOTTON;
- ?>   
- <form action="ticket.php">
+        <form action="ticket.php">
  <button>Print Individual Ticket</button>
  </form>
+    </div>
+    
+RECEIPT_BOTTON;
+ ?>   
+ 
 </body>
 </html>

@@ -512,13 +512,13 @@ function is_button_clicked() {
         is_movie_selected = 'yes';
     }
     else if (document.getElementById("movie-title").textContent == "") {
-        document.getElementById("reminder_of_pressed_button").innerHTML = "Please make a booking"
+        document.getElementById("reminder_of_pressed_button").innerHTML = "Please make a booking before selecting seats"
         document.getElementById("reminder_of_pressed_button").style.color = "red"
         is_movie_selected = 'no';
     }
 
     else if (document.getElementById("movie-title").textContent != "") {
-        document.getElementById("reminder_of_pressed_button").innerHTML = "Please make a booking"
+        document.getElementById("reminder_of_pressed_button").innerHTML = "Please make a booking before selecting seats"
         document.getElementById("reminder_of_pressed_button").style.color = "red"
         is_movie_selected = 'no';
     }

@@ -66,7 +66,7 @@ $arrSeat = $_SESSION['cart']['seats'];
               <div class="barcode"></div>
             </div>
           </div>
-        TICKETVIP;
+TICKETVIP;
       }
     }
        else{
@@ -114,7 +114,7 @@ $arrSeat = $_SESSION['cart']['seats'];
           </div>
         
         </div>
-        TICKET;
+TICKET;
         }
       }
     }

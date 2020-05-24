@@ -58,7 +58,7 @@
     <form action="index.php">
     <input type='submit' name='session-reset' value='Reset the session' >
     </form>
-   RESET;
+RESET;
       echo "<p>Your POST data </p>";
       if($_SERVER["REQUEST_METHOD"] == "POST"){
         check_post_data($_POST);
@@ -798,6 +798,7 @@
     check_post_data($_POST);
     echo $_POST['cust']['email'];
     printMyCode();
+    preShow($_POST);
     preShow($_SESSION);
   ?>
 </body>
