@@ -458,7 +458,7 @@ function update_movieID(idem) {
 function limitDate() {
     var today = new Date();
     var currentYear = today.getFullYear();
-    var currentMonth = today.getMonth() + 1;
+    var currentMonth = today.getMonth() + 2;
     console.log(currentYear);
     console.log(currentMonth);
     var min;

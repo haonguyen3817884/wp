@@ -42,24 +42,40 @@
 <body onload="hide();limitDate();" onscroll="swth();" onmouseover="total_check();check_and_givefeedback();">
 
 
-    <?php
-    include 'tool.php';
+<div class='processing_script'>
+  <?php
+      include 'tools.php';
+      if (isset($_POST['session-reset'])) {
 
-    echo "<p> your post data </p>";
-    if($_SERVER["REQUEST_METHOD"] == "POST"){
-      check_post_data($_POST);
-    }
-    if($is_data_ok == "ok"){
-      add_to_cart($_POST);
-      echo "all datas have been added into session";
-      header('location: receipt.php');
-    }
-    else{
-      echo "invalid";
-      $_SESSION['cart']=array();
-    }
-    
+        foreach($_SESSION as $something => $whatever) {
+
+             unset($whatever);
+
+        }
+
+   }
+   echo <<<"RESET"
+    <form action="index.php">
+    <input type='submit' name='session-reset' value='Reset the session' >
+    </form>
+   RESET;
+      echo "<p>Your POST data </p>";
+      if($_SERVER["REQUEST_METHOD"] == "POST"){
+        check_post_data($_POST);
+        if($is_data_ok == "ok"){
+          add_to_cart($_POST);
+          echo "all datas have been added into session";
+          header('location: receipt.php');
+        }
+        else{
+          echo "<i style='color:red;'>OOPS Something's wrong</i></br>";
+          echo "<i style='color:red;'>Some of your input is INVALID</i>";
+          $_SESSION['cart']=array();
+        }
+      }
+      
     ?>
+</div>
   <!--Header-->
 
   <header>
@@ -508,7 +524,7 @@
       <div class="title">
         <h1>BOOKING</h1>
       </div>
-      <form method="POST" action="processing.php">
+      <form method="POST" action="index.php">
         <div class="row">
           <div class="col">
             <input type="hidden" name="movie[id]" class="movie-day_time" id="movie-title1">
@@ -696,20 +712,18 @@
 
 
               <input name="cust[name]" type="text" id="name" cols="1" rows="1" class="form-control" placeholder="e.g. Gerard 't Hooft"
-                onchange="check_regex_name(id)"></input>
+                onchange="check_regex_name(id)"></input><?php echo "  * ".$error_name; ?>
 
               <p class="warning" id="feedback-messages_1"></p>
-              <span class="warning">* <?php echo $error_name; ?></span>
             </div>
             <div class="form-group">
 
               <label for="Email" id="label">Email</label>
 
 
-              <input type="email" name="cust[email]" id="email" class="form-control" placeholder="e.g. xxxxxxx@gmail.com" onchange="check_regex_email(id)">
+              <input type="email" name="cust[email]" id="email" class="form-control" placeholder="e.g. xxxxxxx@gmail.com" onchange="check_regex_email(id)"> <?php echo "  * ". $error_email; ?>
 
               <p class="warning" id="feedback-messages_2"></p>
-              <span class="warning">* <?php echo $error_email; ?></span>
 
             </div>
             <div class="form-group">
@@ -717,10 +731,9 @@
               <label for="Mobile" id="label">Mobile</label>
 
 
-              <input type="tel" name="cust[mobile]" id="mobile" class="form-control"  placeholder="e.g. (+614) 1234 5678" onchange="check_regex_mobile(id)">
+              <input type="tel" name="cust[mobile]" id="mobile" class="form-control"  placeholder="e.g. (+614) 1234 5678" onchange="check_regex_mobile(id)"> <?php echo "  * ". $error_mobile; ?>
 
               <p class="warning-messages" id="feedback-messages_3"></p>
-              <span class="warning">* <?php echo $error_mobile; ?></span>
 
             </div>
             <div class="form-group">
@@ -728,12 +741,11 @@
               <label for="Credit" id="label">Credit Card</label>
 
 
-              <input type="text" name="cust[card]" id="credit-card" class="form-control" placeholder="e.g 1234 5678 9876 5431" onchange="check_regex_tel(id)">
+              <input type="text" name="cust[card]" id="credit-card" class="form-control" placeholder="e.g 1234 5678 9876 5431" onchange="check_regex_tel(id)"><?php echo "  * ". $error_card; ?>
 
 
 
               <p class="warning-messages" id="feedback-messages_4"></p>
-              <span class="warning">* <?php echo $error_card; ?></span>
 
             </div>
             <div class="Expiry-date">
@@ -742,11 +754,10 @@
                 <label for="Date-time" id="label">Date and Time</label>
 
 
-                <input type="month" name="cust[expiry]" id="Date-time" class="form-control">
+                <input type="month" name="cust[expiry]" id="Date-time" class="form-control"><?php echo "  * ". $error_date; ?>
 
 
                 <p class="warning-messages" id="feedback-messages_5"></p>
-                <span class="warning"><?php echo $error_date; ?></span>
 
               </div>
             </div>

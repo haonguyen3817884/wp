@@ -22,7 +22,7 @@
 
     <main>
       <h2>A4 Booking Form</h2>
-      <form method='post' action='processing.php'>
+      <form method='post' action='index.php'>
         <label>MovieId</label><input type=text name='movie[id]'/><br>
         <label>MovieDay</label><input type=text name='movie[day]'/><br>
         <label>MovieHour</label><input type=text name='movie[hour]'/><br>
