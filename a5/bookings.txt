@@ -1,0 +1,113 @@
+Date	Name	Email	Mobile	MovieID	Day	Hour	"STA Qty"	"STP Qty"	"STC Qty"	"FCA Qty"	"FCP Qty"	"FCC Qty"	Total
+
+
+
+
+
+
+
+$array_name[array_keys($_POST)[0]][$the_key2][$the_key4]
+$array_pri[array_keys($_POST)[0]][$the_key2][$the_key4]
+
+
+
+
+
+
+
+
+        <article id="product_place">
+            <div class='container'>
+                <div class='row'>
+
+
+
+                
+
+
+ <div class='col-6 col-md-4'>
+  <ul>
+   <h1>Categories</h1>
+  
+     <li></li>
+     <li></li>
+     <li></li>
+   
+      
+  </ul>
+  </div>
+  <div class='col-12 col-md-8'>
+  <div class='row'>
+
+  
+      <div class='col-md-4'>
+      <div class="card">
+                          <img class="img-fluid" alt="100%x280" src="photos a5/Clothes1.jpg">
+                          <div class="card-body">
+                              <h4 class="card-title">Special title treatment</h4>
+                              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+                          </div>
+                      </div>
+      </div>
+      <div class='col-md-4'>
+      <div class="card">
+      <img class="img-fluid" alt="100%x280" src="photos a5/Clothes2.jpg">
+                          <div class="card-body">
+                              <h4 class="card-title">Special title treatment</h4>
+                              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+                          </div>
+                      </div>
+      </div>
+      <div class='col-md-4'>
+      <div class="card">
+      <img class="img-fluid" alt="100%x280" src="photos a5/Clothes1.jpg">
+                          <div class="card-body">
+                              <h4 class="card-title">Special title treatment</h4>
+                              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+                          </div>
+                      </div>
+      </div>
+      <div class='col-md-4'>
+      <div class="card">
+      <img class="img-fluid" alt="100%x280" src="photos a5/Clothes4.jpg">
+                          <div class="card-body">
+                              <h4 class="card-title">Special title treatment</h4>
+                              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+                          </div>
+                      </div>
+      </div>
+      <div class='col-md-4'>
+      <div class="card">
+      <img class="img-fluid" alt="100%x280" src="photos a5/Pants1.jpg">
+                          <div class="card-body">
+                              <h4 class="card-title">Special title treatment</h4>
+                              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+                          </div>
+                      </div>
+      </div>
+      
+      <div class='col-md-4'>
+      <div class="card">
+      <img class="img-fluid" alt="100%x280" src="photos a5/Shoes1.jpg">
+                          <div class="card-body">
+                              <h4 class="card-title">Special title treatment</h4>
+                              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+                          </div>
+                      </div>
+      </div>
+      </div>
+      
+      
+  
+  </div>
+
+
+                </div>
+            </div>
+        </article>

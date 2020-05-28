@@ -1,0 +1,569 @@
+.top-bar {
+    border-bottom: 1px solid #e9ecef !important; }
+
+
+/* Web font */    
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+
+
+/*Processing Script style*/
+.processing_script{
+  background-color: #000 !important;
+  color: white !important;
+}
+  
+
+/* Header area */  
+
+header {
+    padding: 20px 20px 20px 20px;
+    border: none;
+    background-color: white;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+::-webkit-input-placeholder{
+  font-family: Montserrat;
+}
+/* nav bar */
+
+.nav-site{
+    background-color: black;
+    padding: 5px;
+    position: sticky;
+    top: 0%;
+    width: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+
+.nav-site a{
+  padding-top: 0px ;
+  padding-bottom: 0px;
+}
+.nav-site a:link, a:visited{
+  color: white;
+  text-decoration: none;
+}
+
+
+
+.nav-site a:hover{
+  text-decoration: none;
+  color: red;
+}
+
+/* link overlay cards */
+
+.movies-poster-cards{
+  position: relative;
+}
+
+.buttons, .buttons:visited{
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  opacity: 0;
+  color: black;
+  text-decoration: none;
+  border: solid black;
+  padding: 15px;
+  text-align: center;
+  transition: .0.4S ease;
+}
+.movies-poster-cards:hover .card{
+  opacity: 0.3;
+  transition: .4s ease;
+}
+
+.movies-poster-cards:hover .buttons{
+  opacity: 1; 
+  transition: .4s ease;  
+}
+
+
+.buttons:hover{
+  color: black;
+  background-color: whitesmoke;
+  border: whitesmoke solid;
+  text-decoration: none;
+  transition: .4s ease;
+}
+
+/* Comming Soon section */
+
+#Comming-Soon{
+  background-color: #222222;
+}
+
+
+#Comming-Soon .buttons, .buttons:visited{
+    left: 25%;    
+  }
+
+
+/* card styling */
+
+.card-title{
+  font-size: large;
+  padding-bottom: 20px;
+  border-bottom: solid;
+  margin-bottom: 20px;
+}
+
+.card{
+  background-color: ghostwhite;
+
+}
+
+
+/* title element */
+
+.title{
+  text-align: left;
+  font-family: Raleway;
+  font: bold;
+  margin-bottom: 70px;
+}
+
+
+
+/* About Us-section */
+
+#About-Us{
+  min-height: 100%;
+  background-color: white;
+  padding: 40px;
+}
+
+#About-Us .title{
+  border-bottom: black solid ;
+  color: #000;
+}
+
+
+.introduction{
+  font-size: 40px;
+  color: black;
+  margin-bottom: 70px;
+  margin-top: 100px;
+}
+
+.intro h2{
+  font-size: 20px;
+}
+
+
+.headings{
+  font-size: 19px;
+  color: #444444;
+  margin-bottom: 50px;
+  border-bottom: groove #444444;
+  border-width: 2px;
+}
+
+.first-upgrade{
+  margin-top: 65px;
+  margin-bottom: 80px;
+}
+
+
+.first-upgrade .headings{
+  width: 500px;
+}
+
+.first-upgrade .see-more-links,.see-more-links:visited{
+  text-decoration: none;
+}
+
+.see-more-links:hover .headings{
+  opacity: 0.4;
+
+  transition: 0.3s ease;
+}
+
+#demo img{
+  width: 350px;
+  height: 250px;
+}
+
+#demo .row{
+  text-align: center;
+}
+
+h2{
+  font-size: medium;
+}
+.text p{
+  margin-top: 25px;
+  font-size: 15px;
+}
+
+#demo2 img{
+  width: 350px;
+  height: 250px;
+}
+
+#demo2 .row{
+  text-align: center;
+}
+
+
+.second-upgrade .headings{
+  width: 600px;
+}
+
+.second-upgrade{
+  margin-top: 65px;
+  margin-bottom: 80px;
+}
+
+.second-upgrade .see-more-links,.see-more-links:visited{
+  text-decoration: none;
+}
+
+.see-more-links:hover .headings{
+  opacity: 0.4;
+  transition: 0.3s ease;
+}
+
+.text ul{
+  list-style-type: none;
+  font-size: 15px;
+} 
+
+.list h3{
+  font-size: 15px;
+}
+.list{
+  margin-top: 30px;
+}
+.list p{
+  margin-top: 2px;
+  margin-bottom: 2px;
+  font-size: 15px;
+}
+
+
+
+
+
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+  }
+  
+  /* Style the buttons that are used to open the tab content */
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    background-color: #ddd;
+  }
+  
+  /* Create an active/current tablink class */
+  .tab button.active {
+    background-color: #ccc;
+  }
+  
+  /* Style the tab content */
+  .tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+  }
+
+
+  /* Now Showing  */
+
+  #Now-Showing{
+    min-height: 100%;
+    background-color: none;
+  }
+
+
+  #Now-Showing .title{
+    color: whitesmoke;
+    border-bottom: solid whitesmoke;
+  }
+
+
+  .movie-panel{
+    margin-bottom: 70px;
+  }
+ 
+
+  
+
+  .nav-site2{
+    background-color: mediumaquamarine;
+    text-align: left;
+    padding-top: 15px;
+    padding-bottom: 1px;
+  }
+
+  .nav-site2 li{
+    display: inline-block;
+    margin-left: 145px;
+    border: none;
+  }
+
+  .nav-site2 a{
+    border-top: none;
+    border-bottom: none ;
+    border-left: solid;
+    border-right: solid ;
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+  
+  .nav-site2 .nav-item2:visited{
+    color: blue;
+  }
+
+  /* parallex scrolling ef  */
+  .parallex-scrolling {
+    position: relative;
+    clear: both;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center; 
+    text-align: center;
+    padding: 40px;
+  }
+
+
+  #parallex-scrolling-1{
+    background-image: url("photos//wallpaperflare.com_wallpaper.jpg");
+  }
+
+  .parallex-scrolling .booking-titles{
+    position: absolute;
+    top: 30%;
+    left: 36%;
+    text-align: center;
+    font-size: 50px;
+    font-weight: 500;
+    color: white;
+  }
+
+  /* Price */
+
+  #Price{
+    min-height: 100vh;
+    background-color: whitesmoke;
+  }
+
+  #Price .title{
+    color: black;
+    border-bottom: black solid ;
+  }
+  
+
+  /*  synopsis area  */
+
+  #summary{
+    background-color: #555555;
+    padding: 40px;
+    padding-bottom: 100px;
+  }
+
+  .movie-title p{
+    display: inline-block;
+  }
+  
+  .panel{
+    border-bottom: solid black;
+    border: solid black;
+    padding: 20px 40px;
+    padding-bottom: 75px;
+    width: 100%;
+    margin-top: 65px;
+    background-color: whitesmoke;
+  }
+  
+  
+  .video{
+    padding: 20px;
+    text-align: left;
+    padding-top: 30px;
+  }
+  
+  .movie-title{
+    text-align: right;
+    margin-bottom: 20px;
+  }
+  .movie-title p{
+    font-weight: 700;
+    font-size: medium;
+  }
+  .left-site{
+    float: left;
+    text-align: left;
+  }
+  .right-site{
+    float: right;
+    text-align: right;
+  }
+  u{
+    border-bottom: solid black;
+    padding: 1.5px;
+    text-decoration: none;
+  }
+  .final div{
+    display: inline-block;
+  }
+  .the-links{
+    float: right;
+  }
+  .words{
+    float: left;
+    text-align: center;
+    font-size: medium;
+    font-weight: 600;
+  }
+
+  .the-links a{
+    display: inline-block;
+    text-decoration: none;
+    border-left: solid black;
+    border-right: solid black;
+    border-bottom: solid black;
+    border-top: solid black;
+    width: 140px;
+    text-align: center;
+  }
+  .the-links .booking-links:link, .booking-links:visited{
+    color: black;
+    border: solid black;
+    margin-bottom: 10px;
+  }
+  .the-links .booking-links:hover{
+    text-decoration: none;
+    color: whitesmoke;
+    background-color: black;
+  }
+  .final{
+    margin-top: 20px;
+  }
+
+
+
+  
+  
+  
+/* Booking Place */
+
+  .submit{
+    margin-top: 26px;
+  }
+  .dark{
+    background-color: #222222;
+    color: #e9ecef;
+    border: #222222 solid ;
+    font-size: 20px;
+    padding: 10px 20px;
+    font-weight: 500;
+    border-radius: 4.5px;
+  }
+  .dark:hover{
+    background-color: white ;
+    color: #222222;
+    border: #222222 solid;
+  }
+
+  #Booking-area{
+    padding: 40px;
+    background-color: whitesmoke;
+
+  }
+
+  #Booking-area .title{
+    color: #000;
+    border-bottom: #000 solid;
+
+  }
+
+  div .movie-day_time{
+    display: inline;
+  }
+
+
+  .label_form{
+    padding: 15px;  
+  }
+  .price_total{
+    text-align: right;
+  }
+  .ticket_price{
+    padding:10px;
+    border: black 2px;
+    border-style: dashed;
+    width: 100px;
+    height: 50px;  
+  }
+
+  .price_total p{
+    margin-left: 10px;
+    margin-top: 25px;
+  }
+  .warning {
+    text-align: right;
+  }
+  .seat-class{
+    font-size: large;
+    text-align: left;
+    border-bottom: solid ;
+    margin-bottom: 40px;
+    width: 150px;
+  }
+  div .form-control{
+    width: 100%;
+  
+  }
+
+  .warning-messages {
+    text-align: right;
+  }
+  .form-group{
+    text-align: right;
+    padding-right: 30px;
+  }
+  
+  #label{
+    display: inline-block;
+  }
+  
+  #seats-FCC, #seats-FCP, #seats-FCA, #seats-STA, #seats-STP, #seats-STC{
+    display: inline-block;
+    width: 60%;
+  }
+  #name, #email, #mobile, #credit-card, #Date-time {
+    display: inline-block;
+    width: 60%;
+  }
+  /* Footer area */
+
+  footer{
+    background-color: #333333;
+    color: #e5e5e5;
+    padding: 40px ;
+  }
+
