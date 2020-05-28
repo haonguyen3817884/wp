@@ -54,7 +54,7 @@ else{
             }
         }
     }
-    $file_name = "post-date.csv";
+    $file_name = "bookings.csv";
     $fp = fopen($file_name,"w");
     flock($fp, LOCK_EX);
     
@@ -282,9 +282,12 @@ echo <<<"RECEIPT_BOTTON"
                 </div>
             </div>
         </div>
-        <form action="ticket.php">
- <button>Print Individual Ticket</button>
- </form>
+        <form action="ticket.php" method='GET'>
+        <input type='submit' name='individual' value='Print Individual Ticket'>
+        </form>
+        <form action="ticket.php" method='GET'>
+        <input type='submit' name='group' value='Print Group Ticket'>
+        </form>
     </div>
     
 RECEIPT_BOTTON;

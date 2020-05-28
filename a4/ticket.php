@@ -11,11 +11,14 @@
 include "tools.php";
 if(empty($_SESSION['cart'])){
   header("location: index.php");
-} 
+}
 $seatStandard = array('A', 'B', 'C', 'H', 'I', 'J');
 $seatVIP = array('D', 'E', 'F', 'G');
 $arr = $_SESSION['cart'];
 $arrSeat = $_SESSION['cart']['seats'];
+
+
+if(isset($_GET['individual'])){
   foreach($arrSeat as $key => $value){
     if ($value != ""){
       $name = $arr['cust']['name'];
@@ -29,7 +32,7 @@ $arrSeat = $_SESSION['cart']['seats'];
         for($i = 1; $i<=(int)$value; $i++){
           $pick_seatVIP = $seatRow . $i;
           echo <<<"TICKETVIP"
-          <div class="cardWrapVip" id = "ticket">
+          <div class="cardWrapVip" id="ticket">
             <div class="cardVip cardLeftVip">
               <h1><i>CINEMAX</i> <span>Cinema</span></h1>
               <div class="title">
@@ -76,7 +79,7 @@ TICKETVIP;
         for($i = 1; $i<=(int)$value; $i++){
           $pick_seatStandard = $seatRow . $i;
         echo <<<"TICKET"
-        <div class="cardWrap" id = "ticket">
+        <div class="cardWrap" id="ticket">
           <div class="card cardLeft">
             <h1><i>CINEMAX</i> <span>Cinema</span></h1>
             <div class="title">
@@ -118,7 +121,75 @@ TICKET;
         }
       }
     }
-    } 
+    }
+    
+}
+else if(isset($_GET['group'])){
+  $the_name_t = $arr['cust']['name'];
+  $the_title_t = $array_movie['id'][$arr['movie']['id']];
+  $the_time_t = $array_movie['hour'][$arr['movie']['hour']];
+  $the_day_t = $arr['movie']['day'];
+echo <<<"TICKET"
+    <div class="cardWrap" id="ticket">
+      <div class="card cardLeft">
+        <h1><i>CINEMAX</i> <span>Cinema</span></h1>
+        <div class="title">
+          <h2>$the_title_t</h2>
+          <span>movie</span>
+        </div>
+        <div class="name">
+          <h2>$the_name_t</h2>
+          <span>name</span>
+        </div>
+        <div class="seat">
+          <h2>$the_day_t</h2>
+          <span>day</span>
+        </div>
+        <div class="time">
+          <h2>$the_time_t</h2>
+          <span>time</span>
+        </div>
+        <div class="time">
+          <h2></h2>
+          <span></span>
+        </div>
+TICKET;
+
+
+      echo  "<div class='seat'>";
+          echo"<h2>";
+          foreach($arrSeat as $key => $value){
+            if ($value != ""){
+              echo $key.":"." ".$value;
+              echo "; ";
+            }
+          }
+          echo"</h2>";
+         echo"<span>seat</span>";
+        echo"</div>";
+      echo <<<"TICKET"
+      </div>
+      <div class="card cardRight">
+        <div class="eye"></div>
+        <div class="number">
+          <h3></h3>
+          <span>seat</span>
+        </div>
+        <div class="barcode"></div>
+      </div>
+    
+    </div>
+TICKET;
+} 
+
+
+  
+   
+  
+
+   
+
 ?>
+
 </body>
 </html>
