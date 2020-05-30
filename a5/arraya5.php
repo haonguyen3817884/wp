@@ -63,6 +63,18 @@ $array_translated = array('FA' => 'Fashion',
 $array_translated_child = array('FAA' =>'Clothes',
                         'FAB' =>'Pants',
                         'FAC' =>'Shoes','TYA' =>'Electronic Toy','TYB' =>'Lego','TYC' =>'Plush Toy','FDC' =>'Candies','FDA' =>'Processed Food','FDB' =>'Drinks','SPA' =>'Fitness Equipment','SPC' =>'Protein Supplements','SPB' =>'Sport Accessories','COA' =>'Skincare Products','COB' =>'Makeup Products','COC' =>'Perfume',);
+
+
+
+         function preShow($arr, $returnasastring=false){
+         $remember = "<pre>".print_r($arr,true)."</pre>";
+                 if($returnasastring){
+                    return $remember;
+                }
+                else{
+                    echo $remember;
+                }
+        }
     ?>
 </body>
 </html>

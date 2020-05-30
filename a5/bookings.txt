@@ -4,6 +4,23 @@ Date	Name	Email	Mobile	MovieID	Day	Hour	"STA Qty"	"STP Qty"	"STC Qty"	"FCA Qty"	
 
 
 
+ if(is_array($_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]][array_keys($_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]])[0]])){
+      $product_member = array_keys($_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]])[0];
+      echo $product_member."</br>";
+      $quantity_memb = $_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]][array_keys($_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]])[0]]['qty'];
+      $_SESSION[$product_member] = $_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]][array_keys($_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]])[0]]['qty'];
+      
+  }
+  else {
+    echo "no";
+  }
+
+
+
+
+
+array_keys($_GET)[0]."[".array_keys($_GET[array_keys($_GET)[0]])[0]."]"."[".array_keys($_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]])[0]."]"."["."'qty'"."]"
+
 
 
 $array_name[array_keys($_POST)[0]][$the_key2][$the_key4]

@@ -9,7 +9,6 @@
   <script src='../wireframe.js'></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -33,8 +32,12 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <style>
+ .product_img{
+   height: 400px;
+ }
         .dropdown:hover>.dropdown-menu {
   display: block;
 }
@@ -56,7 +59,6 @@
     #product_place .col-md-4 {
         padding-top: 20px ;
     }
-    
     
    
     </style>
@@ -93,7 +95,10 @@
                     <button type="submit" class="form-control" style="background-color: red; border: 1px solid red; box-shadow: 0 0 0 red; border-radius: 0; color: white;">Search</button>
                 </div>
                 <div class="col-sm-2">
+                    <form action="cart.php">
                     
+                    <button type="submit">cart</button>
+                    </form>
                 </div>
             </div>
             
@@ -110,6 +115,9 @@
 
 include "arraya5.php";
 
+session_start();
+
+preShow($_GET);
 
 
 foreach (array_keys($array_name) as $key =>$value){
@@ -131,70 +139,125 @@ foreach (array_keys($array_name) as $key =>$value){
 
 
 }
-print_r($_POST);
+preShow($_POST);
  
   
+
+
+
   
 
 
   
   ?>
-                
-                  
-                  
+                            
                   
               </ul>
         </nav>
-
-        <article>
-          
-          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img class="d-block w-100" src="photos a5/carousel 1.jpg" alt="notyet">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="photos a5/carousel 2.jpg" alt="notyet">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="photos a5/carousel 3.jpg" alt="notyet">
-              </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
+<body>
+<form action="product_detail.php" method='get'>
+    <section id="product" class="py-3">
+      <div class="container">
+        <div class="row">
+          <div class='col-6'>
+          <?php
+           echo "<img class='product_img' src='photos a5/".$array_img_link[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]][array_keys($_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]])[0]]."' alt=''>";
+          ?>
           </div>
+          <div class="col-6 py-5">
+            <h5><?php 
+            echo $array_name[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]][array_keys($_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]])[0]];
+            ?></h5>
+            <small><i>Produced by Hao Nguyen</i></small>
+            
+            <div class='font-size-12'>
+              <span><i class='fa fa-star'></i></span>
+              <span><i class='fa fa-star'></i></span>
+              <span><i class='fa fa-star'></i></span>
+              <span><i class='fa fa-star'></i></span>
+              <span><i class='fa fa-star-o'></i></span>
+            </div>
+            <hr>
+            <div>
+            Price: $150
+            </div>
+            <hr>  
+            <div>
+              <div class='row'>
+                <div class='col'>
+                <span class='fa fa-retweet border p-3 rounded-pill' style="color:#33C1FF;"></span>
+                <br>
+                <a href="#">Return in<br> 10 days</a>
+                </div>
+                <div class='col'>
+                <span class='fa fa-retweet border p-3 rounded-pill' style="color:#33C1FF;"></span>
+                <br>
+                <a href="#">Return in<br> 10 days</a>
+                </div>
+                <div class='col'>
+                <span class='fa fa-retweet border p-3 rounded-pill' style="color:#33C1FF;"></span>
+                <br>
+                <a href="#">Return in<br> 10 days</a>
+                </div>
+              </div>
+              
+            </div>
+            <hr>
+            <div class='row'>
+              
+              <div class='col'>
+                <div class='qty d-flex w-25'>
+                  <button type='button'  onclick ="qtyUp()" class="qty-up border bg-light"><i class="fa fa-angle-up"></i></button>
+                  <?php
+                  echo "<input type='text' id='qty' class='qty_input' name='".array_keys($_GET)[0]."[".array_keys($_GET[array_keys($_GET)[0]])[0]."]"."[".array_keys($_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]])[0]."]"."["."qty"."]"."' value='1'>";
+                  ?>
+                  <button type='button' onclick ="qtyDown()" class="qty-up border bg-light"><i class="fa fa-angle-down"></i></button>
+                </div>
+              </div>
+              <div class='col'>
+              
+              <?php
+              echo "<button type='submit' >Add to Cart</button>";
+              ?>
+              
+              
+              </div>
+              
+            </div>
+          </div>
+          <div class='col-12'>
+            <h5>Product Description</h5>
+            <hr>
+            <p>dasklndasnlkflasfaskfnsaflkasnfakslfnasfaskflasfnsafalksffffffffffffffdas</p>
           
-         
-        </article>
+          </div>
+        </div>
+      </div>
+    </section>
+    </form>
+    
 
 
+    <script>
+    var qty = Number(document.getElementById("qty").value)
+    console.log(qty);
+        function qtyUp(){
+            var qty = Number(document.getElementById("qty").value);
+            console.log(qty);
+            document.getElementById('qty').value = String(qty+1);
 
-        
+        }
+        function qtyDown(){
+            var qty = Number(document.getElementById("qty").value);
+            console.log(qty);
+            if(qty>1){
+                document.getElementById('qty').value = String(qty-1);
 
-
-
-
-
-
-
-
-
-        <article id="product_place">
-            <div class='container'>
-                <div class='row'>
-
-
-
+            }
+        }
+    </script>     
+</body>
                 <?php 
-
-
-
 
 if($_SERVER['REQUEST_METHOD'] == "POST"){
  echo"<div class='col-6 col-md-4'>";
@@ -203,9 +266,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
    foreach ($array_name[array_keys($_POST)[0]] as $the_key => $the_value){
      $name_categrorise = $array_translated_child[$the_key]; 
      echo "<li>";
-     echo "<form action='product.php' method='POST'>";
-     echo "<input type='submit' style='border:none;background-color: white;' name='".array_keys($_POST)[0]."[".$the_key."]"."' value='".$name_categrorise."'>";
-    echo "</form>";
+    echo "$name_categrorise";
     echo"</li>";
    }
       
@@ -220,49 +281,26 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
   if(in_array($array_translated[array_keys($_POST)[0]],$_POST )){
     
-    foreach($array_name[array_keys($_POST)[0]] as $the_key2 => $the_value2){
-      foreach($array_name[array_keys($_POST)[0]][$the_key2] as $the_key4 => $the_value3){
-        echo "<div class='col-md-4'>";
-        echo"<div class='card'>";
-        echo "<img class='img-fluid' alt='100%x280' src='photos a5/".$array_img_link[array_keys($_POST)[0]][$the_key2][$the_key4]."'>";
-        echo " <div class='card-body'>";
-        echo "<h4 class='card-title'>".$array_name[array_keys($_POST)[0]][$the_key2][$the_key4]."</h4>";
-        echo "<p class='card-text'>".$array_pri[array_keys($_POST)[0]][$the_key2][$the_key4]."</p>";
-        echo "";
-        echo "</div>";
-        echo "</div>";
-        echo "</div>";
-      }
-  }
+
   }
   else{
-
-      foreach($array_name[array_keys($_POST)[0]][array_keys($_POST[array_keys($_POST)[0]])[0]] as $the_key5 => $the_value5){
-        echo "<div class='col-md-4'>";
-        echo"<div class='card'>";
-        echo "<img class='img-fluid' alt='100%x280' style='height: 280px;' src='photos a5/".$array_img_link[array_keys($_POST)[0]][array_keys($_POST[array_keys($_POST)[0]])[0]][$the_key5]."'>";
-        echo " <div class='card-body'>";
-        echo "<p class='card-text'>".$array_name[array_keys($_POST)[0]][array_keys($_POST[array_keys($_POST)[0]])[0]][$the_key5]."</p>";
-        echo "<p class='card-text'>".$array_pri[array_keys($_POST)[0]][array_keys($_POST[array_keys($_POST)[0]])[0]][$the_key5]."</p>";
-        echo "<form action='product_detail.php' method='get'>";
-        echo "<button type='submit' class='stretched-link' name='".array_keys($_POST)[0]."[".array_keys($_POST[array_keys($_POST)[0]])[0]."]"."[".$the_key5."]"."'>";
-        echo "detail";
-        echo "</button>";
-        echo "</form>";
-        echo "<i class='fa fa-star'></i>";
-        echo "<i class='fa fa-star'></i>";
-        echo "<i class='fa fa-star'></i>";
-        echo "<i class='fa fa-star'></i>";
-        echo "<i class='fa fa-star'></i>";
-        echo "</div>";
-        echo "</div>";
-        echo "</div>";
-      }
   
   }
 
   
-  
+  foreach($array_name[array_keys($_POST)[0]] as $the_key2 => $the_value2){
+    foreach($array_name[array_keys($_POST)[0]][$the_key2] as $the_key4 => $the_value3){
+      echo "<div class='col-md-4'>";
+      echo"<div class='card'>";
+      echo "<img class='img-fluid' alt='100%x280' src='photos a5/".$array_img_link[array_keys($_POST)[0]][$the_key2][$the_key4]."'>";
+      echo " <div class='card-body'>";
+      echo "<h4 class='card-title'>".$array_name[array_keys($_POST)[0]][$the_key2][$the_key4]."</h4>";
+      echo "<p class='card-text'>".$array_pri[array_keys($_POST)[0]][$the_key2][$the_key4]."</p>";
+      echo "</div>";
+      echo "</div>";
+      echo "</div>";
+    }
+}
 
 
 echo  "</div>";
@@ -278,7 +316,26 @@ echo"</div>";
 
 
 
+if($_SERVER['REQUEST_METHOD'] == "GET"){
+    if(is_array($_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]][array_keys($_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]])[0]])){
+      $product_member = array_keys($_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]])[0];
+      echo $product_member."</br>";
+      $quantity_memb = $_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]][array_keys($_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]])[0]]['qty'];
+      $_SESSION[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]][array_keys($_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]])[0]] = $quantity_memb;
+      
+  }
+  else {
+    echo "no";
+  }
 
+}
+
+preShow($_SESSION);
+
+foreach ($_SESSION as $the_new_key => $the_new_value){
+
+  echo $the_new_value;
+}
 
 
 
@@ -290,10 +347,7 @@ echo"</div>";
 
 
 
-                </div>
-            </div>
-        </article>
-
+            
 
 
 
