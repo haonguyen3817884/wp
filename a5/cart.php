@@ -179,14 +179,14 @@ print_r($_POST);
                 <div class="row">
 
                     <?php
-
+                      $total_price = 0;
                     foreach ($_SESSION as $the_new_key3 => $the_new_value3){
                       foreach($_SESSION[$the_new_key3] as $the_new_key4 => $the_new_value4){
                         foreach($_SESSION[$the_new_key3][$the_new_key4] as $the_last_new_key => $the_last_new_value){
 
                           $convert_qty_number = (int)$the_last_new_value;
                           $convert_price_number = (float)$array_pri[$the_new_key3][$the_new_key4][$the_last_new_key];
-                    
+                          $total_price = $convert_price_number*$convert_qty_number + $total_price;  
                           echo "<div class='col-9'>";
 
                           echo "<div class='row border-top py-3- mt-3'>";
@@ -241,8 +241,33 @@ print_r($_POST);
 
 
                 </div>
+                <div class='row'>
+                <form action="filling_form.php" method='get'>
+                <div class='col'>
+                <?php
+    
+    echo "<p>Total: $total_price</p>";
+    echo "<input type='hidden' name='total' value='".$total_price."'>";
+    
+    
+    ?>
+                
+                </div>
+                <div class='col'>
+                <?php
+                
+                echo"<button type='submit'>Proceed to buy</button>"; 
+                ?>
+                
+                </div>
+                </form>
+                </div>
         </div>
     </section>
+
+
+
+    
     
 
     
