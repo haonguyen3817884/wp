@@ -224,11 +224,20 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
       foreach($array_name[array_keys($_POST)[0]][$the_key2] as $the_key4 => $the_value3){
         echo "<div class='col-md-4'>";
         echo"<div class='card'>";
-        echo "<img class='img-fluid' alt='100%x280' src='photos a5/".$array_img_link[array_keys($_POST)[0]][$the_key2][$the_key4]."'>";
+        echo "<img class='img-fluid' alt='100%x280' style='height: 280px;' src='photos a5/".$array_img_link[array_keys($_POST)[0]][$the_key2][$the_key4]."'>";
         echo " <div class='card-body'>";
         echo "<h4 class='card-title'>".$array_name[array_keys($_POST)[0]][$the_key2][$the_key4]."</h4>";
         echo "<p class='card-text'>".$array_pri[array_keys($_POST)[0]][$the_key2][$the_key4]."</p>";
-        echo "";
+        echo "<form action='product_detail.php' method='get'>";
+        echo "<button type='submit' class='stretched-link' name='".array_keys($_POST)[0]."[".$the_key2."]"."[".$the_key4."]"."'>";
+        echo "detail";
+        echo "</button>";
+        echo "</form>";
+        echo "<i class='fa fa-star'></i>";
+        echo "<i class='fa fa-star'></i>";
+        echo "<i class='fa fa-star'></i>";
+        echo "<i class='fa fa-star'></i>";
+        echo "<i class='fa fa-star'></i>";
         echo "</div>";
         echo "</div>";
         echo "</div>";

@@ -59,7 +59,7 @@
     
    
     </style>
-<body >
+<body>
 <?php
 session_start();
 
@@ -120,6 +120,9 @@ session_start();
 include "arraya5.php";
 
 
+
+
+
 if($_SERVER['REQUEST_METHOD'] == "GET"){
   if(is_array($_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]][array_keys($_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]])[0]])){
     $quantity_member = $_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]][array_keys($_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]])[0]]['qty'];
@@ -136,7 +139,6 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
 
 }
 preShow($_SESSION);
-
 
 
 
@@ -159,7 +161,7 @@ foreach (array_keys($array_name) as $key =>$value){
 
 
 }
-print_r($_POST);
+
  
   
   
@@ -213,6 +215,17 @@ print_r($_POST);
                           
                           echo "</div>";
                           echo "</form>";
+                          
+                          echo "<div class='qty d-flex w-25'>";
+                          echo"<form action='cart.php' method='post'>";
+
+                          echo "<input type='submit' name='".$the_new_key3."[".$the_new_key4."]"."[".$the_last_new_key."]"."'>";
+                          
+                          echo"</form>";
+                          
+                          echo "</div>"
+
+                  
                           echo "<div class='qty d-flex w-25'>";
                           echo "<p id='sub-".$the_last_new_key."'>".$convert_qty_number*$convert_price_number."</p>";
                           echo "</div>";
@@ -275,8 +288,8 @@ print_r($_POST);
 
 
     <script>
-    var qty = Number(document.getElementById("qty").value)
-    console.log(qty);
+    
+    
         function qtyUp(id){
             var qty = Number(document.getElementById(id).value);
             console.log(qty);
@@ -304,57 +317,7 @@ print_r($_POST);
 </body>
                 <?php 
 
-if($_SERVER['REQUEST_METHOD'] == "POST"){
- echo"<div class='col-6 col-md-4'>";
-  echo"<ul>";
-   echo   "<h1>Categories</h1>";
-   foreach ($array_name[array_keys($_POST)[0]] as $the_key => $the_value){
-     $name_categrorise = $array_translated_child[$the_key]; 
-     echo "<li>";
-    echo "$name_categrorise";
-    echo"</li>";
-   }
-      
-  echo "</ul>";
-  echo"</div>";
 
-
-
-  
-  echo "<div class='col-12 col-md-8'>";
-  echo " <div class='row'>";
-
-  if(in_array($array_translated[array_keys($_POST)[0]],$_POST )){
-    
-
-  }
-  else{
-  
-  }
-
-  
-  foreach($array_name[array_keys($_POST)[0]] as $the_key2 => $the_value2){
-    foreach($array_name[array_keys($_POST)[0]][$the_key2] as $the_key4 => $the_value3){
-      echo "<div class='col-md-4'>";
-      echo"<div class='card'>";
-      echo "<img class='img-fluid' alt='100%x280' src='photos a5/".$array_img_link[array_keys($_POST)[0]][$the_key2][$the_key4]."'>";
-      echo " <div class='card-body'>";
-      echo "<h4 class='card-title'>".$array_name[array_keys($_POST)[0]][$the_key2][$the_key4]."</h4>";
-      echo "<p class='card-text'>".$array_pri[array_keys($_POST)[0]][$the_key2][$the_key4]."</p>";
-      echo "</div>";
-      echo "</div>";
-      echo "</div>";
-    }
-}
-
-
-echo  "</div>";
-      
-      
-  
-echo"</div>";
-    
-}
 
 
       
