@@ -392,7 +392,7 @@ session_start();
 if($_SERVER['REQUEST_METHOD'] == "GET"){
     if(isset($_GET['submit'])){
         check_get_data($_GET);
-        if($is_data_ok == "ok"){
+        if($is_data_ok == "ok" && $_GET['total'] != '0'){
           add_to_cart($_GET);
           echo "all datas have been added into session";
           header('location: new.php');

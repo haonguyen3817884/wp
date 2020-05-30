@@ -179,7 +179,11 @@ preShow($_POST);
             </div>
             <hr>
             <div>
-            Price: $150
+            <?php 
+
+            echo "$ ";
+            echo $array_pri[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]][array_keys($_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]])[0]];
+            ?>
             </div>
             <hr>  
             <div>

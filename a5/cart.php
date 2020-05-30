@@ -122,6 +122,14 @@ include "arraya5.php";
 
 
 
+if($_SERVER['REQUEST_METHOD'] == "POST"){
+  $abbr = array_keys($_POST[array_keys($_POST)[0]][array_keys($_POST[array_keys($_POST)[0]])[0]])[0];
+  echo $abbr;
+  unset($_SESSION[array_keys($_POST)[0]][array_keys($_POST[array_keys($_POST)[0]])[0]][$abbr]);
+
+}
+
+
 
 if($_SERVER['REQUEST_METHOD'] == "GET"){
   if(is_array($_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]][array_keys($_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]])[0]])){
@@ -179,7 +187,7 @@ foreach (array_keys($array_name) as $key =>$value){
         <div class="container-fluid w-75">
             <h5>Shopping Cart</h5>
                 <div class="row">
-
+                  <div class='col-12'>
                     <?php
                       $total_price = 0;
                     foreach ($_SESSION as $the_new_key3 => $the_new_value3){
@@ -223,11 +231,11 @@ foreach (array_keys($array_name) as $key =>$value){
                           
                           echo"</form>";
                           
-                          echo "</div>"
+                          echo "</div>";
 
                   
                           echo "<div class='qty d-flex w-25'>";
-                          echo "<p id='sub-".$the_last_new_key."'>".$convert_qty_number*$convert_price_number."</p>";
+                          echo "<p id='sub-".$the_last_new_key."'>$ ".$convert_qty_number*$convert_price_number."</p>";
                           echo "</div>";
                           echo "</div>";
       
@@ -249,22 +257,26 @@ foreach (array_keys($array_name) as $key =>$value){
 
                     
                     
+                    </div>
 
 
-
-
-                </div>
-                <div class='row'>
-                <form action="filling_form.php" method='get'>
+<div class='col'>
+<form action="filling_form.php" method='get'>
                 <div class='col'>
+                <div class="sub-total text-center mt-2 border">
+                <h6 class='font-rale text-success py-3' style="font-size:12px"><i class='fa fa-check'></i> Your order is FREE shipping</h6>
+                <div class='border-top'>
+
                 <?php
     
-    echo "<p>Total: $total_price</p>";
+    echo "<p style='font-size: 20px'>Total:<span class='text-danger'>$ $total_price</span></p>";
     echo "<input type='hidden' name='total' value='".$total_price."'>";
     
     
     ?>
+                </div>
                 
+                </div>
                 </div>
                 <div class='col'>
                 <?php
@@ -274,6 +286,15 @@ foreach (array_keys($array_name) as $key =>$value){
                 
                 </div>
                 </form>
+
+                
+               
+            
+
+</div>
+                
+                
+                
                 </div>
         </div>
     </section>
