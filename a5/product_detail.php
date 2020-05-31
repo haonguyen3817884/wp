@@ -59,33 +59,25 @@
     #product_place .col-md-4 {
         padding-top: 20px ;
     }
+    body {
+      max-width: 100%;
+      max-height:100%;
+    }
     
    
     </style>
 <body >
 <article id="login">
-      <div class="container">
-        <form action="">
-       <div class="row">
-          <div class="col"> 
- <label for=""></label>
-        <textarea name="" id="" cols="30" rows="1" class=""></textarea>
-          </div>
-          <div class="col">
-<label for=""></label>
-        <input class="form-control" type="text" name="" id="">
-          </div>
-       </div>
-        
-      </form>
-      </div>
+<a href="login.php">login</a>
+
       
     </article>
     <header>
         <div class="container" >
             <div class="row">
                 <div class="col-sm-2">
-                    <img src="photos a5/logo.jpg" alt="logo" style="width: 92px ; height: 40px;">
+                <a href="#"><img src="photos a5/logo.jpg" alt="logo" style="width: 92px ; height: 40px;"></a>
+                    
                 </div>
                 <div class="col">
                     <input class="form-control" type="text" placeholder="Search" aria-label="Search" style="border: 2px solid black;
@@ -97,7 +89,7 @@
                 <div class="col-sm-2">
                     <form action="cart.php">
                     
-                    <button type="submit">cart</button>
+                    <button type="submit" style='background-color: white; border: none;'><i class='fa fa-shopping-cart' aria-hidden="true" style='font-size: 36px'></i></button>
                     </form>
                 </div>
             </div>
@@ -109,7 +101,7 @@
         <nav class="navbar navbar-expand-sm bg-light" style="justify-content: center; background-color: white !important; ">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="indexa5.php">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <?php
 
@@ -117,8 +109,8 @@ include "arraya5.php";
 
 session_start();
 
-preShow($_GET);
 
+print_r($_GET);
 
 foreach (array_keys($array_name) as $key =>$value){
   $name_categrocies = $array_translated[$value];
@@ -139,7 +131,7 @@ foreach (array_keys($array_name) as $key =>$value){
 
 
 }
-preShow($_POST);
+
  
   
 
@@ -154,14 +146,14 @@ preShow($_POST);
                   
               </ul>
         </nav>
-<body>
+
 <form action="product_detail.php" method='get'>
     <section id="product" class="py-3">
       <div class="container">
         <div class="row">
           <div class='col-6'>
           <?php
-           echo "<img class='product_img' src='photos a5/".$array_img_link[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]][array_keys($_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]])[0]]."' alt=''>";
+           echo "<img class='product_img' style='width: 500px;' src='photos a5/".$array_img_link[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]][array_keys($_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]])[0]]."' alt=''>";
           ?>
           </div>
           <div class="col-6 py-5">
@@ -194,14 +186,12 @@ preShow($_POST);
                 <a href="#">Return in<br> 10 days</a>
                 </div>
                 <div class='col'>
-                <span class='fa fa-retweet border p-3 rounded-pill' style="color:#33C1FF;"></span>
+                <span class='fa fa-truck border p-3 rounded-pill' style="color:#33C1FF;"></span>
                 <br>
-                <a href="#">Return in<br> 10 days</a>
+                <a href="#">Free <br>shipping</a>
                 </div>
                 <div class='col'>
-                <span class='fa fa-retweet border p-3 rounded-pill' style="color:#33C1FF;"></span>
-                <br>
-                <a href="#">Return in<br> 10 days</a>
+                
                 </div>
               </div>
               
@@ -232,9 +222,22 @@ preShow($_POST);
           <div class='col-12'>
             <h5>Product Description</h5>
             <hr>
-            <p>dasklndasnlkflasfaskfnsaflkasnfakslfnasfaskflasfnsafalksffffffffffffffdas</p>
+            
+
           
           </div>
+          <div class='col-12' >
+          
+            <?php
+            print_r($array_description);
+            echo $array_description[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]][array_keys($_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]])[0]];
+            
+            ?>
+
+          
+          </div>
+          
+
         </div>
       </div>
     </section>
@@ -260,60 +263,10 @@ preShow($_POST);
             }
         }
     </script>     
-</body>
+
                 <?php 
 
-if($_SERVER['REQUEST_METHOD'] == "POST"){
- echo"<div class='col-6 col-md-4'>";
-  echo"<ul>";
-   echo   "<h1>Categories</h1>";
-   foreach ($array_name[array_keys($_POST)[0]] as $the_key => $the_value){
-     $name_categrorise = $array_translated_child[$the_key]; 
-     echo "<li>";
-    echo "$name_categrorise";
-    echo"</li>";
-   }
-      
-  echo "</ul>";
-  echo"</div>";
 
-
-
-  
-  echo "<div class='col-12 col-md-8'>";
-  echo " <div class='row'>";
-
-  if(in_array($array_translated[array_keys($_POST)[0]],$_POST )){
-    
-
-  }
-  else{
-  
-  }
-
-  
-  foreach($array_name[array_keys($_POST)[0]] as $the_key2 => $the_value2){
-    foreach($array_name[array_keys($_POST)[0]][$the_key2] as $the_key4 => $the_value3){
-      echo "<div class='col-md-4'>";
-      echo"<div class='card'>";
-      echo "<img class='img-fluid' alt='100%x280' src='photos a5/".$array_img_link[array_keys($_POST)[0]][$the_key2][$the_key4]."'>";
-      echo " <div class='card-body'>";
-      echo "<h4 class='card-title'>".$array_name[array_keys($_POST)[0]][$the_key2][$the_key4]."</h4>";
-      echo "<p class='card-text'>".$array_pri[array_keys($_POST)[0]][$the_key2][$the_key4]."</p>";
-      echo "</div>";
-      echo "</div>";
-      echo "</div>";
-    }
-}
-
-
-echo  "</div>";
-      
-      
-  
-echo"</div>";
-    
-}
 
 
       
@@ -323,23 +276,20 @@ echo"</div>";
 if($_SERVER['REQUEST_METHOD'] == "GET"){
     if(is_array($_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]][array_keys($_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]])[0]])){
       $product_member = array_keys($_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]])[0];
-      echo $product_member."</br>";
+      
       $quantity_memb = $_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]][array_keys($_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]])[0]]['qty'];
       $_SESSION[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]][array_keys($_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]])[0]] = $quantity_memb;
       
   }
   else {
-    echo "no";
+    
   }
 
 }
 
-preShow($_SESSION);
 
-foreach ($_SESSION as $the_new_key => $the_new_value){
 
-  echo $the_new_value;
-}
+
 
 
 

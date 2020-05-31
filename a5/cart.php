@@ -71,28 +71,15 @@ session_start();
 ?>
 
 <article id="login">
-      <div class="container">
-        <form action="">
-       <div class="row">
-          <div class="col"> 
- <label for=""></label>
-        <textarea name="" id="" cols="30" rows="1" class=""></textarea>
-          </div>
-          <div class="col">
-<label for=""></label>
-        <input class="form-control" type="text" name="" id="">
-          </div>
-       </div>
-        
-      </form>
-      </div>
-      
+<a href="login.php">login</a>
+
     </article>
     <header>
         <div class="container" >
             <div class="row">
                 <div class="col-sm-2">
-                    <img src="photos a5/logo.jpg" alt="logo" style="width: 92px ; height: 40px;">
+                <a href="#"><img src="photos a5/logo.jpg" alt="logo" style="width: 92px ; height: 40px;"></a>
+                    
                 </div>
                 <div class="col">
                     <input class="form-control" type="text" placeholder="Search" aria-label="Search" style="border: 2px solid black;
@@ -113,7 +100,7 @@ session_start();
         <nav class="navbar navbar-expand-sm bg-light" style="justify-content: center; background-color: white !important; ">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="indexa5.php">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <?php
 
@@ -134,19 +121,19 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 if($_SERVER['REQUEST_METHOD'] == "GET"){
   if(is_array($_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]][array_keys($_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]])[0]])){
     $quantity_member = $_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]][array_keys($_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]])[0]]['qty'];
-    echo $quantity_member;
+    
       $_SESSION[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]][array_keys($_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]])[0]] = $quantity_member;
       
     
 
   }else{
-    echo "no";
+    
 
   }
 
 
 }
-preShow($_SESSION);
+
 
 
 
@@ -227,7 +214,7 @@ foreach (array_keys($array_name) as $key =>$value){
                           echo "<div class='qty d-flex w-25'>";
                           echo"<form action='cart.php' method='post'>";
 
-                          echo "<input type='submit' name='".$the_new_key3."[".$the_new_key4."]"."[".$the_last_new_key."]"."'>";
+                          echo "<input type='submit' class='text-danger' value='delete' name='".$the_new_key3."[".$the_new_key4."]"."[".$the_last_new_key."]"."'>";
                           
                           echo"</form>";
                           

@@ -1,3 +1,13 @@
+<?php
+    session_start();
+    if (!isset($_SESSION['Userdata']['Username'])){
+        header("location: login.php");
+        exit;
+    }
+?>
+Congrats <?php echo $_SESSION['Userdata']['Username'] ?>. You have sucessfully logged in. <a href="logout.php"> Click here </a> to log out. 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -100,21 +110,20 @@
 
 
                 session_start();
-                $_SESSION = array();
 
                 
 
                 foreach (array_keys($array_name) as $key =>$value){
                   $name_categrocies = $array_translated[$value];
                   echo"<li class='nav-item dropdown'>";
-                  echo"<form action='product.php' method='post'>";
+                  echo"<form action='adminproduct.php' method='post'>";
                   echo "<input name='".$value."' type='submit' class='nav-link dropdown-toggle' id='navbarDropdownMenuLink' style='background-color: white!important; border: none!important;' aria-haspopup='true' aria-expanded='false' value='".$name_categrocies."'>";
                   echo "</form>";
                   echo "<div class='dropdown-menu' aria-labelledby='navbarDropdownMenuLink'>";
                   foreach (array_keys($array_name[$value]) as $key3 => $value1){
                     $name_categrocies_detailed = $array_translated_child[$value1];
                     
-                    echo"<form action='product.php' method='post'>";
+                    echo"<form action='adminproduct.php' method='post'>";
                     echo"<input type='submit' name='".$value."[".$value1."] "."'class='dropdown-item' value='".$name_categrocies_detailed."'>";
                     echo"</form>";
                   }
@@ -348,7 +357,7 @@
         <div>&copy;
           <script>
             document.write(new Date().getFullYear());
-          </script> NGUYEN TAN SONG HAO,S3817884.NGO VAN DAT, S3817813. ASSIGNMENT TEAM 11 Last modified 16:00 April
+          </script> NGUYEN TAN SONG HAO,S3817884.NGO VAN DAT, S3817813. ASSIGNMENT TEAM 1 Last modified 16:00 April
           17<sup>th</sup> 2020.
           <?= date ("Y F d  H:i", filemtime($_SERVER['SCRIPT_FILENAME'])); ?>.</div>
         <div>Disclaimer: This website is not a real website and is being developed as part of a School of Science Web

@@ -267,28 +267,16 @@ else{
 
 <body >
 <article id="login">
-      <div class="container">
-        <form action="">
-       <div class="row">
-          <div class="col"> 
- <label for=""></label>
-        <textarea name="" id="" cols="30" rows="1" class=""></textarea>
-          </div>
-          <div class="col">
-<label for=""></label>
-        <input class="form-control" type="text" name="" id="">
-          </div>
-       </div>
-        
-      </form>
-      </div>
+<a href="login.php">login</a>
+
       
     </article>
     <header>
         <div class="container" >
             <div class="row">
                 <div class="col-sm-2">
-                    <img src="photos a5/logo.jpg" alt="logo" style="width: 92px ; height: 40px;">
+                <a href="#"><img src="photos a5/logo.jpg" alt="logo" style="width: 92px ; height: 40px;"></a>
+                    
                 </div>
                 <div class="col">
                     <input class="form-control" type="text" placeholder="Search" aria-label="Search" style="border: 2px solid black;
@@ -309,7 +297,7 @@ else{
         <nav class="navbar navbar-expand-sm bg-light" style="justify-content: center; background-color: white !important; ">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="indexa5.php">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <?php
 

@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if (!isset($_SESSION['Userdata']['Username'])){
+        header("location: login.php");
+        exit;
+    }
+?>
+Congrats <?php echo $_SESSION['Userdata']['Username'] ?>. You have sucessfully logged in. <a href="logout.php"> Click here </a> to log out. 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,10 +69,6 @@
    
     </style>
 <body >
-<article id="login">
-     <a href="login.php">login</a>
-      
-    </article>
     <header>
         <div class="container" >
             <div class="row">
@@ -90,7 +94,7 @@
         <nav class="navbar navbar-expand-sm bg-light" style="justify-content: center; background-color: white !important; ">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                  <a class="nav-link" href="indexa5.php">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="adminindex.php">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <?php
 
@@ -102,14 +106,14 @@ include "arraya5.php";
 foreach (array_keys($array_name) as $key =>$value){
   $name_categrocies = $array_translated[$value];
   echo"<li class='nav-item dropdown'>";
-  echo"<form action='product.php' method='post'>";
+  echo"<form action='adminproduct.php' method='post'>";
   echo "<input name='".$value."' type='submit' class='nav-link dropdown-toggle' id='navbarDropdownMenuLink' style='background-color: white!important; border: none!important;' aria-haspopup='true' aria-expanded='false' value='".$name_categrocies."'>";
   echo "</form>";
   echo "<div class='dropdown-menu' aria-labelledby='navbarDropdownMenuLink'>";
   foreach (array_keys($array_name[$value]) as $key3 => $value1){
     $name_categrocies_detailed = $array_translated_child[$value1];
     
-    echo"<form action='product.php' method='post'>";
+    echo"<form action='adminproduct.php' method='post'>";
     echo"<input type='submit' name='".$value."[".$value1."] "."'class='dropdown-item' value='".$name_categrocies_detailed."'>";
     echo"</form>";
   }
@@ -186,13 +190,13 @@ foreach (array_keys($array_name) as $key =>$value){
 if($_SERVER['REQUEST_METHOD'] == "POST"){
  echo"<div class='col-6 col-md-4'>";
   echo"<ul>";
-  echo "<form action='product.php' method='POST'>";
+  echo "<form action='adminproduct.php' method='POST'>";
   echo "<input type='submit' style='border:none;background-color: white; font-size: 50px;' name='".array_keys($_POST)[0]."' value='".$array_translated[array_keys($_POST)[0]]."'>";
  echo "</form>";
    foreach ($array_name[array_keys($_POST)[0]] as $the_key => $the_value){
      $name_categrorise = $array_translated_child[$the_key]; 
      echo "<li style='list-style-type: none; margin-top: 20px'>";
-     echo "<form action='product.php' method='POST'>";
+     echo "<form action='adminproduct.php' method='POST'>";
      echo "<input type='submit' style='border:none;background-color: white;' name='".array_keys($_POST)[0]."[".$the_key."]"."' value='".$name_categrorise."'>";
     echo "</form>";
     echo"</li>";
@@ -217,10 +221,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         echo " <div class='card-body'>";
         echo "<h4 class='card-title'>".$array_name[array_keys($_POST)[0]][$the_key2][$the_key4]."</h4>";
         echo "<p class='card-text'>$ ".$array_pri[array_keys($_POST)[0]][$the_key2][$the_key4]."</p>";
-        echo "<form action='product_detail.php' method='get'>";
-        echo "<button type='submit' class='stretched-link' name='".array_keys($_POST)[0]."[".$the_key2."]"."[".$the_key4."]"."'>";
-        echo "detail";
-        echo "</button>";
+        echo "<form action='database.php' method='get'>";
+        echo "<input type='text' name='".array_keys($_POST)[0]."[".$the_key2."]"."[".$the_key4."]"."["."name"."]"."'>";
+        echo "<input type='text' name='".array_keys($_POST)[0]."[".$the_key2."]"."[".$the_key4."]"."["."price"."]"."'>";
+        echo "<input type='text' name='".array_keys($_POST)[0]."[".$the_key2."]"."[".$the_key4."]"."["."description"."]"."'>";
+        echo "<input type='submit' value='Apply the change'>";
         echo "</form>";
         echo "<i class='fa fa-star'></i>";
         echo "<i class='fa fa-star'></i>";
@@ -242,10 +247,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         echo " <div class='card-body'>";
         echo "<p class='card-text'>".$array_name[array_keys($_POST)[0]][array_keys($_POST[array_keys($_POST)[0]])[0]][$the_key5]."</p>";
         echo "<p class='card-text'>$ ".$array_pri[array_keys($_POST)[0]][array_keys($_POST[array_keys($_POST)[0]])[0]][$the_key5]."</p>";
-        echo "<form action='product_detail.php' method='get'>";
-        echo "<button type='submit' class='stretched-link' name='".array_keys($_POST)[0]."[".array_keys($_POST[array_keys($_POST)[0]])[0]."]"."[".$the_key5."]"."'>";
-        echo "detail";
-        echo "</button>";
+        echo "<form action='database.php' method='get'>";
+        echo "<input type='text' name='".array_keys($_POST)[0]."[".array_keys($_POST[array_keys($_POST)[0]])[0]."]"."[".$the_key5."]"."["."name"."]"."'>";
+        echo "<input type='text' name='".array_keys($_POST)[0]."[".array_keys($_POST[array_keys($_POST)[0]])[0]."]"."[".$the_key5."]"."["."price"."]"."'>";
+        echo "<input type='text' name='".array_keys($_POST)[0]."[".array_keys($_POST[array_keys($_POST)[0]])[0]."]"."[".$the_key5."]"."["."description"."]"."'>";
+        echo "<input type='submit' value='Apply the change'>";
         echo "</form>";
         echo "<i class='fa fa-star'></i>";
         echo "<i class='fa fa-star'></i>";
