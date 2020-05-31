@@ -25,7 +25,7 @@ $sql = "CREATE DATABASE myDB";
 if ($conn->query($sql) === TRUE) {
   echo "Database created successfully";
 } else {
-  echo "Error creating database: " . $conn->error;
+  echo "" . $conn->error;
 }
 $sql = "CREATE TABLE product (
     productID VARCHAR(30),
@@ -40,7 +40,7 @@ $sql = "CREATE TABLE product (
 if ($conn->query($sql) === TRUE) {
   echo "Table MyGuests created successfully";
 } else {
-  echo "Error creating table: " . $conn->error;
+  echo "" . $conn->error;
 }
  
     

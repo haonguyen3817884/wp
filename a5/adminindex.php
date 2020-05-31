@@ -72,7 +72,11 @@ Congrats <?php echo $_SESSION['Userdata']['Username'] ?>. You have sucessfully l
 
     <article id="login">
     <a href="login.php">login</a>
+<?php
 
+include "arraya5.php";
+
+?>
       
     </article>
     <header>
@@ -106,7 +110,7 @@ Congrats <?php echo $_SESSION['Userdata']['Username'] ?>. You have sucessfully l
 
                 <?php
 
-                include "arraya5.php";
+                
 
 
                 session_start();

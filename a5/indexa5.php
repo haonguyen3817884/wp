@@ -63,6 +63,12 @@
     <article id="login">
     <a href="login.php">login</a>
 
+    <?php
+    
+    include "arraya5.php";
+    
+    ?>
+
       
     </article>
     <header>
@@ -96,7 +102,7 @@
 
                 <?php
 
-                include "arraya5.php";
+                
 
 
                 session_start();
@@ -348,7 +354,7 @@
         <div>&copy;
           <script>
             document.write(new Date().getFullYear());
-          </script> NGUYEN TAN SONG HAO,S3817884.NGO VAN DAT, S3817813. ASSIGNMENT TEAM 11 Last modified 16:00 April
+          </script> NGUYEN TAN SONG HAO,S3817884.NGO VAN DAT, S3817813. ASSIGNMENT TEAM 1 Last modified 16:00 April
           17<sup>th</sup> 2020.
           <?= date ("Y F d  H:i", filemtime($_SERVER['SCRIPT_FILENAME'])); ?>.</div>
         <div>Disclaimer: This website is not a real website and is being developed as part of a School of Science Web

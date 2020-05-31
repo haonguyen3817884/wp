@@ -70,7 +70,10 @@
 <article id="login">
 <a href="login.php">login</a>
 
+      <?php
       
+      include "arraya5.php";
+      ?>
     </article>
     <header>
         <div class="container" >
@@ -105,12 +108,12 @@
                 </li>
                 <?php
 
-include "arraya5.php";
+
 
 session_start();
 
 
-print_r($_GET);
+
 
 foreach (array_keys($array_name) as $key =>$value){
   $name_categrocies = $array_translated[$value];
@@ -229,7 +232,7 @@ foreach (array_keys($array_name) as $key =>$value){
           <div class='col-12' >
           
             <?php
-            print_r($array_description);
+            
             echo $array_description[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]][array_keys($_GET[array_keys($_GET)[0]][array_keys($_GET[array_keys($_GET)[0]])[0]])[0]];
             
             ?>

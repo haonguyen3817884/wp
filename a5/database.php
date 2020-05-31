@@ -26,7 +26,7 @@ $sql = "CREATE TABLE product (
     productChilType VARCHAR(300),
     productDescription VARCHAR(1000)
   )";
-  
+
 
 if ($conn->query($sql) === TRUE) {
   echo "Table MyGuests created successfully";
@@ -34,96 +34,101 @@ if ($conn->query($sql) === TRUE) {
   echo "Error creating table: " . $conn->error;
 }
 
+/*
+$sql = "INSERT INTO product VALUES
+   ('FAA1', 'Blue Shirt', 'Clothes1.jpg', '9.99', 'FA', 'FAA', 'Blue Shirt for officers daily uses'),
+   ('FAA2', 'PLAY T-Shirt', 'Clothes2.jpg', '9.99', 'FA', 'FAA', 'Teen shirt'),
+   ('FAA3', 'Adidas T-Shirt', 'Clothes3.jpg', '9.99', 'FA', 'FAA', 'Sport shirt produced by Hao Nguyen x Adidas'),
+   ('FAA4', 'Black T-Shirt', 'Clothes4.jpg', '9.99', 'FA', 'FAA', 'Normal Black T-Shirt'),
+   ('FAA5', 'DEGREY T-Shirt', 'Clothes5.jpg', '9.99', 'FA', 'FAA', 'Local Brand T-shirt'),
+   ('FAB1', 'Cream Long Pants', 'Pants1.jpg', '12.50', 'FA', 'FAB', 'A long Pant with Cream color'),
+   ('FAB2', 'Black Long Pants', 'Pants2.jpg', '12.50', 'FA', 'FAB', 'A long Pant Black color'),
+   ('FAB3', 'Green Long Pants', 'Pants3.jpg', '12.50', 'FA', 'FAB', 'A long Pant with Green color'),
+   ('FAB4', 'Light Green Long Pant', 'Pants4.jpg', '12.50', 'FA', 'FAB', 'A long Pant with Light Green color'),
+   ('FAB5', 'Long Long Pants', 'Pants5.jpg', '12.50', 'FA', 'FAB', 'Really LONG Pant'),
+   ('FAC1', 'Vans', 'Shoes1.jpg', '70.00', 'FA', 'FAC', 'Classic Vans Shoes. Best Seller in 2099'),
+   ('FAC2', 'Brooks', 'Shoes2.jpg', '50.00', 'FA', 'FAC', 'A infamous Shoes Brand product'),
+   ('FAC3', 'Vans Slip-on', 'Shoes3.jpg', '80.00', 'FA', 'FAC', 'Vans Slip-on produce in China'),
+   ('FAC4', 'Nike Shoes', 'Shoes4.jpg', '90.00', 'FA', 'FAC', 'Nike standard shoes'),
+   ('FAC5', 'Nike Air', 'Shoes5.jpg', '180.00', 'FA', 'FAC', 'Nike Hype shoes'),
+   ('TYA1', 'Electric Toy: Car', 'Electronic-toy1.jpg', '20.00', 'TY', 'TYA', 'A Green toy car produce in China'),
+   ('TYA2', 'Electric Toy: Motobike', 'Electronic-toy2.jpg', '18.00', 'TY', 'TYA', 'A Red toy motobike produce in China'),
+   ('TYA3', 'Electric Toy: Quad Bike', 'Electronic-toy3.jpg', '100.00', 'TY', 'TYA', 'A Red Quad Bike toy produce in China'),
+   ('TYA4', 'Electric Toy: Cream Big Car', 'Electronic-toy4.jpg', '399.00', 'TY', 'TYA', 'Drivenable Electronic car for Children'),
+   ('TYA5', 'Electric Toy: Black Big Car', 'Electronic-toy5.jpg', '399.00', 'TY', 'TYA', 'Drivenable Electronic car for Children'),
+   ('TYB1', 'Lego: Toy Story 4', 'Lego-toy1.jpg', '30.00', 'TY', 'TYB', 'Newest Lego in 2020'),
+   ('TYB2', 'Lego: City', 'Lego-toy2.jpg', '25.00', 'TY', 'TYB', 'A Lego box about City content'),
+   ('TYB3', 'Lego: Super Pack', 'Lego-toy3.jpg', '30.00', 'TY', 'TYB', 'SUPERRRR Pack'),
+   ('TYB4', 'Lego: Toy Story 1', 'Lego-toy4.jpg', '999.00', 'TY', 'TYB', 'Old seasion Lego'),
+   ('TYB5', 'Lego: Wild Car', 'Lego-toy5.jpg', '90.00', 'TY', 'TYB', 'Wild car Lego'),
+   ('TYC1', 'Plush Toy: Hug Dog', 'Plush-toy1.jpg', '9.99', 'TY', 'TYC', 'A soft and cute Dog Plush Toy'),
+   ('TYC2', 'Plush Toy: Dog', 'Plush-toy2.jpg', '9.99', 'TY', 'TYC', 'A soft and cute small Dog Plush Toy'),
+   ('TYC3', 'Plush Toy: Bear', 'Plush-toy3.jpg', '9.99', 'TY', 'TYC', 'A soft and cute Bear Plush Toy'),
+   ('TYC4', 'Plush Toy: Pig', 'Plush-toy4.jpg', '9.99', 'TY', 'TYC', 'A soft and cute Pig Plush Toy'),
+   ('TYC5', 'Plush Toy: Monster', 'Plush-toy5.jpg', '9.99', 'TY', 'TYC', 'A soft and cute small Monster Plush Toy'),
+   ('SPA1', 'In House Bike', 'Fitness-equipment1.jpg', '100.00', 'SP', 'SPA', 'This is In house requirement for people want to cycling'),
+   ('SPA2', 'Smart Wonder Cone', 'Fitness-equipment2.jpg', '199.00', 'SP', 'SPA', 'Newest Smart Cone'),
+   ('SPA3', 'Lifting Yoke', 'Fitness-equipment3.jpg', '90.00', 'SP', 'SPA', 'Help you to lift easy'),
+   ('SPA4', 'Functional Frame', 'Fitness-equipment4.jpg', '300.00', 'SP', 'SPA', 'Best build-in multi-functions Gym equipment'),
+   ('SPA5', 'Pull-up Bar', 'Fitness-equipment5.jpg', '70.00', 'SP', 'SPA', 'Help you to pull up'),
+   ('SPB1', 'Protein Suppliment: WPI', 'Protein-supplement1.jpg', '99.99', 'SP', 'SPB', 'Best Seller in 2020'),
+   ('SPB2', 'Protein Suppliment: BodyTech', 'Protein-supplement2.jpg', '99.99', 'SP', 'SPB', 'Most protein'),
+   ('SPB3', 'Protein Suppliment: NutraBio', 'Protein-supplement3.jpg', '99.99', 'SP', 'SPB', 'Bio protein'),
+   ('SPB4', 'Protein Suppliment: Gold Standard', 'Protein-supplement4.jpg', '99.99', 'SP', 'SPB', 'Best quality for Gymer'),
+   ('SPB5', 'Protein Suppliment: LeanFit', 'Protein-supplement5.jpg', '99.99', 'SP', 'SPB', 'Lean Fit is the best'),
+   ('SPC1', 'Adidas Water Bottle', 'Sport-accessories1.jpg', '9.99', 'SP', 'SPC', 'Adidas Fake Water Bottles'),
+   ('SPC2', 'Table Tennis Bats', 'Sport-accessories2.jpg', '39.99', 'SP', 'SPC', 'China-made Table Tennis Bát'),
+   ('SPC3', 'Knee Protectors', 'Sport-accessories3.jpg', '9.99', 'SP', 'SPC', 'Sport Protectors for Athlets'),
+   ('SPC4', 'Goalkeeper Gloves', 'Sport-accessories4.jpg', '99.99', 'SP', 'SPC', 'Best Goalkeeper Gloves in the market'),
+   ('SPC5', 'Golf Club', 'Sport-accessories5.jpg', '999.99', 'SP', 'SPC', 'High price Bad quality'),
+   ('COA1', 'Makeup Kit', 'Makeup-product1.jpg', '999.00', 'CO', 'COA', 'China-made makeup kit'),
+   ('COA2', 'Shape Tape', 'Makeup-product2.jpg', '99.99', 'CO', 'COA', 'Best Shape tape'),
+   ('COA3', 'Lipstick', 'Makeup-product3.jpg', '109.99', 'CO', 'COA', 'Lipstick'),
+   ('COA4', 'Lipstick', 'Makeup-product4.jpg', '119.99', 'CO', 'COA', 'Also Lipstick'),
+   ('COA5', 'Foundation', 'Makeup-product5.jpg', '129.99', 'CO', 'COA', 'Foundation for teenagers'),
+   ('COB1', 'Perfume: Wild Stone', 'Perfume1.jpg', '99.99', 'CO', 'COB', 'Wild smell'),
+   ('COB2', 'Perfume: Rose', 'Perfume2.jpg', '999.99', 'CO', 'COB', 'Rose 100%'),
+   ('COB3', 'Perfume: Lilac', 'Perfume3.jpg', '999.99', 'CO', 'COB', 'Lilac 100%'),
+   ('COB4', 'Perfume: Skinn by Titan', 'Perfume4.jpg', '9999.99', 'CO', 'COB', 'Weird smell'),
+   ('COB5', 'Perfume: New Dawn', 'Perfume5.jpg', '99999.99', 'CO', 'COB', 'Highest Price but the quality is ...'),
+   ('COC1', 'Skincare Hera', 'Skincare-product1.jpg', '99.99', 'CO', 'COC', 'facewash'),
+   ('COC2', 'Body Bath', 'Skincare-product2.jpg', '17.99', 'CO', 'COC', 'can create lots of bubbles'),
+   ('COC3', 'Ahava Body Bath', 'Skincare-product3.jpg', '79.99', 'CO', 'COC', 'pricy body bath'),
+   ('COC4', 'Veil', 'Skincare-product4.jpg', '109.99', 'CO', 'COC', 'Veil product is the best'),
+   ('COC5', 'Luron', 'Skincare-product5.jpg', '999.99', 'CO', 'COC', 'Luron from China'),
+   ('FDA1', 'Strawberry Candies', 'Candies1.jpg', '9.99', 'FD', 'FDA', 'Candies with berry flavor'),
+   ('FDA2', 'Strawberry and Grapes Candies', 'Candies2.jpg', '9.99', 'FD', 'FDA', 'Candies with berry and grape flavor'),
+   ('FDA3', 'Dino Jelly', 'Candies3.jpg', '9.99', 'FD', 'FDA', 'Jelly candies'),
+   ('FDA4', 'Benny Choco', 'Candies4.jpg', '9.99', 'FD', 'FDA', 'Best Choco in the world'),
+   ('FDA5', 'Shock Candies', 'Candies5.jpg', '9.99', 'FD', 'FDA', 'If you eat, you will shock'),
+   ('FDB1', 'Sprite', 'Drink1.jpg', '2.99', 'FD', 'FDB', 'Lemon flavor drink'),
+   ('FDB2', 'Dalat Milk', 'Drink2.jpg', '6.99', 'FD', 'FDB', 'Fresh Milk from Dalat'),
+   ('FDB3', 'Fanta', 'Drink3.jpg', '2.99', 'FD', 'FDB', 'Orange Flavor Drink'),
+   ('FDB4', 'Sport Drink', 'Drink4.jpg', '2.99', 'FD', 'FDB', 'Drinks after working out'),
+   ('FDB5', 'Fruit Drink', 'Drink5.jpg', '2.99', 'FD', 'FDB', 'Healthy drink'),
+   ('FDC1', 'Shin Ramyun', 'Processed-food1.jpg', '3.99', 'FD', 'FDC', 'Cheap instant ramen'),
+   ('FDC2', 'Lau Thai Noddles', 'Processed-food2.jpg', '4.99', 'FD', 'FDC', 'Good instant ramen'),
+   ('FDC3', 'Chicken Noddles', 'Processed-food3.jpg', '5.99', 'FD', 'FDC', 'Chicken flavor instant ramen'),
+   ('FDC4', 'Japan Noddles', 'Processed-food4.jpg', '8.99', 'FD', 'FDC', 'Japan instant ramen'),
+   ('FDC5', 'Nissin Noddles', 'Processed-food5.jpg', '9.99', 'FD', 'FDC', 'Best sales in Japan instant ramen')
+
+";
+
+if (mysqli_query($conn, $sql)){
+  echo "New record success";
+}else{
+  echo "Error" . $sql ."</br>" . mysqli_error($conn);
+}
+
+
+
   
- 
+ */
     
 // Create database
 
 /*
 
-$sql = "INSERT INTO product VALUES
-   ('FAA1', 'Blue Shirt', 'Clothes1.jpg', '9.99', 'FA', 'FAA', ''),
-   ('FAA2', 'PLAY T-Shirt', 'Clothes2.jpg', '9.99', 'FA', 'FAA', ''),
-   ('FAA3', 'Adidas T-Shirt', 'Clothes3.jpg', '9.99', 'FA', 'FAA', ''),
-   ('FAA4', 'Black T-Shirt', 'Clothes4.jpg', '9.99', 'FA', 'FAA', ''),
-   ('FAA5', 'DEGREY T-Shirt', 'Clothes5.jpg', '9.99', 'FA', 'FAA', ''),
-   ('FAB1', 'Cream Long Pants', 'Pants1.jpg', '12.50', 'FA', 'FAB', ''),
-   ('FAB2', 'Black Long Pants', 'Pants2.jpg', '12.50', 'FA', 'FAB', ''),
-   ('FAB3', 'Green Long Pants', 'Pants3.jpg', '12.50', 'FA', 'FAB', ''),
-   ('FAB4', 'Light Green Long Pant', 'Pants4.jpg', '12.50', 'FA', 'FAB', ''),
-   ('FAB5', 'Long Long Pants', 'Pants5.jpg', '12.50', 'FA', 'FAB', ''),
-   ('FAC1', 'Vans', 'Shoes1.jpg', '70.00', 'FA', 'FAC', ''),
-   ('FAC2', 'Brooks', 'Shoes2.jpg', '50.00', 'FA', 'FAC', ''),
-   ('FAC3', 'Vans Slip-on', 'Shoes3.jpg', '80.00', 'FA', 'FAC', ''),
-   ('FAC4', 'Nike Shoes', 'Shoes4.jpg', '90.00', 'FA', 'FAC', ''),
-   ('FAC5', 'Nike Air', 'Shoes5.jpg', '180.00', 'FA', 'FAC', ''),
-   ('TYA1', 'Electric Toy: Car', 'Electronic-toy1.jpg', '20.00', 'TY', 'TYA', ''),
-   ('TYA2', 'Electric Toy: Motobike', 'Electronic-toy2.jpg', '18.00', 'TY', 'TYA', ''),
-   ('TYA3', 'Electric Toy: Quad Bike', 'Electronic-toy3.jpg', '100.00', 'TY', 'TYA', ''),
-   ('TYA4', 'Electric Toy: Cream Big Car', 'Electronic-toy4.jpg', '399.00', 'TY', 'TYA', ''),
-   ('TYA5', 'Electric Toy: Black Big Car', 'Electronic-toy5.jpg', '399.00', 'TY', 'TYA', ''),
-   ('TYB1', 'Lego: Toy Story 4', 'Lego-toy1.jpg', '30.00', 'TY', 'TYB', ''),
-   ('TYB2', 'Lego: City', 'Lego-toy2.jpg', '25.00', 'TY', 'TYB', ''),
-   ('TYB3', 'Lego: Super Pack', 'Lego-toy3.jpg', '30.00', 'TY', 'TYB', ''),
-   ('TYB4', 'Lego: Toy Story 1', 'Lego-toy4.jpg', '999.00', 'TY', 'TYB', ''),
-   ('TYB5', 'Lego: Wild Car', 'Lego-toy5.jpg', '90.00', 'TY', 'TYB', ''),
-   ('TYC1', 'Plush Toy: Hug Dog', 'Plush-toy1.jpg', '9.99', 'TY', 'TYC', ''),
-   ('TYC2', 'Plush Toy: Dog', 'Plush-toy2.jpg', '9.99', 'TY', 'TYC', ''),
-   ('TYC3', 'Plush Toy: Bear', 'Plush-toy3.jpg', '9.99', 'TY', 'TYC', ''),
-   ('TYC4', 'Plush Toy: Pig', 'Plush-toy4.jpg', '9.99', 'TY', 'TYC', ''),
-   ('TYC5', 'Plush Toy: Monster', 'Plush-toy5.jpg', '9.99', 'TY', 'TYC', ''),
-   ('SPA1', 'In House Bike', 'Fitness-equipment1.jpg', '100.00', 'SP', 'SPA', ''),
-   ('SPA2', 'Smart Wonder Cone', 'Fitness-equipment2.jpg', '199.00', 'SP', 'SPA', ''),
-   ('SPA3', 'Lifting Yoke', 'Fitness-equipment3.jpg', '90.00', 'SP', 'SPA', ''),
-   ('SPA4', 'Functional Frame', 'Fitness-equipment4.jpg', '300.00', 'SP', 'SPA', ''),
-   ('SPA5', 'Pull-up Bar', 'Fitness-equipment5.jpg', '70.00', 'SP', 'SPA', ''),
-   ('SPB1', 'Protein Suppliment: WPI', 'Protein-supplement1.jpg', '99.99', 'SP', 'SPB', ''),
-   ('SPB2', 'Protein Suppliment: BodyTech', 'Protein-supplement2.jpg', '99.99', 'SP', 'SPB', ''),
-   ('SPB3', 'Protein Suppliment: NutraBio', 'Protein-supplement3.jpg', '99.99', 'SP', 'SPB', ''),
-   ('SPB4', 'Protein Suppliment: Gold Standard', 'Protein-supplement4.jpg', '99.99', 'SP', 'SPB', ''),
-   ('SPB5', 'Protein Suppliment: LeanFit', 'Protein-supplement5.jpg', '99.99', 'SP', 'SPB', ''),
-   ('SPC1', 'Adidas Water Bottle', 'Sport-accessories1.jpg', '9.99', 'SP', 'SPC', ''),
-   ('SPC2', 'Table Tennis Bats', 'Sport-accessories2.jpg', '39.99', 'SP', 'SPC', ''),
-   ('SPC3', 'Knee Protectors', 'Sport-accessories3.jpg', '9.99', 'SP', 'SPC', ''),
-   ('SPC4', 'Goalkeeper Gloves', 'Sport-accessories4.jpg', '99.99', 'SP', 'SPC', ''),
-   ('SPC5', 'Golf Club', 'Sport-accessories5.jpg', '999.99', 'SP', 'SPC', ''),
-   ('COA1', 'Makeup Kit', 'Makeup-product1.jpg', '999.00', 'CO', 'COA', ''),
-   ('COA2', 'Shape Tape', 'Makeup-product2.jpg', '99.99', 'CO', 'COA', ''),
-   ('COA3', 'Lipstick', 'Makeup-product3.jpg', '109.99', 'CO', 'COA', ''),
-   ('COA4', 'Lipstick', 'Makeup-product4.jpg', '119.99', 'CO', 'COA', ''),
-   ('COA5', 'Foundation', 'Makeup-product5.jpg', '129.99', 'CO', 'COA', ''),
-   ('COB1', 'Perfume: Wild Stone', 'Perfume1.jpg', '99.99', 'CO', 'COB', ''),
-   ('COB2', 'Perfume: Rose', 'Perfume2.jpg', '999.99', 'CO', 'COB', ''),
-   ('COB3', 'Perfume: Lilac', 'Perfume3.jpg', '999.99', 'CO', 'COB', ''),
-   ('COB4', 'Perfume: Skinn by Titan', 'Perfume4.jpg', '9999.99', 'CO', 'COB', ''),
-   ('COB5', 'Perfume: New Dawn', 'Perfume5.jpg', '99999.99', 'CO', 'COB', ''),
-   ('COC1', 'Skincare Hera', 'Skincare-product1.jpg', '99.99', 'CO', 'COC', ''),
-   ('COC2', 'Body Bath', 'Skincare-product2.jpg', '17.99', 'CO', 'COC', ''),
-   ('COC3', 'Ahava Body Bath', 'Skincare-product3.jpg', '79.99', 'CO', 'COC', ''),
-   ('COC4', 'Veil', 'Skincare-product4.jpg', '109.99', 'CO', 'COC', ''),
-   ('COC5', 'Luron', 'Skincare-product5.jpg', '999.99', 'CO', 'COC', ''),
-   ('FDA1', 'Strawberry Candies', 'Candies1.jpg', '9.99', 'FD', 'FDA', ''),
-   ('FDA2', 'Strawberry and Grapes Candies', 'Candies2.jpg', '9.99', 'FD', 'FDA', ''),
-   ('FDA3', 'Dino Jelly', 'Candies3.jpg', '9.99', 'FD', 'FDA', ''),
-   ('FDA4', 'Benny Choco', 'Candies4.jpg', '9.99', 'FD', 'FDA', ''),
-   ('FDA5', 'Shock Candies', 'Candies5.jpg', '9.99', 'FD', 'FDA', ''),
-   ('FDB1', 'Sprite', 'Drink1.jpg', '2.99', 'FD', 'FDB', ''),
-   ('FDB2', 'Dalat Milk', 'Drink2.jpg', '6.99', 'FD', 'FDB', ''),
-   ('FDB3', 'Fanta', 'Drink3.jpg', '2.99', 'FD', 'FDB', ''),
-   ('FDB4', 'Sport Drink', 'Drink4.jpg', '2.99', 'FD', 'FDB', ''),
-   ('FDB5', 'Fruit Drink', 'Drink5.jpg', '2.99', 'FD', 'FDB', ''),
-   ('FDC1', 'Shin Ramyun', 'Processed-food1.jpg', '3.99', 'FD', 'FDC', ''),
-   ('FDC2', 'Lau Thai Noddles', 'Processed-food2.jpg', '4.99', 'FD', 'FDC', ''),
-   ('FDC3', 'Chicken Noddles', 'Processed-food3.jpg', '5.99', 'FD', 'FDC', ''),
-   ('FDC4', 'Japan Noddles', 'Processed-food4.jpg', '8.99', 'FD', 'FDC', ''),
-   ('FDC5', 'Nissin Noddles', 'Processed-food5.jpg', '9.99', 'FD', 'FDC', '')
-
-";
-    if (mysqli_query($conn, $sql)){
-      echo "New record success";
-    }else{
-      echo "Error" . $sql ."</br>" . mysqli_error($conn);
-    }
 
 
 // sql to delete a record
@@ -139,6 +144,8 @@ if (mysqli_query($conn, $sql)) {
 
 
 */
+
+
 
 print_r($_GET);
 echo "<br>";
@@ -193,7 +200,7 @@ if ($conn->query($sql) === TRUE) {
 */
 
 
-/*
+
 
 if($checking == "delete"){
   $sql = "DELETE FROM product WHERE productID='$id_can_add'";
@@ -222,7 +229,7 @@ else {
   
 }
 
-*/
+
 
 
     
@@ -263,7 +270,9 @@ if (mysqli_num_rows($result) > 0) {
 } else {
   echo "0 results";
 }
-print_r($array_pri);
+
+
+header('location: adminproduct.php');
 
 
 $conn->close();

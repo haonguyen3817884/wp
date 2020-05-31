@@ -69,6 +69,11 @@ Congrats <?php echo $_SESSION['Userdata']['Username'] ?>. You have sucessfully l
    
     </style>
 <body >
+<?php
+
+include "arraya5.php";
+
+?>
     <header>
         <div class="container" >
             <div class="row">
@@ -98,7 +103,7 @@ Congrats <?php echo $_SESSION['Userdata']['Username'] ?>. You have sucessfully l
                 </li>
                 <?php
 
-include "arraya5.php";
+
 
 
 
@@ -222,9 +227,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         echo "<h4 class='card-title'>".$array_name[array_keys($_POST)[0]][$the_key2][$the_key4]."</h4>";
         echo "<p class='card-text'>$ ".$array_pri[array_keys($_POST)[0]][$the_key2][$the_key4]."</p>";
         echo "<form action='database.php' method='get'>";
-        echo "<input type='text' name='".array_keys($_POST)[0]."[".$the_key2."]"."[".$the_key4."]"."["."name"."]"."'>";
-        echo "<input type='text' name='".array_keys($_POST)[0]."[".$the_key2."]"."[".$the_key4."]"."["."price"."]"."'>";
-        echo "<input type='text' name='".array_keys($_POST)[0]."[".$the_key2."]"."[".$the_key4."]"."["."description"."]"."'>";
+        echo "<input type='text' placeholder='input new name' name='".array_keys($_POST)[0]."[".$the_key2."]"."[".$the_key4."]"."["."name"."]"."'>";
+        echo "<input type='text' placeholder='input new price' name='".array_keys($_POST)[0]."[".$the_key2."]"."[".$the_key4."]"."["."price"."]"."'>";
+        echo "<input type='text' placeholder='input new description' name='".array_keys($_POST)[0]."[".$the_key2."]"."[".$the_key4."]"."["."description"."]"."'>";
         echo "<input type='submit' value='Apply the change'>";
         echo "</form>";
         echo "<form action='database.php' method='get'>";
@@ -251,9 +256,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         echo "<p class='card-text'>".$array_name[array_keys($_POST)[0]][array_keys($_POST[array_keys($_POST)[0]])[0]][$the_key5]."</p>";
         echo "<p class='card-text'>$ ".$array_pri[array_keys($_POST)[0]][array_keys($_POST[array_keys($_POST)[0]])[0]][$the_key5]."</p>";
         echo "<form action='database.php' method='get'>";
-        echo "<input type='text' name='".array_keys($_POST)[0]."[".array_keys($_POST[array_keys($_POST)[0]])[0]."]"."[".$the_key5."]"."["."name"."]"."'>";
-        echo "<input type='text' name='".array_keys($_POST)[0]."[".array_keys($_POST[array_keys($_POST)[0]])[0]."]"."[".$the_key5."]"."["."price"."]"."'>";
-        echo "<input type='text' name='".array_keys($_POST)[0]."[".array_keys($_POST[array_keys($_POST)[0]])[0]."]"."[".$the_key5."]"."["."description"."]"."'>";
+        echo "<input type='text' placeholder='input new name' name='".array_keys($_POST)[0]."[".array_keys($_POST[array_keys($_POST)[0]])[0]."]"."[".$the_key5."]"."["."name"."]"."'>";
+        echo "<input type='text' placeholder='input new price' name='".array_keys($_POST)[0]."[".array_keys($_POST[array_keys($_POST)[0]])[0]."]"."[".$the_key5."]"."["."price"."]"."'>";
+        echo "<input type='text' placeholder='input new description' name='".array_keys($_POST)[0]."[".array_keys($_POST[array_keys($_POST)[0]])[0]."]"."[".$the_key5."]"."["."description"."]"."'>";
         echo "<input type='submit' value='Apply the change'>";
         echo "</form>";
         echo "<form action='database.php' method='get'>";

@@ -63,6 +63,11 @@
 <body >
 <article id="login">
      <a href="login.php">login</a>
+
+     <?php
+     include "arraya5.php";
+     
+     ?>
       
     </article>
     <header>
@@ -94,7 +99,7 @@
                 </li>
                 <?php
 
-include "arraya5.php";
+
 
 
 
