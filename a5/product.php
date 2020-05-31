@@ -98,7 +98,6 @@ include "arraya5.php";
 
 
 
-
 foreach (array_keys($array_name) as $key =>$value){
   $name_categrocies = $array_translated[$value];
   echo"<li class='nav-item dropdown'>";

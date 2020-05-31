@@ -324,7 +324,7 @@ foreach (array_keys($array_name) as $key =>$value){
 
 
 }
-print_r($_POST);
+
  
   
   
@@ -398,10 +398,6 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
     }
 
 }
-
-
-preShow($_GET);
-preShow($_SESSION);
 
 
 

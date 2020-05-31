@@ -148,7 +148,7 @@ session_start();
                             $total_price1 = 0;
                             foreach ($_SESSION as $the_final_new_key1 => $the_final_new_value1){
 
-if($the_final_new_key1 != 'info'){
+if($the_final_new_key1 == 'FA'||$the_final_new_key1 == 'SP'||$the_final_new_key1 == 'FD'||$the_final_new_key1 == 'CO'||$the_final_new_key1 == 'TY'){
     foreach($_SESSION[$the_final_new_key1] as $the_final_new_key2=> $the_final_new_value2){
         foreach ($_SESSION[$the_final_new_key1][$the_final_new_key2] as $the_final_new_key3 => $the_final_new_value3){
             
@@ -170,21 +170,11 @@ if($the_final_new_key1 != 'info'){
                                 <tr>
                                     <td class="highrow"></td>
                                     <td class="highrow"></td>
-                                    <td class="highrow text-center"><strong>Subtotal</strong></td>
+                                    <td class="highrow text-center"><strong>Total</strong></td>
                                     <td class="highrow text-right"><?php echo $total_price1 ?></td>
                                 </tr>
-                                <tr>
-                                    <td class="emptyrow"></td>
-                                    <td class="emptyrow"></td>
-                                    <td class="emptyrow text-center"><strong>Shipping</strong></td>
-                                    <td class="emptyrow text-right">$20</td>
-                                </tr>
-                                <tr>
-                                    <td class="emptyrow"><i class="fa fa-barcode iconbig"></i></td>
-                                    <td class="emptyrow"></td>
-                                    <td class="emptyrow text-center"><strong>Total</strong></td>
-                                    <td class="emptyrow text-right">$978.00</td>
-                                </tr>
+                                
+                                
                             </tbody>
                         </table>
                     </div>
@@ -195,7 +185,11 @@ if($the_final_new_key1 != 'info'){
 </div>
 
 
+<?php
 
+$_SESSION = array();
+
+?>
 
 
     

@@ -227,6 +227,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         echo "<input type='text' name='".array_keys($_POST)[0]."[".$the_key2."]"."[".$the_key4."]"."["."description"."]"."'>";
         echo "<input type='submit' value='Apply the change'>";
         echo "</form>";
+        echo "<form action='database.php' method='get'>";
+        echo "<input type='submit' value='delete' name='".array_keys($_POST)[0]."[".$the_key2."]"."[".$the_key4."]"."["."delete"."]"."'>";
+        echo "</form>";
         echo "<i class='fa fa-star'></i>";
         echo "<i class='fa fa-star'></i>";
         echo "<i class='fa fa-star'></i>";
@@ -252,6 +255,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         echo "<input type='text' name='".array_keys($_POST)[0]."[".array_keys($_POST[array_keys($_POST)[0]])[0]."]"."[".$the_key5."]"."["."price"."]"."'>";
         echo "<input type='text' name='".array_keys($_POST)[0]."[".array_keys($_POST[array_keys($_POST)[0]])[0]."]"."[".$the_key5."]"."["."description"."]"."'>";
         echo "<input type='submit' value='Apply the change'>";
+        echo "</form>";
+        echo "<form action='database.php' method='get'>";
+        echo "<input type='submit' value='delete' name='".array_keys($_POST)[0]."[".array_keys($_POST[array_keys($_POST)[0]])[0]."]"."[".$the_key5."]"."["."delete"."]"."'>";
         echo "</form>";
         echo "<i class='fa fa-star'></i>";
         echo "<i class='fa fa-star'></i>";

@@ -26,7 +26,13 @@ $sql = "CREATE TABLE product (
     productChilType VARCHAR(300),
     productDescription VARCHAR(1000)
   )";
+  
 
+if ($conn->query($sql) === TRUE) {
+  echo "Table MyGuests created successfully";
+} else {
+  echo "Error creating table: " . $conn->error;
+}
 
   
  
@@ -168,31 +174,64 @@ $add_able_price = htmlspecialchars($convert_price,ENT_QUOTES);
 $add_able_description = htmlspecialchars($convert_description,ENT_QUOTES);
 echo $add_able_price;
 echo $add_able_price;
+
 echo $id_can_add;
 
 
 
+$checking = $name_value; 
 
 
-$sql = "UPDATE product SET productName='Electric Toy: Car', productPrice='20.00' WHERE productID='TYA1'";
+/*
+$sql = "INSERT INTO product VALUES('FAA1', 'Blue Shirt', 'Clothes1.jpg', '9.99', 'FA', 'FAA', '')";
+if ($conn->query($sql) === TRUE) {
+  echo "New record created successfully";
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+*/
+
+
+/*
+
+if($checking == "delete"){
+  $sql = "DELETE FROM product WHERE productID='$id_can_add'";
+
+if (mysqli_query($conn, $sql)) {
+  echo "Record deleted successfully";
+} else {
+  echo "Error deleting record: " . mysqli_error($conn);
+}
 
 
 
 
+}
+else {
+  $sql = "UPDATE product SET productDescription='$add_able_description', productName='$add_able_name', productPrice='$add_able_price' WHERE productID='$id_can_add'";
+      
     
-    /*
-      
-      
-      
-        $sql = "UPDATE product SET productDescription='$add_able_description', productName='$add_able_name', productPrice='$add_able_price' WHERE productID='$id_can_add'";
-      
 
-    
+  if (mysqli_query($conn, $sql)) {
+    echo "Record updated successfully";
+  } else {
+    echo "Error updating record: " . mysqli_error($conn);
+  }
 
   
+}
+
+*/
+
+
     
-
-
+    /* 
+      
+      
+      
+ $sql = "UPDATE product SET productDescription='$add_able_description', productName='$add_able_name', productPrice='$add_able_price' WHERE productID='$id_can_add'";
+      
     
 
 if (mysqli_query($conn, $sql)) {
@@ -201,14 +240,14 @@ if (mysqli_query($conn, $sql)) {
   echo "Error updating record: " . mysqli_error($conn);
 }
 
-
-
-
-
-
-
-
 */
+
+
+
+
+
+
+
 
 $sql = "SELECT * FROM product";
 $result = mysqli_query($conn, $sql);
